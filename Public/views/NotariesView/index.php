@@ -3,6 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<!-- alertas -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Notaries Digital</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -11,7 +15,10 @@
 </head>
 
 <body>
-	<?php require_once("../Layout/servicios.php"); ?>
+	<?php 
+		$link = "index";
+		require_once("../Layout/servicios.php"); 
+	?>
 
 	<div class="container">
 		<div class="row">
@@ -20,7 +27,10 @@
 				<img class="card-img-top" style="width: 18rem;" src="../../img/notariesdigital.png" alt="">
 			</div>
 			<div class="col-sm-8 p-4">
-				<p class="OpenSans h4"><span class="display-4 OpenSans">¿Ques es Notaries Digital?</span>es una aplicacion web donde podras	realizar tus tramites notariales en linea, consultoria y más.</p>
+				<p class="OpenSans h4"><span class="display-4 OpenSans">¿Ques es Notaries Digital?</span>es una aplicación web donde podrás	realizar tus tramites notariales en línea y consultorías.</p>
+				<P class="OpenSans h4">
+					Así que te invitamos a que te regístrate en nuestra aplicación web totalmente gratis con solo dar <a href="registrate.php" class="card-link">Click aqui</a>
+				</P>
 
 			</div>
 		</div>
@@ -32,42 +42,20 @@
 					<div class="card sombre col-sm-5 my-2" style="width: 18rem;">
 					  <img src="../../img/poderes.svg" class="card-img-top m-2" alt="...">
 					  <div class="card-body">
-					    <h5 class="card-title">Poderes</h5>
-					    <!-- <p class="card-text">
+					    <h5 class="card-title text-center">Servicios Notariales</h5>
+					    <p class="card-text">
 					    	Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-					    </p> -->
+					    </p>
 					  </div>
 					</div>
 
 					<div class="card sombre col-sm-5 my-2" style="width: 18rem;">
 					  <img src="../../img/HablaConTuAbogado.svg" class="card-img-top m-2" alt="...">
 					  <div class="card-body">
-					    <h5 class="card-title">Habla con tu abogado</h5>
-					    <!-- <p class="card-text">
+					    <h5 class="card-title text-center">Consultoria</h5>
+					    <p class="card-text">
 					    	Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-					    </p> -->
-						</div>
-					</div>
-				</div>
-
-				<div class="row justify-content-between p-1">		
-					<div class="card sombre col-sm-5 my-2 mb-2" style="width: 18rem;">
-					  <img src="../../img/sociedad.svg" class="card-img-top m-2" alt="...">
-					  <div class="card-body">
-					    <h5 class="card-title">Sociedades</h5>
-					    <!-- <p class="card-text">
-					    	Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-					    </p> -->
-					  </div>
-					</div>
-
-					<div class="card sombre col-sm-5 my-2  mb-2" style="width: 18rem;">
-						<img src="../../img/contrato.svg" class="card-img-top m-2" alt="...">
-					  	<div class="card-body">
-					    	<h5 class="card-title">Contratos</h5>
-					    <!-- <p class="card-text">
-					    		Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-					    	</p> -->
+					    </p>
 						</div>
 					</div>
 				</div>
