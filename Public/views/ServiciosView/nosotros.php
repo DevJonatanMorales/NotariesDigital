@@ -23,10 +23,13 @@
   ?>
 
   <div class="container">
-    <h1 class="text-center OpenSans m-4">Nosotros</h1>
 
-    <div class="row d-flex justify-content-between">
-      <div class="card sombre col-sm-12 col-md-3 my-3 mx-2" style="width: 18rem;">
+    <div class="p-1 my-4 fondoUno text-white">
+      <h1 class="text-center OpenSans m-1">Nosotros</h1>
+    </div>
+
+    <div class="row d-flex justify-content-around">
+      <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
         <img src="../../img/mision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Valores</h5>
@@ -52,7 +55,7 @@
           </ul>
         </div>
       </div>
-      <div class="card sombre col-sm-12 col-md-3 my-3 mx-2" style="width: 18rem;">
+      <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
         <img src="../../img/mision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Misión</h5>
@@ -62,7 +65,7 @@
         </div>
       </div>
 
-      <div class="card sombre col-sm-12 col-md-3 my-3 mx-2" style="width: 18rem;">
+      <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
         <img src="../../img/vision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Visión</h5>

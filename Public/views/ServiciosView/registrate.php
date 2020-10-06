@@ -23,8 +23,48 @@
 	?>
 
   <div class="container">
-    <form id="formulario">
+    <form id="formulario" class="col-sm-12 col-md-5 p-2 fondoDos mx-auto mt-4 text-white rounded">
+      <h1 class="text-center ">Crear Cuenta</h1>
+      <div class="row">
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="nombre">Nombres</label>
+          <input type="text" id="nombre" class="form-control">
+        </div>
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="apellido">Apellidos</label>
+          <input type="text" id="apellido" class="form-control">
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="fomr-grupo col-sm-12 col-md-6">
+          <label for="genero">Genero</label>
+          <select class="form-control" id="genero">
+            <option value='0'>Genero</option>
+            <option value='femenino'>Femenino</option>
+            <option value='masculino'>Masculino</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="apellido">Fecha de nacimiento</label>
+          <input type="date" id="apellido" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="dir">Direccion</label>
+        <textarea class="form-control" id="dir" rows="3"></textarea>
+      </div>
+      <div class="form-gruop">
+        <button type="submit" class="btn btn-dark d-block mx-auto text-white">
+          Crear Cuenta
+        </button>
+      </div>
     </form>
 
   </div>

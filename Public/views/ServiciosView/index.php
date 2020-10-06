@@ -40,10 +40,13 @@
     </div>
     <!-- servicios -->
     <div class="">
-      <h1 class="h1 text-center text-dark OpenSans p-1 m-2">Nuestros Servicios</h1>
+      <div class="p-1 my-4 fondoUno text-white">
+        <h1 class="text-center OpenSans m-1">Nuestros Servicios</h1>
+      </div>
+
       <div class="col-sm-12">
-        <div class="row justify-content-between p-1">
-          <div class="card sombre col-sm-5 my-2" style="width: 18rem;">
+        <div class="row justify-content-around p-1">
+          <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
             <img src="../../img/servicios.svg" class="card-img-top m-2" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Servicios Notariales</h5>
@@ -51,11 +54,11 @@
                 Notaries Digital te ofrece servicios en diferentes áreas para que puedas resolver tus problemas al
                 alcance de tu mano.
               </p>
-              <a href="servicios.php" class="btn fondo text-white">Nuestros Servicios</a>
+              <a href="servicios.php" class="btn bg-dark text-white">Nuestros Servicios</a>
             </div>
           </div>
 
-          <div class="card sombre col-sm-5 my-2" style="width: 18rem;">
+          <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
             <img src="../../img/HablaConTuAbogado.svg" class="card-img-top m-2" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Consultoria</h5>
@@ -63,7 +66,7 @@
                 Notaries Digital pone al alcance de tu mano un sin fin de números de abogados que te darán asesoría en
                 cualquier tema o área que desees solo tienes que registrarte ya.
               </p>
-              <a href="servicios.php" class="btn fondo text-white">Consultoria</a>
+              <a href="servicios.php" class="btn bg-dark text-white">Consultoria</a>
             </div>
           </div>
         </div>

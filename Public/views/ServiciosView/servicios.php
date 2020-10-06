@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- alertas -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +24,13 @@
 
   <div class="container">
     <div class="">
-      <h1 class="h1 text-center text-dark OpenSans p-1 m-2">Nuestros Servicios</h1>
+      <div class="p-1 my-4 fondoUno text-white">
+        <h1 class="text-center OpenSans m-1">Servicios</h1>
+      </div>
+
       <div class="col-sm-12">
-        <div class="row justify-content-between p-1">
-          <div class="card sombre col-sm-5 my-2" style="width: 18rem;">
+        <div class="row justify-content-around p-1">
+          <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
             <img src="../../img/poderes.svg" class="card-img-top m-2" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Poderes</h5>
@@ -36,7 +40,7 @@
             </div>
           </div>
 
-          <div class="card sombre col-sm-5 my-2" style="width: 18rem;">
+          <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
             <img src="../../img/HablaConTuAbogado.svg" class="card-img-top m-2" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Habla con tu abogado</h5>
@@ -47,8 +51,8 @@
           </div>
         </div>
 
-        <div class="row justify-content-between p-1">   
-          <div class="card sombre col-sm-5 my-2 mb-2" style="width: 18rem;">
+        <div class="row justify-content-around p-1">
+          <div class="card sombre col-sm-5 mb-4" style="width: 18rem;">
             <img src="../../img/sociedad.svg" class="card-img-top m-2" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Sociedades</h5>
@@ -58,10 +62,10 @@
             </div>
           </div>
 
-          <div class="card sombre col-sm-5 my-2  mb-2" style="width: 18rem;">
+          <div class="card sombre col-sm-5 mb-4" style="width: 18rem;">
             <img src="../../img/contrato.svg" class="card-img-top m-2" alt="...">
-              <div class="card-body">
-                <h5 class="card-title text-center">Contratos</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">Contratos</h5>
               <!-- <p class="card-text">
                   Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
                 </p> -->
@@ -69,7 +73,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
   </div>
