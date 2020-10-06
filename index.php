@@ -1,3 +1,3 @@
 <?php 
-	header("Location: Public/views/NotariesView/index.php");
+	header("Location: Public/views/ServiciosView/index.php");
 ?>

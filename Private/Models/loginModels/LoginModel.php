@@ -1,7 +1,7 @@
 <?php 
 require_once("../../Config/config.php");
 require_once("../../Conection/conection.php");
-require_once("../modelFather.php");
+require_once("../Model/modelFather.php");
 
 class LoginModel extends ModelFather
 {
