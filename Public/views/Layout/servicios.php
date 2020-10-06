@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark fondo">
   <a class="navbar-brand Broadway text-white" href="#">NOTARIES DIGITAL</a>
-  
-  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <i class="fas fa-bars text-white"></i>
+
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,6 +13,9 @@
       </li>
       <li class="nav-item <?php echo $link == "servicios"? "active": ''; ?>">
         <a class="nav-link OpenSans" href="servicios.php">Servicios</a>
+      </li>
+      <li class="nav-item <?php echo $link == "nosotros"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="nosotros.php">Nosotros</a>
       </li>
       <li class="nav-item <?php echo $link == "registrate"? "active": ''; ?>">
         <a class="nav-link OpenSans" href="registrate.php">Registrate</a>

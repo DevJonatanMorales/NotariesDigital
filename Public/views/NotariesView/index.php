@@ -51,6 +51,7 @@
                 Notaries Digital te ofrece servicios en diferentes áreas para que puedas resolver tus problemas al
                 alcance de tu mano.
               </p>
+              <a href="servicios.php" class="btn fondo text-white">Nuestros Servicios</a>
             </div>
           </div>
 
@@ -62,6 +63,7 @@
                 Notaries Digital pone al alcance de tu mano un sin fin de números de abogados que te darán asesoría en
                 cualquier tema o área que desees solo tienes que registrarte ya.
               </p>
+              <a href="servicios.php" class="btn fondo text-white">Consultoria</a>
             </div>
           </div>
         </div>
