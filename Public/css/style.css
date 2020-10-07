@@ -40,3 +40,11 @@
 .cursor {
   cursor: pointer;
 }
+
+.invalido {
+  border-color: 1px solid #ff0000;
+}
+
+.valido {
+  border-color: 1px solid #00ff37;
+}

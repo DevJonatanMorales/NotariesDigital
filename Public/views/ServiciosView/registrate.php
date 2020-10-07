@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
-  <link rel="icon" href="Public/img/IncoND.png">
+  <link rel="icon" href="../../img/IncoND.png">
 </head>
 
 <body>
@@ -23,20 +23,26 @@
 	?>
 
   <div class="container">
-    <form id="formulario" class="col-sm-12 col-md-5 p-2 fondoDos mx-auto mt-4 text-white rounded">
+    <form id="formulario" class="col-sm-12 col-md-5 p-2 fondoDos mx-auto mt-4 text-white rounded" autocomplete="off">
       <h1 class="text-center border-bottom p-1">Crear Cuenta</h1>
       <div class="row">
         <div class="form-group col-sm-12 col-md-6">
-          <label for="nombre">Nombres</label>
-          <input type="text" id="nombre" class="form-control">
+          <label for="user">Usuario</label>
+          <input type="text" id="user" class="form-control">
         </div>
+
         <div class="form-group col-sm-12 col-md-6">
-          <label for="apellido">Apellidos</label>
-          <input type="text" id="apellido" class="form-control">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" class="form-control">
         </div>
       </div>
 
       <div class="row">
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="apellido">Apellidos</label>
+          <input type="text" id="apellido" class="form-control">
+        </div>
+
         <div class="fomr-grupo col-sm-12 col-md-6">
           <label for="genero">Genero</label>
           <select class="form-control" id="genero">
@@ -45,26 +51,31 @@
             <option value='masculino'>Masculino</option>
           </select>
         </div>
+      </div>
+
+      <div class="row">
         <div class="form-group col-sm-12 col-md-6">
           <label for="apellido">Fecha de nacimiento</label>
           <input type="date" id="apellido" class="form-control">
         </div>
+
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="correo">Correo</label>
+          <input type="email" id="correo" class="form-control invalido">
+        </div>
       </div>
 
-
-      <div class="form-group">
-        <label for="correo">Correo</label>
-        <input type="email" id="correo" class="form-control">
-      </div>
       <div class="form-group">
         <label for="dir">Direccion</label>
         <textarea class="form-control" id="dir" rows="3"></textarea>
       </div>
+
       <div class="form-gruop">
         <button type="submit" class="btn btn-dark d-block mx-auto mb-1 text-white">
           Crear Cuenta
         </button>
       </div>
+
     </form>
 
   </div>
