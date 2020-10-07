@@ -23,8 +23,8 @@ class ModelFather extends Conection
 			{
 				while($row = $consulta->fetch_object()) 
 				{
-                   $this->result[] = $row;
-                }
+					$this->result[] = $row;
+				}
 			}
 			
 		} else {
@@ -84,13 +84,35 @@ class ModelFather extends Conection
 		list($Y,$m,$d) = explode("-",$fecha);
 		return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
 	}
+	
+	function GenerarPass() //obtenemos la contraseña
+	{
+		//genera una letra Mayuscula aleatoria
+		$letraAleatoria = chr(rand(ord("A"), ord("Z")));
+		$palabra = '';
+		$num = '';
+		$max = 9;
+		//se genera un numero aleatoria de 3 sifras
+		for($i=0; $i < 3; $i++)
+		{ 
+			$num .= mt_rand(0, $max);
+		}
+		//se genera una palabra de 5 letras
+		for($i=0; $i < 5; $i++)
+		{ 
+			$palabra .= $palabraAleatoria = chr(rand(ord("a"), ord("z")));
+		}
+
+		return $letraAleatoria . $palabra . $num;
+	}
 /*
-	public function GenerarPass() 
-	{//obtenemos la contraseña
-		$key = 'pav';
+	public function GenerarUser() 
+	{//obtenemos el usuario
+		$key = 'nd';
 		$pattern = '0123456789';
 		$max = strlen($pattern)-1;
-		for($i=0;$i < 5;$i++) $key .= $pattern{mt_rand(0,$max)};		   
+		for($i=0;$i < 7;$i++) $key .= $pattern{mt_rand(0,$max)};
+				
 		return $key;
 	}
 */

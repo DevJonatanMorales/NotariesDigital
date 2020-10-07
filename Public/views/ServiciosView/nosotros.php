@@ -30,7 +30,7 @@
 
     <div class="row d-flex justify-content-around">
       <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
-        <img src="../../img/mision.svg" class="card-img-top m-2" alt="...">
+        <img src="../../img/valores.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Valores</h5>
           <ul class="card-text">
@@ -89,7 +89,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-  <script src="Public/js/jquery-3.4.1.min.js"></script>
+  <script src="../../js/jquery-3.4.1.min.js"></script>
 </body>
 
 </html>

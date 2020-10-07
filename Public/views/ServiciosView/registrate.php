@@ -24,7 +24,7 @@
 
   <div class="container">
     <form id="formulario" class="col-sm-12 col-md-5 p-2 fondoDos mx-auto mt-4 text-white rounded">
-      <h1 class="text-center ">Crear Cuenta</h1>
+      <h1 class="text-center border-bottom p-1">Crear Cuenta</h1>
       <div class="row">
         <div class="form-group col-sm-12 col-md-6">
           <label for="nombre">Nombres</label>
@@ -61,7 +61,7 @@
         <textarea class="form-control" id="dir" rows="3"></textarea>
       </div>
       <div class="form-gruop">
-        <button type="submit" class="btn btn-dark d-block mx-auto text-white">
+        <button type="submit" class="btn btn-dark d-block mx-auto mb-1 text-white">
           Crear Cuenta
         </button>
       </div>
@@ -79,7 +79,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-  <script src="Public/js/jquery-3.4.1.min.js"></script>
+  <script src="../../js/jquery-3.4.1.min.js"></script>
+  <script src="../../js/servicio/CrearCuenta.js"></script>
 </body>
 
 </html>
