@@ -49,3 +49,21 @@ CREATE TABLE abogados
   UNIQUE(usuario_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
 );
+-- categoria de servicios --
+CREATE TABLE categorias
+(
+  categoria_id INT NOT NULL,
+  categoria VARCHAR(25),
+  PRIMARY KEY (categoria_id)
+);
+-- servicios --
+CREATE TABLE servicios
+(
+  servicios_id INT NOT NULL,
+  categoria_id INT,
+  nom_servicio VARCHAR(75),
+  des_servicio TEXT,
+  PRIMARY KEY (servicios_id),
+  INDEX(categoria_id),
+  FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
+)
