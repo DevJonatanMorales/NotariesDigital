@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
-  <link rel="icon" href="Public/img/IncoND.png">
+  <link rel="icon" href="../../img/IncoND.png">
 </head>
 
 <body>
@@ -41,32 +41,61 @@
     <!-- servicios -->
     <div class="">
       <div class="p-1 my-4 fondoUno text-white">
-        <h1 class="text-center OpenSans m-1">Nuestros Servicios</h1>
+        <h1 class="text-center OpenSans m-1">Servicios</h1>
       </div>
 
       <div class="col-sm-12">
         <div class="row justify-content-around p-1">
           <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
-            <img src="../../img/servicios.svg" class="card-img-top m-2" alt="...">
+            <div class="card-header">
+              <h5 class="card-title text-center">Poderes</h5>
+            </div>
+            <img src="../../img/poderes.svg" class="card-img-top mt-2" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Servicios Notariales</h5>
               <p class="card-text">
-                Notaries Digital te ofrece servicios en diferentes áreas para que puedas resolver tus problemas al
-                alcance de tu mano.
+                Notaries Digital pone a tu disposición una lista de abogados que te pueden ayudar en tus tramites, poder
+                de cobranzas, actos de administración y actos de dominio.
               </p>
-              <a href="servicios.php" class="btn bg-dark text-white">Nuestros Servicios</a>
             </div>
           </div>
 
           <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
-            <img src="../../img/HablaConTuAbogado.svg" class="card-img-top m-2" alt="...">
+            <div class="card-header">
+              <h5 class="card-title text-center">Habla con tu abogado</h5>
+            </div>
+            <img src="../../img/HablaConTuAbogado.svg" class="card-img-top mt-2" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Consultoria</h5>
               <p class="card-text">
-                Notaries Digital pone al alcance de tu mano un sin fin de números de abogados que te darán asesoría en
-                cualquier tema o área que desees solo tienes que registrarte ya.
+                Notaries Digital pone al alcance de tu mano una lista de abogados que te darán asesoría en cualquier
+                tema o área que desees solo tienes que registrarte ya.
               </p>
-              <a href="servicios.php" class="btn bg-dark text-white">Consultoria</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-around p-1">
+          <div class="card sombre col-sm-5 mb-4" style="width: 18rem;">
+            <div class="card-header">
+              <h5 class="card-title text-center">Sociedades</h5>
+            </div>
+            <img src="../../img/sociedad.svg" class="card-img-top mt-2" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                Notaries Digital te ofrece servicios en la creación de sociedades mercantiles y civiles.
+              </p>
+            </div>
+          </div>
+
+          <div class="card sombre col-sm-5 mb-4" style="width: 18rem;">
+            <div class="card-header">
+              <h5 class="card-title text-center">Contratos</h5>
+            </div>
+            <img src="../../img/contrato.svg" class="card-img-top mt-2" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                Notaries Digital pone a tu alcance una lista de abogados que te ayudaran en la elaboración de tu
+                contratos solo tienes que regístrate.
+              </p>
             </div>
           </div>
         </div>

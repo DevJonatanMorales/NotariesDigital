@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
-  <link rel="icon" href="Public/img/IncoND.png">
+  <link rel="icon" href="../../img/IncoND.png">
 </head>
 
 <body>
@@ -25,55 +25,47 @@
   <div class="container">
     <div class="">
       <div class="p-1 my-4 fondoUno text-white">
-        <h1 class="text-center OpenSans m-1">Servicios</h1>
+        <h1 class="text-center OpenSans m-1">Nuestros Servicios</h1>
       </div>
 
       <div class="col-sm-12">
-        <div class="row justify-content-around p-1">
-          <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
-            <img src="../../img/poderes.svg" class="card-img-top m-2" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Poderes</h5>
-              <!-- <p class="card-text">
-                Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-              </p> -->
-            </div>
-          </div>
-
-          <div class="card sombre col-sm-5 mt-0 mb-4" style="width: 18rem;">
-            <img src="../../img/HablaConTuAbogado.svg" class="card-img-top m-2" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Habla con tu abogado</h5>
-              <!-- <p class="card-text">
-                Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-              </p> -->
-            </div>
-          </div>
+        <div class="form-group col-sm-12 col-md-4 ml-auto">
+          <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio">
         </div>
 
-        <div class="row justify-content-around p-1">
-          <div class="card sombre col-sm-5 mb-4" style="width: 18rem;">
-            <img src="../../img/sociedad.svg" class="card-img-top m-2" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Sociedades</h5>
-              <!-- <p class="card-text">
-                Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-              </p> -->
-            </div>
-          </div>
-
-          <div class="card sombre col-sm-5 mb-4" style="width: 18rem;">
-            <img src="../../img/contrato.svg" class="card-img-top m-2" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Contratos</h5>
-              <!-- <p class="card-text">
-                  Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Iusto asperiores rem nostrum, dolores est alias natus molestiae rerum ea consequatur doloribus totam, illo sint quo eum. Praesentium magnam necessitatibus, non.
-                </p> -->
-            </div>
-          </div>
+        <div class="form-group">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre del servicion</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">accion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
     </div>
   </div>
   </div>
