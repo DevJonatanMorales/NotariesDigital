@@ -59,7 +59,7 @@ CREATE TABLE categorias
 -- servicios --
 CREATE TABLE servicios
 (
-  servicios_id INT NOT NULL,
+  servicios_id INT NOT NULL AUTO_INCREMENT,
   categoria_id INT,
   nom_servicio VARCHAR(75),
   des_servicio TEXT,
@@ -67,3 +67,27 @@ CREATE TABLE servicios
   INDEX(categoria_id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
 );
+-- INSERT TABLA CATEGORIA --
+INSERT INTO `categorias`(`categoria_id`, `categoria`) VALUES (1, 'Poderes'), (2, 'Habla con tu abogado'), (3, 'Sociedades'), (4, 'Contratos');
+
+-- INSERT TABLA SERVICIOS --
+INSERT INTO `servicios`(`categoria_id`, `nom_servicio`, `des_servicio`) VALUES (1, 'Poder para compra de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.'),
+(1, 'Poder para venta de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.'),
+(1, 'Poder general administrativo', 'Se otorga para que el apoderado administre bienes e intereses del poderdante, por ejemplo: cuentas bancarias o negocios.'),
+(1, 'Poder general judicial', 'Sirve para que el apoderado represente al poderdante en toda clase de juicios y para efectuar cobros.'),
+(2, 'Asesoria Civil', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Mercantil', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Familiar', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Migración', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Inquilino', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Laboral', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Contratos', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Transtio', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(2, 'Asesoria Tributario', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
+(3, 'Sociedad Anonima de Capital', 'Notaries Digital te facilita el proceso para que usted pueda facilmente constituir una sociedad anonima.'),
+(4, 'Contrado Compraventa Vehiculo', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda realizar la compraventa de un vehiculo.'),
+(4, 'Contrado de Arendamiento para Habitacion', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda arrendar su casa o apartemento para fines de habitacion.'),
+(4, 'Contrado de Arendamiento Comercial', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda arrendar su casa o local para fines comerciales.');
+
+-- CONSULTA SERVICIOS --
+SELECT servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM categorias INNER JOIN servicios on categorias.categoria_id=servicios.categoria_id
