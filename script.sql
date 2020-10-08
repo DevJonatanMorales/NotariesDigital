@@ -9,7 +9,7 @@ CREATE TABLE tipo_user
 CREATE TABLE usuarios
 (
   usuario_id INT NOT NULL AUTO_INCREMENT,
-  tipo_userid VARCHAR(10),
+  tipo_userid INT,
   user VARCHAR(6),
   pass VARCHAR(6),
   email VARCHAR(150),
@@ -23,7 +23,7 @@ CREATE TABLE usuarios
 CREATE TABLE clientes
 (
   cliente_id INT NOT NULL,
-  usuario_id VARCHAR(10),
+  usuario_id INT,
   nombres VARCHAR(60),
   apellidos VARCHAR(60),
   genero VARCHAR(10),
@@ -38,7 +38,7 @@ CREATE TABLE clientes
 CREATE TABLE abogados
 (
   abogado_id INT NOT NULL,
-  usuario_id VARCHAR(10),
+  usuario_id INT,
   nombres VARCHAR(60),
   apellidos VARCHAR(60),
   genero VARCHAR(10),
@@ -66,4 +66,4 @@ CREATE TABLE servicios
   PRIMARY KEY (servicios_id),
   INDEX(categoria_id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
-)
+);
