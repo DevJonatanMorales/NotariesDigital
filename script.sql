@@ -63,6 +63,7 @@ CREATE TABLE servicios
   categoria_id INT,
   nom_servicio VARCHAR(75),
   des_servicio TEXT,
+  det_servicio TEXT,
   PRIMARY KEY (servicios_id),
   INDEX(categoria_id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
@@ -71,7 +72,7 @@ CREATE TABLE servicios
 INSERT INTO `categorias`(`categoria_id`, `categoria`) VALUES (1, 'Poderes'), (2, 'Habla con tu abogado'), (3, 'Sociedades'), (4, 'Contratos');
 
 -- INSERT TABLA SERVICIOS --
-INSERT INTO `servicios`(`categoria_id`, `nom_servicio`, `des_servicio`) VALUES (1, 'Poder para compra de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.'),
+INSERT INTO `servicios`(`categoria_id`, `nom_servicio`, `des_servicio`) VALUES (1, 'Poder para compra de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.','Para que el poder pueda ser elaborado por un notariado de Notaries Digital ser'),
 (1, 'Poder para venta de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.'),
 (1, 'Poder general administrativo', 'Se otorga para que el apoderado administre bienes e intereses del poderdante, por ejemplo: cuentas bancarias o negocios.'),
 (1, 'Poder general judicial', 'Sirve para que el apoderado represente al poderdante en toda clase de juicios y para efectuar cobros.'),
