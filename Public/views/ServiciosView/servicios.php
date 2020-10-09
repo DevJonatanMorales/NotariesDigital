@@ -30,38 +30,20 @@
 
       <div class="col-sm-12">
         <div class="form-group col-sm-12 col-md-4 ml-auto">
-          <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio">
+          <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio por nombre o categoria">
         </div>
 
-        <div class="form-group">
-          <table class="table">
+        <div class="table-responsive">
+          <table class="table table-hover table-fixed">
             <thead class="thead-light">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre del servicion</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">accion</th>
+                <th style="width: 225px" scope="col">Nombre del servicion</th>
+                <th style="width: 130px" scope="col">Categoria</th>
+                <th style="width: 700px" scope="col">Descripcion</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+            <tbody id="tbody">
+
             </tbody>
           </table>
         </div>
@@ -70,7 +52,10 @@
   </div>
   </div>
 
-  <?php require_once("../Layout/footer.php") ?>
+  <?php 
+    $footer = "fixed-bottom";
+    require_once("../Layout/footer.php");
+  ?>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -81,6 +66,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
+
+  <script src="../../js/servicio/BuscarServicio.js"></script>
   <script src="../../js/jquery-3.4.1.min.js"></script>
 </body>
 

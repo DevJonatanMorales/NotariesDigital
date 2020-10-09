@@ -23,7 +23,8 @@
 	?>
 
   <div class="container">
-    <form id="formulario" class="col-sm-12 col-md-5 p-2 fondoDos mx-auto mt-4 text-white rounded" autocomplete="off">
+    <form id="formulario" class="col-sm-12 col-md-6 p-2 fondoDos mx-auto mt-4 mb-4 text-white rounded"
+      autocomplete="off">
       <h1 class="text-center border-bottom p-1">Crear Cuenta</h1>
       <div class="row">
         <div class="form-group col-sm-12 col-md-6">
@@ -80,6 +81,9 @@
 
   </div>
 
+  <?php 
+    require_once("../Layout/footer.php");
+  ?>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
