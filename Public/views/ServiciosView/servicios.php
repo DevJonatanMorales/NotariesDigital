@@ -29,6 +29,15 @@
       </div>
 
       <div class="col-sm-12">
+        <div class="form-group">
+          <p>
+            Notaries Digital te ofrece diferentes servicios en las categorías de poderes, habla con tu abogado,
+            sociedades
+            y contratos, para poder realizar la solicitud de un servicio te invitamos a que crees una cuenta totalmente
+            gratis. <a href="registrate.php" class="card-link">Crear cuenta.</a>
+          </p>
+        </div>
+
         <div class="form-group col-sm-12 col-md-4 ml-auto">
           <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio por nombre o categoria">
         </div>
@@ -37,9 +46,9 @@
           <table class="table table-hover table-fixed">
             <thead class="thead-light">
               <tr>
-                <th style="width: 225px" scope="col">Nombre del servicion</th>
-                <th style="width: 130px" scope="col">Categoria</th>
-                <th style="width: 700px" scope="col">Descripcion</th>
+                <th style="width: 250px" scope="col">Nombre del servicion</th>
+                <th style="width: 155px" scope="col">Categoria</th>
+                <th style="width: 650px" scope="col">Descripcion</th>
               </tr>
             </thead>
             <tbody id="tbody">
@@ -52,23 +61,35 @@
   </div>
   </div>
 
-  <?php 
-    $footer = "fixed-bottom";
+  <!-- ventana modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <! - comentario pie de pagina ->
+    <?php 
+    //$footer = "fixed-bottom";
     require_once("../Layout/footer.php");
   ?>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 
-  <script src="../../js/servicio/BuscarServicio.js"></script>
-  <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/servicio/BuscarServicio.js"></script>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
 </body>
 
 </html>

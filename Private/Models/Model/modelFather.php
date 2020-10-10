@@ -85,7 +85,7 @@ class ModelFather extends Conection
 		return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
 	}
 	
-	function GenerarPass() //obtenemos la contraseña
+	protected function GenerarPass() //obtenemos la contraseña
 	{
 		//genera una letra Mayuscula aleatoria
 		$letraAleatoria = chr(rand(ord("A"), ord("Z")));
@@ -105,6 +105,36 @@ class ModelFather extends Conection
 
 		return $letraAleatoria . $palabra . $num;
 	}
+
+	protected function enciarCorreo($asunto,$correo,$body,$destino){
+    $mail = new PHPMailer;
+
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    /* coloca la direccion de tu correo  en la comillas simples*/
+    $mail->varU = '';
+    /* coloca la contraseña de tu correo  en la comillas simples*/
+    $mail->varP = '';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    /* coloca la direccion de tu correo en la comillas simples */
+    $mail->setFrom('', 'PAVESMATE');
+    $mail->addAddress($correo);
+
+    $mail->isHTML(true);
+
+    $mail->Subject = $asunto;
+    $mail->Body    = $body;
+    if(!$mail->send()) {
+        echo 'Error al enviar correo';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        header("Location: ../index.php?controller=$destino");
+    }
+	}
+
 /*
 	public function GenerarUser() 
 	{//obtenemos el usuario
