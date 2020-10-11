@@ -21,11 +21,11 @@ class LoginModel extends ModelFather
         switch ($this->datos['accion']) 
         {
             case 'buscarUser':
-                $this->BuscarUsuario($this->datos['sql']);
+                $this->BuscarUsuario($this->datos['query']);
                 break;
             
             case 'ingresar':
-                $this->ValidarDatos($this->datos['sql']);
+                $this->ValidarDatos($this->datos['query']);
                 break;
             
             default:
@@ -58,7 +58,7 @@ class LoginModel extends ModelFather
 
     private function BuscarUsuario()
     {
-        $sql = "SELECT usuarios.user FROM `usuarios` WHERE usuarios.user = '" . $this->datos['sql'] . "'";
+        $sql = "SELECT usuarios.user FROM `usuarios` WHERE usuarios.user = '" . $this->datos['query'] . "'";
         $this->resultado = $this->Read($sql);
         
     }

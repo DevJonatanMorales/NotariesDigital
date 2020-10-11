@@ -1,9 +1,10 @@
-/* ===================================================================================================== 
- ===================== Comentario de la secion crear cuenta ===================== 
- ======================================================================================================= */
+/**
+*
+* Comentario crear cuenta
+*
+**/
 .formulario__label {
   display: block;
-  font-weight: 700;
   padding: 10px;
   cursor: pointer;
 }
@@ -23,13 +24,26 @@
   transition: 0.3s ease all;
 }
 
+.formulario__textarea {
+  width: 100%;
+  background-color: #ffffff;
+  border: 3px solid transparent;
+  border-radius: 3px;
+  padding: 0 40px 0 10px;
+}
+
+.formulario__textarea:focus {
+  outline: none;
+  box-shadow: 3px 3px 30px rgba(189, 189, 189, 0.4);
+}
+
 .formulario__input:focus {
   outline: none;
   box-shadow: 3px 3px 30px rgba(189, 189, 189, 0.4);
 }
 
 .formulario__input-error {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 0;
   display: none;
 }
@@ -47,8 +61,26 @@
   opacity: 0;
 }
 
-/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__val-estado {
+  position: absolute;
+  right: 25px;
+  bottom: 15px;
+  z-index: 100;
+  font-size: 16px;
+  opacity: 0;
+}
+
+/**
+*
+* Comentario Estilos para Validacion
+*
+**/
 .formulario__grupo-correcto .formulario__validacion-estado {
+  color: #1ed12d;
+  opacity: 1;
+}
+
+.formulario__grupo-correcto .formulario__val-estado {
   color: #1ed12d;
   opacity: 1;
 }
@@ -62,23 +94,11 @@
   opacity: 1;
 }
 
-.formulario__grupo-incorrecto .formulario__input {
-  border: 3px solid #bb2929;
+.formulario__grupo-incorrecto .formulario__val-estado {
+  color: #bb2929;
+  opacity: 1;
 }
 
-/* ----- -----  Mediaqueries ----- ----- */
-@media screen and (max-width: 800px) {
-  .formulario {
-    grid-template-columns: 1fr;
-  }
-
-  .formulario__grupo-terminos,
-  .formulario__mensaje,
-  .formulario__grupo-btn-enviar {
-    grid-column: 1;
-  }
-
-  .formulario__btn {
-    width: 100%;
-  }
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929;
 }
