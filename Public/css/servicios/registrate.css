@@ -17,7 +17,7 @@
   width: 100%;
   background: #fff;
   border: 3px solid transparent;
-  border-radius: 3px;
+  border-radius: 6px;
   height: 45px;
   line-height: 45px;
   padding: 0 40px 0 10px;
@@ -28,7 +28,7 @@
   width: 100%;
   background-color: #ffffff;
   border: 3px solid transparent;
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 0 40px 0 10px;
 }
 
@@ -84,11 +84,11 @@
   color: #1ed12d;
   opacity: 1;
 }
-
+/*
 .formulario__grupo-incorrecto .formulario__label {
   color: #bb2929;
 }
-
+*/
 .formulario__grupo-incorrecto .formulario__validacion-estado {
   color: #bb2929;
   opacity: 1;
@@ -100,5 +100,9 @@
 }
 
 .formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__textarea {
   border: 3px solid #bb2929;
 }

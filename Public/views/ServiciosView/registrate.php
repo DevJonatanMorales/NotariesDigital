@@ -45,7 +45,7 @@
         <div class="formulario__grupo col-sm-6" id="grupo__nombres">
           <label for="nombres" class="formulario__label OpenSans">Nombres</label>
           <div class="formulario__grupo-input">
-            <input type="text" class="formulario__input" name="nombres" id="nombres" placeholder="Nombres">
+            <input type="text" class="formulario__input" name="nombres" id="nombres" placeholder="primero segundo">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
           <p class="formulario__input-error">Por favor Ingrese sus dos nombres completos, sin incluir guiones o simblos.
@@ -59,7 +59,7 @@
         <div class="formulario__grupo col-sm-6" id="grupo__apellidos">
           <label for="apellidos" class="formulario__label OpenSans">Apellidos</label>
           <div class="formulario__grupo-input">
-            <input type="text" class="formulario__input" name="apellidos" id="apellidos" placeholder="Apellidos">
+            <input type="text" class="formulario__input" name="apellidos" id="apellidos" placeholder="paterno y materno">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
           <p class="formulario__input-error">Por favor ingrese sus apellidos completos, sin incluir guiones o simblos.
@@ -94,7 +94,19 @@
         </div>
 
         <!-- Grupo: Correo Electronico -->
-        <div class="formulario__grupo col-sm-6" id="grupo__correo">
+        <div class="formulario__grupo col-sm-6" id="grupo__telefono">
+          <label for="telefono" class="formulario__label OpenSans">Teléfono</label>
+          <div class="formulario__grupo-input">
+            <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="00000000">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El telefono solo puede contener números y el maximo son 14 dígitos .</p>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="formulario__grupo col-sm-12" id="grupo__correo">
           <label for="correo" class="formulario__label OpenSans">Correo Electrónico</label>
           <div class="formulario__grupo-input">
             <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
@@ -103,8 +115,8 @@
           <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion
             bajo.</p>
         </div>
-
       </div>
+      
 
       <!-- Grupo: direccion -->
       <div class="formulario__grupo" id="grupo__direccion">
