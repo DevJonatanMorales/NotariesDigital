@@ -68,6 +68,13 @@ CREATE TABLE servicios
   INDEX(categoria_id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
 );
+
+-- INSERT TABLE TIPO USUARIO --
+INSERT INTO `tipo_user`(`tipo_userid`, `tipo`) VALUES (1,'administrador'), (2, 'abogado'), (3, 'cliente');
+
+-- INSERT TABLE USUARIO --
+INSERT INTO `usuarios`(`usuario_id`, `tipo_userid`, `user`, `pass`, `email`, `codigo_pass`, `fech_pass`) VALUES (1,3,'yona17','Jonatan17','h28631053@gmail.com','','');
+
 -- INSERT TABLA CATEGORIA --
 INSERT INTO `categorias`(`categoria_id`, `categoria`) VALUES (1, 'Poderes'), (2, 'Habla con tu abogado'), (3, 'Sociedades'), (4, 'Contratos');
 

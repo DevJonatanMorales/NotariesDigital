@@ -1,10 +1,12 @@
 <?php 
-/**
- * Clase modelo
- */
+/** 
+*
+* Comentario: Clase modelo
+*
+**/
 class ModelFather extends Conection
 {
-	protected $result;
+	protected $result; /** - Comentario: variable donde se almacena el resultado - **/
 
 	protected function Read($sql)
 	{
@@ -35,39 +37,42 @@ class ModelFather extends Conection
 		$this->conn->close();
 	}
 
+	protected function Query($sql)
+	{
+		$this->OpenConection();
+		
+		if ($this->conn->query($sql) === TRUE)
+		{
+			$this->result = true;
+		} 
+		else
+		{
+			 echo "Error: " . $sql . "<br>" . $this->conn->error;
+			 $this->result = false;
+		}
+
+		return $this->result;
+		$this->conn->close();
+	}
+
 	protected function LastID($sql)
 	{
-		$this->result = 0;
-
+		$this->OpenConection();
+		
 		if ($this->conn->query($sql) === TRUE) {
 			$last_id = $this->conn->insert_id;
 			$this->result = $last_id;
 		} 
 		else 
 		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
+			$this->result = 0;
+			echo "Error: " . $sql . "<br>" . $this->conn->error;
 		}
 
 		return $this->result;
 		$this->conn->close();
 	}
 
-	protected function Query($sql)
-	{
-		
-		if ($this->conn->query($sql) === TRUE)
-		{
-			echo "New record created successfully";
-		} 
-		else
-		{
-			 echo "Error: " . $sql . "<br>" . $conn->error;
-		}
-
-		return $this->result;
-		$this->conn->close();
-	}
-	
 	protected function EncriptarPass($clave)
 	{
 		$nivel_0 = strip_tags($clave);
@@ -106,46 +111,36 @@ class ModelFather extends Conection
 		return $letraAleatoria . $palabra . $num;
 	}
 
-	protected function enciarCorreo($asunto,$correo,$body,$destino){
-    $mail = new PHPMailer;
+	protected function EnviarCorreo($asunto,$correo,$body){
+		$resultadoEmail = true;
+	    $mail = new PHPMailer;
 
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    /* coloca la direccion de tu correo  en la comillas simples*/
-    $mail->varU = '';
-    /* coloca la contraseña de tu correo  en la comillas simples*/
-    $mail->varP = '';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+	    $mail->isSMTP();
+	    $mail->Host = 'smtp.gmail.com';
+	    $mail->SMTPAuth = true;
+			$mail->Username = 'notariesdigital@gmail.com'; 
+			$mail->Password = 'Zvbbqg345';
+			$mail->SMTPSecure = 'tls'; 
+			$mail->Port = 587;  
 
-    /* coloca la direccion de tu correo en la comillas simples */
-    $mail->setFrom('', 'PAVESMATE');
-    $mail->addAddress($correo);
+	    /* coloca la direccion de tu correo en la comillas simples */
+	    $mail->setFrom('notariesdigital@gmail.com', 'NOTARIES DIGITAL');
+	    $mail->addAddress($correo);
 
-    $mail->isHTML(true);
+	    $mail->isHTML(true);
 
-    $mail->Subject = $asunto;
-    $mail->Body    = $body;
-    if(!$mail->send()) {
-        echo 'Error al enviar correo';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        header("Location: ../index.php?controller=$destino");
-    }
+	    $mail->Subject = $asunto;
+	    $mail->Body    = $body;
+
+	    if(!$mail->send()) {
+	        echo 'Error al enviar correo';
+	        echo 'Mailer Error: ' . $mail->ErrorInfo;
+	        $resultadoEmail = false;
+	    } 
+
+	    return $resultadoEmail;
+
 	}
-
-/*
-	public function GenerarUser() 
-	{//obtenemos el usuario
-		$key = 'nd';
-		$pattern = '0123456789';
-		$max = strlen($pattern)-1;
-		for($i=0;$i < 7;$i++) $key .= $pattern{mt_rand(0,$max)};
-				
-		return $key;
-	}
-*/
 }
 
 ?>
