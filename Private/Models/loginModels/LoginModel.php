@@ -12,7 +12,6 @@ class LoginModel extends ModelFather
     public function RecibirDatos($datos)
     {
         $this->datos = $datos;
-        //$this->resultado = $this->datos;
         $this->Proceso();
     }
 
@@ -21,7 +20,7 @@ class LoginModel extends ModelFather
         switch ($this->datos['accion']) 
         {
             case 'buscarUser':
-                $this->BuscarUsuario($this->datos['query']);
+                $this->BuscarUsuario();
                 break;
             
             case 'ingresar':
@@ -33,6 +32,7 @@ class LoginModel extends ModelFather
                 break;
         }
     }
+
     private function ValidarDatos()
     {
     if (preg_match("/^[0-9]{7}$/", $this->datos['usuario']) && preg_match("/^[a-z]{3}[0-9]{5}$/", $this->datos['password'])) 
@@ -63,24 +63,19 @@ class LoginModel extends ModelFather
         
     }
 }
-/*
-echo 'Hola :)';
-$datos = array('accion' => 'buscarUser', 'sql' => 'yona50');
-$login = new LoginModel();
-$login->RecibirDatos($datos);
-print_r($login->resultado);
-*/
+
 if(isset($_POST['datos']))
 {
+    
     $login = new LoginModel();
     $login->RecibirDatos($_POST['datos']);
     print_r($login->resultado);
-
-    // echo $_POST['datos']['sql'];
+    
+    // print_r($_POST['datos']);
 }
 else
 {
-    echo json_encode('error :(');
+    print_r(json_encode(['resultado' => 0]));
 }
 
 ?>

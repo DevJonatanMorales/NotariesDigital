@@ -55,7 +55,6 @@ const FormularioInValido = (campo) => {
 }
 /* - Comentario validamos los campos - */
 const ValidarCampo = (expresion, input, campo) => {
-  console.log(input.value)
   if (expresion.test(input.value)) {    
     FormularioValido(campo);
     Campos[campo] = true;  
@@ -175,14 +174,23 @@ const ProcesarDatos = () => {
     type: "POST",
     url: "../../../Private/Models/LoginModels/crearCuentaModel.php",
     data: { Datos },
+    dataType: "json",
     success: function (data) {
       console.log(`valor de la data: ${data}`);
-      Swal.fire({
-        type: 'success',
-        title: 'Gracias por registrate en Notaries Digital :)',
-        showConfirmButton: true
-        // timer: 1500
-      });
+      if (data.resultato == 1) {
+        Swal.fire({
+          type: 'success',
+          title: 'Gracias por registrate en Notaries Digital, verfique su correo.',
+          showConfirmButton: true
+        });
+      } else {
+        Swal.fire({
+          type: 'warning',
+          title: 'Ocurrio un Error, por favor vuelva a intentar',
+          showConfirmButton: true
+        });
+      }
+      
     },
     error: function () {
       console.log("No se ha podido obtener la información");
@@ -211,7 +219,7 @@ formulario.addEventListener('submit', (e) => {
   // console.log(Datos);
   if (Campos.usuario && Campos.nombres && Campos.apellidos && Campos.genero && Campos.fecha && Campos.telefono && Campos.correo && Campos.direccion) {
     ProcesarDatos();
-    // formulario.reset();
+    formulario.reset();
     document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
       icono.classList.remove('formulario__grupo-correcto');
     });
@@ -220,7 +228,6 @@ formulario.addEventListener('submit', (e) => {
       type: 'warning',
       title: 'Por favor complete el formulario.',
       showConfirmButton: true
-      // timer: 1500
     });
   }
 });
