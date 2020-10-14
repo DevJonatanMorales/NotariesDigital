@@ -56,33 +56,21 @@ class CrearCuentaModel extends ModelFather
     if ($this->validacion === 'correcto') {
       $pass = $this->GenerarPass();// se genera la contraseña.
       $pasEncrip = $this->EncriptarPass($pass);// se encrpita la contraseña
-      /** - Comentario: Insertamos en la tabla usuario - **/
+      /** - Comentario: Creamos la consulta de la tb usuario - **/
       $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('" . $this->datos['tipoUser'] . "','" . $this->datos['usuario'] . "','" . $pasEncrip . "','" . $this->datos['correo'] . "')";
-
+      /** - Comentario: Insertamos en la tabla usuario - **/
       $usuario_id = $this->LastID($sqlUser);// se inserta en tbUsuaruio y recupera el ID del usuario.
+      /* - Comentario: Creamos la consulta de la tb cliente - */
+      $sqlCliente = "INSERT INTO `clientes`(`cliente_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `direccion`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['direccion'] . "')";
+      /** - Comentario: Insertamos en la tabla cliente - **/
+      $this->Query($sqlCliente);
 
-      if ($usuario_id > 0) {// se valida que exista el ID
-        
-        $sqlCliente = "INSERT INTO `clientes`(`cliente_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `direccion`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['direccion'] . "')";
+      $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital.";
 
-        if ($this->Query($sqlCliente) == true) {// se valida 
-          $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital.";
-
-          $contenido = wordwrap($contenido, 70, "\r\n");
-          $email = EnviarEmail('Bienvenido',$this->datos['correo'],$contenido);
-          if ($email == true) {
-            $this->resultado = ['resultato' => 1];
-          } else {
-            $this->resultado = ['resultato' => 0];
-          }
-          
-        } else {
-          $this->resultado = ['resultado' => 'Error al insertar el cliente'];
-        }
-        
-      } else {
-        $this->resultado = ['resultado' => 'Error al insertar el usuario'];
-      }
+      $contenido = wordwrap($contenido, 70, "\r\n");
+      $email = EnviarEmail('Bienvenido',$this->datos['correo'],$contenido);
+      
+      $this->resultado = $email;
 
     } else {
       $this->resultado = array("resultado" => "Formulario Invalido");
