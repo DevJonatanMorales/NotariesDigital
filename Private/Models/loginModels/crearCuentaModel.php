@@ -3,7 +3,11 @@
 require_once("../../Config/config.php");
 require_once("../../Conection/conection.php");
 require_once("../Model/modelFather.php");
-require_once("../../Libs/PHPMailer/PHPMailerAutoload.php");
+/* - Comentario Archivos para enviar correo - */
+require_once("../../Libs/PHPMailer/Exception.php");
+require_once("../../Libs/PHPMailer/PHPMailer.php");
+require_once("../../Libs/PHPMailer/SMTP.php");
+require_once("../../Libs/PHPMailer/enviarCorreo.php");
 
 class CrearCuentaModel extends ModelFather
 {
@@ -51,9 +55,9 @@ class CrearCuentaModel extends ModelFather
   private function CrearCuentaCliente() {
     if ($this->validacion === 'correcto') {
       $pass = $this->GenerarPass();// se genera la contraseña.
-      
+      $pasEncrip = $this->EncriptarPass($pass);// se encrpita la contraseña
       /** - Comentario: Insertamos en la tabla usuario - **/
-      $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('" . $this->datos['tipoUser'] . "','" . $this->datos['usuario'] . "','" . $pass . "','" . $this->datos['correo'] . "')";
+      $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('" . $this->datos['tipoUser'] . "','" . $this->datos['usuario'] . "','" . $pasEncrip . "','" . $this->datos['correo'] . "')";
 
       $usuario_id = $this->LastID($sqlUser);// se inserta en tbUsuaruio y recupera el ID del usuario.
 
@@ -61,14 +65,12 @@ class CrearCuentaModel extends ModelFather
         
         $sqlCliente = "INSERT INTO `clientes`(`cliente_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `direccion`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['direccion'] . "')";
 
-        $query = $this->Query($sqlCliente);// se inserta en la tbCliente
-
-        if ($query == true) {// se valida 
+        if ($this->Query($sqlCliente) == true) {// se valida 
           $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital.";
 
           $contenido = wordwrap($contenido, 70, "\r\n");
-          
-          if ($this->EnviarCorreo('Bienvenido',$this->datos['correo'],$contenido)) {
+          $email = EnviarEmail('Bienvenido',$this->datos['correo'],$contenido);
+          if ($email == true) {
             $this->resultado = ['resultato' => 1];
           } else {
             $this->resultado = ['resultato' => 0];

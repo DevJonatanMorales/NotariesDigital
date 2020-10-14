@@ -59,7 +59,8 @@
         <div class="formulario__grupo col-sm-6" id="grupo__apellidos">
           <label for="apellidos" class="formulario__label OpenSans">Apellidos</label>
           <div class="formulario__grupo-input">
-            <input type="text" class="formulario__input" name="apellidos" id="apellidos" placeholder="paterno y materno">
+            <input type="text" class="formulario__input" name="apellidos" id="apellidos"
+              placeholder="paterno y materno">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
           <p class="formulario__input-error">Por favor ingrese sus apellidos completos, sin incluir guiones o simblos.
@@ -116,7 +117,7 @@
             bajo.</p>
         </div>
       </div>
-      
+
 
       <!-- Grupo: direccion -->
       <div class="formulario__grupo" id="grupo__direccion">
@@ -129,7 +130,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-dark mt-4 d-block mx-auto">
+        <button type="submit" id="btnCuenta" class="btn btn-dark mt-4 d-block mx-auto">
           Crear Cuenta
         </button>
       </div>

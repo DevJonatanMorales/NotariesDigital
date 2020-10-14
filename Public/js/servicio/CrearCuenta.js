@@ -7,6 +7,7 @@ const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll('#formulario input');
 const textArea = document.getElementById('direccion');
 const genero = document.getElementById('genero');
+const btnCuenta = document.getElementById('btnCuenta');
 /* - Comentario: Expresiones regulares - */
 const Expresiones = {
 	usuario:/^[a-zA-Z0-9\_\-]{3,10}$/, 
@@ -39,6 +40,7 @@ let Datos = {
   correo: null,
   direccion: null
 };
+/* - Comentario Si el formulario es correcto - */
 const FormularioValido = (campo) => {
   document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
   document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
@@ -46,6 +48,7 @@ const FormularioValido = (campo) => {
   document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
   document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
 }
+/* - Comentario Si el formulario es incorrecto - */
 const FormularioInValido = (campo) => {
   document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
   document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
@@ -175,8 +178,12 @@ const ProcesarDatos = () => {
     url: "../../../Private/Models/LoginModels/crearCuentaModel.php",
     data: { Datos },
     dataType: "json",
+    beforeSend: function () {
+      btnCuenta.innerText = "Creando Cuenta...";
+    },
     success: function (data) {
-      console.log(`valor de la data: ${data}`);
+      // console.log(`valor de la data: ${data}`);
+      btnCuenta.innerText = "Crear Cuenta";
       if (data.resultato == 1) {
         Swal.fire({
           type: 'success',
