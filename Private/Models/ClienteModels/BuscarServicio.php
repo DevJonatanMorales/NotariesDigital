@@ -44,12 +44,13 @@ class BuscarServicio extends ModelFather
 
 }
 
+$BuscarServicio = new BuscarServicio();
+
 if(isset($_POST['datos']))
 {
-  $BuscarServicio = new BuscarServicio();
   $BuscarServicio->RecibirDatos($_POST['datos']);
-  print_r(json_encode($BuscarServicio->resultado));
-// print_r($_POST['datos']);
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode($BuscarServicio->resultado);
 }
 
 ?>

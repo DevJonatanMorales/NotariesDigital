@@ -52,9 +52,9 @@ const MostrarServicio = () => {
       $("#tbody").html("Cargando datos...");
     },
     success: function (result) {
-      // console.log(`valor de la result MostrarServicio es: ${result}`);
-      const datos = JSON.parse(result);
-      datos.forEach((datos) => {
+      console.log(result);
+      result.forEach((datos) => {
+        console.log(datos);
         layout += `<tr>
                     <td style="width: 250px" >${datos.nom_servicio}</td>
                     <td style="width: 155px" >${datos.categoria}</td>
@@ -73,15 +73,3 @@ const MostrarServicio = () => {
 buscarServicio.addEventListener("keyup", BuscarServicio);
 
 window.addEventListener("load", MostrarServicio);
-
-// CARGAR VENTANA MODAL
-$(function() {
-  $(document).on('click', 'button[type="button"]', function(event) {//al hacer click en el boton
-    let id = this.id;//obtengo el valor del id, el id tiene q tener el nombre del archivo
-    //console.log("Se presionó el Boton con ID: "+ id)//mostrar el ID de botton
-    $('.modal-content').load("./ventanaModal.php?modelId="+id ,function(){//llamo al archivo q tiene el contenido
-      console.log(id);
-      $('#myModal').trigger('focus');
-    });
-  });
-});

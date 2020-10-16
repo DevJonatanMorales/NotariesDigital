@@ -68,21 +68,20 @@ class RecuperarPassModel extends ModelFather
 
       $contenido = wordwrap($contenido, 70, "\r\n");
       
-      if ($this->resultado = EnviarEmail('Bienvenido','h28631053@gmail.com',$contenido)) {
-        $this->resultado = ['resultato' => 1];
-      } else {
-        $this->resultado = ['resultato' => 0];
-      }
+      $this->resultado = EnviarEmail('Bienvenido','h28631053@gmail.com',$contenido);
     } else {
       $this->resultado = ['resultado' => 0];
     }
   }
 }
 
+
+$recuperarPass = new RecuperarPassModel();
+
 if (isset($_POST['datos'])) {
-  $recuperarPass = new RecuperarPassModel();
   $recuperarPass->RecibirDatos($_POST['datos']);
-  print_r(json_encode($recuperarPass->resultado));
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode($recuperarPass->resultado);
 } else {
   echo json_encode("hola");
 }

@@ -36,8 +36,8 @@ const BuscarCorreo = (input) => {
     type: "POST",
     url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
     data: { datos },
-    dataType: "json",
     success: function (data) {
+      console.log(data);
       if (data == 0) {
         FormularioInValido("El correo no existe");
         btnCorreo.setAttribute("disabled", "");
@@ -85,7 +85,7 @@ const RecuperarPass = (datos) => {
     success: function (data) {
       // console.log(`Valor de data: ${data}`);
       btnCorreo.innerText = "Recuperar Contraseña";
-      if (data.resultato == 1) {
+      if (data == 1) {
         Swal.fire({
           type: 'success',
           title: 'Se ha enviado un mensaje a su correo con las instruciones para que pueda cambiar su contraseña',

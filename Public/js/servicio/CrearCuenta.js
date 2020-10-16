@@ -93,7 +93,7 @@ const BuscarUser = (input, campo) => {
     url: "../../../Private/Models/LoginModels/LoginModel.php",
     data: { datos },
     success: function (data) {
-      // console.log(`valor de la dataUser: ${data}`);
+      console.log(data);
       if (data == 0) {
         FormularioValido(campo);
         document.getElementById(input.id).innerHTML = "";
@@ -182,9 +182,9 @@ const ProcesarDatos = () => {
       btnCuenta.innerText = "Creando Cuenta...";
     },
     success: function (data) {
-      // console.log(`valor de la data: ${data}`);
+      console.log(`valor de la data: ${data}`);
       btnCuenta.innerText = "Crear Cuenta";
-      if (data.resultato == 1) {
+      if (data == 1) {
         Swal.fire({
           type: 'success',
           title: 'Gracias por registrate en Notaries Digital, verfique su correo.',

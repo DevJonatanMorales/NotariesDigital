@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 function EnviarEmail($asunto,$correo,$body){
   //resultado por defecto
-  $resultadoEmail = true;
+  $resultadoEmail = 1;
   // La instanciación y el paso de `true` habilita excepciones 
   $mail = new PHPMailer(true);
   
@@ -30,7 +30,7 @@ function EnviarEmail($asunto,$correo,$body){
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if (!$mail->send()) {
-      $resultadoEmail = false;
+      $resultadoEmail = 0;
     }
     
   } catch (Exception $e) {

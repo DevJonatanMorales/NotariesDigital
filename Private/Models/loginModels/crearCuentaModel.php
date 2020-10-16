@@ -68,9 +68,8 @@ class CrearCuentaModel extends ModelFather
       $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital.";
 
       $contenido = wordwrap($contenido, 70, "\r\n");
-      $email = EnviarEmail('Bienvenido',$this->datos['correo'],$contenido);
       
-      $this->resultado = $email;
+      $this->resultado = EnviarEmail('Bienvenido',$this->datos['correo'],$contenido);
 
     } else {
       $this->resultado = array("resultado" => "Formulario Invalido");
@@ -83,12 +82,15 @@ class CrearCuentaModel extends ModelFather
 */
 }
 
+$crearCuenta = new CrearCuentaModel();
+
 if (isset($_POST['Datos'])) {
   $crearCuenta = new CrearCuentaModel();
   $crearCuenta->RecibirDatos($_POST['Datos']);
-  print_r(json_encode($crearCuenta->resultado));
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode($crearCuenta->resultado);
 } else {
-  print_r(json_encode(['resultado' => 0]));
+  echo json_encode(['resultado' => 0]);
 }
 
 ?>
