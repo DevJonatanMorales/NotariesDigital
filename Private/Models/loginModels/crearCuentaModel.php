@@ -52,6 +52,11 @@ class CrearCuentaModel extends ModelFather
     }
   }
 
+  private function PrintJSON($stringJson) {
+    header('Content-Type: application/json');
+    $this->resultado = json_encode($stringJson);
+  }
+  
   private function CrearCuentaCliente() {
     if ($this->validacion === 'correcto') {
       $pass = $this->GenerarPass();// se genera la contraseña.
@@ -69,7 +74,7 @@ class CrearCuentaModel extends ModelFather
 
       $contenido = wordwrap($contenido, 70, "\r\n");
       
-      $this->resultado = EnviarEmail('Bienvenido',$this->datos['correo'],$contenido);
+      $this->PrintJSON(EnviarEmail('Bienvenido',$this->datos['correo'],$contenido));
 
     } else {
       $this->resultado = array("resultado" => "Formulario Invalido");
@@ -87,8 +92,7 @@ $crearCuenta = new CrearCuentaModel();
 if (isset($_POST['Datos'])) {
   $crearCuenta = new CrearCuentaModel();
   $crearCuenta->RecibirDatos($_POST['Datos']);
-  header('Content-Type: application/json; charset=utf-8');
-  echo json_encode($crearCuenta->resultado);
+  echo $crearCuenta->resultado;
 } else {
   echo json_encode(['resultado' => 0]);
 }
