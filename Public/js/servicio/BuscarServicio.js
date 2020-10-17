@@ -11,25 +11,23 @@ const BuscarServicio = () => {
     url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
     data: { datos },
     success: function (result) {
+      
       $("#tbody").html("");
-      if (result == 0) 
-      {
+      if (result == 0) {
         layout += `<tr>
                     <td>No hay datos que coincidan.</td>
                   </tr>`;
         $("#tbody").html(layout);
-      } 
-      else 
-      {     
-        const datos = JSON.parse(result);
-        datos.forEach((datos) => {
+      } else {     
+        result.forEach((datos) => {
           layout += `<tr>
                       <td style="width: 250px" >${datos.nom_servicio}</td>
                       <td style="width: 155px" >${datos.categoria}</td>
                       <td style="width: 650px" >${datos.des_servicio}</td>
                     </tr>`;
-          $("#tbody").html(layout);
         });
+
+        $("#tbody").html(layout);
       }      
       
     },
@@ -52,9 +50,8 @@ const MostrarServicio = () => {
       $("#tbody").html("Cargando datos...");
     },
     success: function (result) {
-      console.log(result);
+      
       result.forEach((datos) => {
-        console.log(datos);
         layout += `<tr>
                     <td style="width: 250px" >${datos.nom_servicio}</td>
                     <td style="width: 155px" >${datos.categoria}</td>

@@ -31,7 +31,7 @@ class BuscarServicio extends ModelFather
   {
     $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM categorias INNER JOIN servicios on categorias.categoria_id=servicios.categoria_id";
 
-    $this->resultado = $this->Read($sql);
+    $this->PrintJSON($this->Read($sql));
   }
 
   private function BuscarServicios()
@@ -39,7 +39,12 @@ class BuscarServicio extends ModelFather
     # code...
     $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM categorias INNER JOIN servicios on categorias.categoria_id=servicios.categoria_id WHERE servicios.nom_servicio LIKE '%". $this->datos['sql'] . "%' OR categorias.categoria LIKE '%". $this->datos['sql'] . "%'";
 
-    $this->resultado = $this->Read($sql);
+    $this->PrintJSON($this->Read($sql));
+  }
+
+  private function PrintJSON($stringJson) {
+    header('Content-Type: application/json');
+    $this->resultado = json_encode($stringJson);
   }
 
 }
@@ -49,8 +54,7 @@ $BuscarServicio = new BuscarServicio();
 if(isset($_POST['datos']))
 {
   $BuscarServicio->RecibirDatos($_POST['datos']);
-  header('Content-Type: application/json; charset=utf-8');
-  echo json_encode($BuscarServicio->resultado);
+  echo $BuscarServicio->resultado;
 }
 
 ?>
