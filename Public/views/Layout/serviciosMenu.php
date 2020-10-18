@@ -21,7 +21,7 @@
         <a class="nav-link OpenSans" href="registrate.php">Registrate</a>
       </li>
       <li class="nav-item <?php echo $link == "login"? "active": ''; ?>">
-        <a class="nav-link OpenSans" href="login.php">Iniciar Sesion</a>
+        <a class="nav-link OpenSans" href="login.php">Iniciar Sesión</a>
       </li>
     </ul>
   </div>
