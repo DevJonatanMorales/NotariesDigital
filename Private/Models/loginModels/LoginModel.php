@@ -24,7 +24,7 @@ class LoginModel extends ModelFather
                 break;
             
             case 'ingresar':
-                $this->ValidarDatos($this->datos['query']);
+                $this->ValidarDatos();
                 break;
             
             default:
@@ -35,8 +35,10 @@ class LoginModel extends ModelFather
 
     private function ValidarDatos()
     {
-    if (preg_match("/^[0-9]{7}$/", $this->datos['usuario']) && preg_match("/^[a-z]{3}[0-9]{5}$/", $this->datos['password'])) 
-    {
+    if (
+        preg_match("/^[a-zA-Z0-9\_\-]{3,10}$/", $this->datos['user']) && 
+        preg_match("/^[a-zA-Z0-9]{6,10}$/", $this->datos['pass'])
+        ) {
         $this->validacion = "correcto";
     } 
 
@@ -45,12 +47,12 @@ class LoginModel extends ModelFather
 
     private function ProcesarDatos()
     {
-        if ($this->validacion === 'correcto')
-        {
-            $sql = "";
-        } 
-        else
-        {
+        if ($this->validacion === 'correcto') {
+            $pass = $this->EncriptarPass($this->datos['pass']);
+            $sql = "SELECT usuarios.usuario_id, usuarios.tipo_userid FROM usuarios WHERE usuarios.user = '".$this->datos['user']."' AND usuarios.pass = '".$pass."'";
+            
+            $this->PrintJSON($this->Read($sql));       
+        } else {
             $this->resultado = array("resultado" => 0);
         }
 
@@ -62,20 +64,17 @@ class LoginModel extends ModelFather
         $this->resultado = $this->Read($sql);
         
     }
+
+    private function PrintJSON($stringJson) {
+        header('Content-Type: application/json');
+        $this->resultado = json_encode($stringJson);
+    }
 }
 
-if(isset($_POST['datos']))
-{
-    
-    $login = new LoginModel();
+$login = new LoginModel();
+if(isset($_POST['datos'])) {
     $login->RecibirDatos($_POST['datos']);
-    print_r($login->resultado);
-    
-    // print_r($_POST['datos']);
-}
-else
-{
-    print_r(json_encode(['resultado' => 0]));
+    echo $login->resultado;    
 }
 
 ?>
