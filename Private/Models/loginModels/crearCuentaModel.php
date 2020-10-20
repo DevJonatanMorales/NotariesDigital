@@ -74,12 +74,12 @@ class CrearCuentaModel extends ModelFather
           
           $this->PrintJSON(EnviarEmail('Bienvenido',$this->datos['correo'],$contenido));
         } else {
-          $this->PrintJSON(['rsult'=>'error en cliente']);
+          $this->PrintJSON(['result'=>'error en cliente']);
         }
         
         
       } else {        
-        $this->PrintJSON(['rsult'=>'error en user']);
+        $this->PrintJSON(['result'=>'error en user']);
       }
 
     } else {
