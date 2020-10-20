@@ -47,6 +47,25 @@ class PerfilUser extends ModelFather
 
   }
 
+  private function EditarPerfil()
+  {
+    session_start();
+    
+    $sqlUser = "UPDATE `usuarios` SET `user`='".$this->datos['user']."',`email`='".$this->datos['correo']."' WHERE `usuario_id` = '".$_SESSION['USER_ID']."'";
+
+    if ($this->Query($sqlUser) == true) {
+      $sqlCLiente = "UPDATE `clientes` SET `telefono`='".$this->datos['telefono']."',`direccion`='".$this->datos['direccion']."' WHERE `usuario_id` = '".$_SESSION['USER_ID']."'";
+
+      if ($this->Query($sqlCLiente) == true) {
+        $this->PrintJSON(['result' => 1]);
+      } else {
+        $this->PrintJSON(['result' => 0]);
+      }
+    } else {
+      $this->PrintJSON(['result' => 0]);
+    }
+  }
+
   private function PrintJSON($stringJson) {
     header('Content-Type: application/json; charset=utf-8');
     $this->resultado = json_encode($stringJson);
