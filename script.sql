@@ -10,6 +10,7 @@ CREATE TABLE usuarios
 (
   usuario_id INT NOT NULL AUTO_INCREMENT,
   tipo_userid INT,
+  foto VARCHAR(150),
   user VARCHAR(15),
   pass VARCHAR(100),
   email VARCHAR(150),
