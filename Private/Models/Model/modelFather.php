@@ -8,27 +8,13 @@ class ModelFather extends Conection
 {
 	protected $result; /** - Comentario: variable donde se almacena el resultado - **/
 
-	protected function Read($sql)
-	{
+	protected function Read($sql)	{
 		$this->OpenConection();
 
 		$consulta = $this->conn->query($sql);
 
-		if ($consulta->num_rows > 0) 
-		{
-
-			if ($consulta->num_rows === 1) 
-			{
-				$this->result = $consulta->fetch_object();
-			} 
-			else if ($consulta->num_rows > 0)
-			{
-				while($row = $consulta->fetch_object()) 
-				{
-					$this->result[] = $row;
-				}
-			}
-			
+		if ($consulta->num_rows > 0) {
+			$this->result = $consulta->fetch_all(MYSQLI_ASSOC);
 		} else {
 			$this->result = 0;
 		}
@@ -37,16 +23,12 @@ class ModelFather extends Conection
 		$this->conn->close();
 	}
 
-	protected function Query($sql)
-	{
+	protected function Query($sql) {
 		$this->OpenConection();
 		
-		if ($this->conn->query($sql) === TRUE)
-		{
+		if ($this->conn->query($sql) === TRUE) {
 			$this->result = true;
-		} 
-		else
-		{
+		} else {
 			 echo "Error: " . $sql . "<br>" . $this->conn->error;
 			 $this->result = false;
 		}
@@ -55,16 +37,13 @@ class ModelFather extends Conection
 		$this->conn->close();
 	}
 
-	protected function LastID($sql)
-	{
+	protected function LastID($sql) {
 		$this->OpenConection();
 		
 		if ($this->conn->query($sql) === TRUE) {
 			$last_id = $this->conn->insert_id;
 			$this->result = $last_id;
-		} 
-		else 
-		{
+		} else {
 			$this->result = 0;
 			echo "Error: " . $sql . "<br>" . $this->conn->error;
 		}
@@ -73,8 +52,7 @@ class ModelFather extends Conection
 		$this->conn->close();
 	}
 
-	protected function EncriptarPass($clave)
-	{
+	protected function EncriptarPass($clave) {
 		$nivel_0 = strip_tags($clave);
 		$nivel_1 = md5 ($nivel_0);
 		$nivel_2 = crc32($nivel_1); 
@@ -84,34 +62,30 @@ class ModelFather extends Conection
 		return $clave_encriptada;
 	}
 
-	protected function calcularEdad($fecha) 
-	{
+	protected function calcularEdad($fecha) {
 		list($Y,$m,$d) = explode("-",$fecha);
 		return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
 	}
 	
-	protected function GenerarPass() //obtenemos la contraseña
-	{
+	protected function GenerarPass() {
 		//genera una letra Mayuscula aleatoria
 		$letraAleatoria = chr(rand(ord("A"), ord("Z")));
 		$palabra = '';
 		$num = '';
 		$max = 9;
 		//se genera un numero aleatoria de 3 sifras
-		for($i=0; $i < 3; $i++)
-		{ 
+		for($i=0; $i < 3; $i++)	{ 
 			$num .= mt_rand(0, $max);
 		}
 		//se genera una palabra de 5 letras
-		for($i=0; $i < 5; $i++)
-		{ 
+		for($i=0; $i < 5; $i++)	{ 
 			$palabra .= $palabraAleatoria = chr(rand(ord("a"), ord("z")));
 		}
 
 		return $letraAleatoria . $palabra . $num;
 	}
 
-	protected function EnviarCorreo($asunto,$correo,$body){
+	protected function EnviarCorreo($asunto,$correo,$body) {
 		$resultadoEmail = true;
 	    $mail = new PHPMailer;
 

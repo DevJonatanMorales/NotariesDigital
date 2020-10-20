@@ -7,6 +7,7 @@ const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll('#formulario input');
 const textArea = document.getElementById('direccion');
 const genero = document.getElementById('genero');
+const btnCuenta = document.getElementById('btnCuenta');
 /* - Comentario: Expresiones regulares - */
 const Expresiones = {
 	usuario:/^[a-zA-Z0-9\_\-]{3,10}$/, 
@@ -39,6 +40,7 @@ let Datos = {
   correo: null,
   direccion: null
 };
+/* - Comentario Si el formulario es correcto - */
 const FormularioValido = (campo) => {
   document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
   document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
@@ -46,6 +48,7 @@ const FormularioValido = (campo) => {
   document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
   document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
 }
+/* - Comentario Si el formulario es incorrecto - */
 const FormularioInValido = (campo) => {
   document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
   document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
@@ -87,10 +90,10 @@ const BuscarUser = (input, campo) => {
   
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/LoginModel.php",
+    url: "../../../Private/Models/LoginModels/loginModel.php",
     data: { datos },
     success: function (data) {
-      // console.log(`valor de la dataUser: ${data}`);
+
       if (data == 0) {
         FormularioValido(campo);
         document.getElementById(input.id).innerHTML = "";
@@ -174,25 +177,31 @@ const ProcesarDatos = () => {
     type: "POST",
     url: "../../../Private/Models/LoginModels/crearCuentaModel.php",
     data: { Datos },
-    dataType: "json",
+    beforeSend: function () {
+      btnCuenta.innerText = "Creando Cuenta";
+    },
     success: function (data) {
-      console.log(`valor de la data: ${data}`);
-      if (data.resultato == 1) {
+      btnCuenta.innerText = "Crear Cuenta";
+      
+      if (data == 1) {
         Swal.fire({
           type: 'success',
-          title: 'Gracias por registrate en Notaries Digital, verfique su correo.',
+          title: 'Éxito',
+          text: 'Gracias por registrate en Notaries Digital, verfique su correo.',
           showConfirmButton: true
         });
       } else {
         Swal.fire({
           type: 'warning',
-          title: 'Ocurrio un Error, por favor vuelva a intentar',
+          title: 'Advertencia',
+          text: 'Ocurrio un Error, por favor vuelva a intentar',
           showConfirmButton: true
         });
       }
       
     },
     error: function () {
+      btnCuenta.innerText = "Crear Cuenta";
       console.log("No se ha podido obtener la información");
     },
   });
@@ -213,12 +222,33 @@ textArea.addEventListener("click", ValDireccion);
 
 genero.addEventListener("click", ValGenero);
 genero.addEventListener("blur", ValGenero);
+
+const LimpiarCampos = () => {
+  Campos['usuario']   = false;
+  Campos['nombres']   = false;
+  Campos['apellidos'] = false;
+  Campos['genero']    = false;
+  Campos['fecha']     = false;
+  Campos['telefono']  = false;
+  Campos['correo']    = false;
+  Campos['direccion'] = false;
+
+  Datos['usuario']   = null;
+  Datos['nombres']   = null;
+  Datos['apellidos'] = null;
+  Datos['genero']    = null;
+  Datos['fecha']     = null;
+  Datos['telefono']  = null;
+  Datos['correo']    = null;
+  Datos['direccion'] = null;
+}
 /* - Cuando de click en crear cuenta - */
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
-  // console.log(Datos);
+
   if (Campos.usuario && Campos.nombres && Campos.apellidos && Campos.genero && Campos.fecha && Campos.telefono && Campos.correo && Campos.direccion) {
     ProcesarDatos();
+    LimpiarCampos();
     formulario.reset();
     document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
       icono.classList.remove('formulario__grupo-correcto');
@@ -226,7 +256,8 @@ formulario.addEventListener('submit', (e) => {
   } else {
     Swal.fire({
       type: 'warning',
-      title: 'Por favor complete el formulario.',
+      title: 'Advertencia',
+      text: 'Por favor complete el formulario.',
       showConfirmButton: true
     });
   }

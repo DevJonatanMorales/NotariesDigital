@@ -2,24 +2,13 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <!-- alertas -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notaries Digital</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../../css/style.css">
-  <link rel="icon" href="../../img/IncoND.png">
+  <?php require_once("../Layout/head.php"); ?>
 </head>
 
 <body>
   <?php 
     $link = "nosotros";
-    require_once("../Layout/servicios.php"); 
+    require_once("../Layout/serviciosMenu.php"); 
   ?>
 
   <div class="container">
@@ -38,19 +27,22 @@
               <p>Confianza.</p>
             </li>
             <li>
-              <p>Integridad.</p>
-            </li>
-            <li>
-              <p>Honestidad.</p>
+              <p>Justicia.</p>
             </li>
             <li>
               <p>Profesionalismo.</p>
             </li>
             <li>
-              <p>Calidad.</p>
+              <p>Innovación.</p>
             </li>
             <li>
-              <p>Innovacion.</p>
+              <p>Ética.</p>
+            </li>
+            <li>
+              <p>Lealtad.</p>
+            </li>
+            <li>
+              <p>Privacidad.</p>
             </li>
           </ul>
         </div>
@@ -59,9 +51,12 @@
         <img src="../../img/mision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Misión</h5>
-          <p class="card-text">Nuestra empresa es una la cual tiene presencia nacional y nos dedicamos a desarrollar y
-            comercializar
-            aplicaciones web y similares, brindando formas de solucionar los problemas de nuestros usuarios.</p>
+          <p class="card-text">
+            Somos una aplicación web que brinda servicios de consultorías y permite realizar tramites
+            legales basados en las leyes salvadoreñas directamente con Abogados de la Republica de El Salvador,
+            totalmente en línea y de esta manera facilitar en muchos sentidos el proceso de realizar un tramite legal a
+            diferencia de cuando se hace en la vía común.
+          </p>
         </div>
       </div>
 
@@ -69,9 +64,10 @@
         <img src="../../img/vision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Visión</h5>
-          <p class="card-text">Ser la mejor empresa a nivel nacional en el desarrollo y comercialización de
-            aplicaciones web y similares,
-            buscando ser el número uno en innovación y ventas.</p>
+          <p class="card-text">Alcanzar la integración de muchos más tramites legales a la aplicación y que puedan
+            hacerse completamente en línea, de esta manera ayudar y resolver mas problemas de nuestros clientes ya sea
+            que nuestros clientes estén dentro o fuera de nuestro país siempre y cuando su tramite se rija por las leyes
+            de El Salvador.</p>
         </div>
       </div>
 
@@ -80,16 +76,6 @@
 
   <?php require_once("../Layout/footer.php") ?>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-  <script src="../../js/jquery-3.4.1.min.js"></script>
 </body>
 
 </html>
