@@ -4,6 +4,11 @@ body {
   overflow-x: hidden;
 }
 
+#contenido {
+  height: 600px;
+  overflow-y: scroll;
+}
+
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
