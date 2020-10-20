@@ -1,11 +1,3 @@
-<?php
-/*
-session_start();
-if (!$_SESSION['USERNAME']) {
-    header("Location: ../Login/IniciarSesion.php");
-}
-*/
-?>
 <div class="sidebar-heading Broadway bg-dark">Notaries Digital</div>
 <div class="card bg-dark" style="width: 15rem; ">
   <div id="contener-foto-user" class="foto contener-foto-user">

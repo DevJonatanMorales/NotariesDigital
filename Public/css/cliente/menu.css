@@ -75,8 +75,7 @@ body {
 }
 
 .contener-foto-user .contener-foto {
-  /* display: none; */
-  display: block;
+  display: none; 
   border-radius: 3px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);

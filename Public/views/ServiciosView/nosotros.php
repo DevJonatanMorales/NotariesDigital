@@ -27,19 +27,22 @@
               <p>Confianza.</p>
             </li>
             <li>
-              <p>Integridad.</p>
-            </li>
-            <li>
-              <p>Honestidad.</p>
+              <p>Justicia.</p>
             </li>
             <li>
               <p>Profesionalismo.</p>
             </li>
             <li>
-              <p>Calidad.</p>
+              <p>Innovación.</p>
             </li>
             <li>
-              <p>Innovacion.</p>
+              <p>Ética.</p>
+            </li>
+            <li>
+              <p>Lealtad.</p>
+            </li>
+            <li>
+              <p>Privacidad.</p>
             </li>
           </ul>
         </div>
@@ -48,9 +51,12 @@
         <img src="../../img/mision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Misión</h5>
-          <p class="card-text">Nuestra empresa es una la cual tiene presencia nacional y nos dedicamos a desarrollar y
-            comercializar
-            aplicaciones web y similares, brindando formas de solucionar los problemas de nuestros usuarios.</p>
+          <p class="card-text">
+            Somos una aplicación web que brinda servicios de consultorías y permite realizar tramites
+            legales basados en las leyes salvadoreñas directamente con Abogados de la Republica de El Salvador,
+            totalmente en línea y de esta manera facilitar en muchos sentidos el proceso de realizar un tramite legal a
+            diferencia de cuando se hace en la vía común.
+          </p>
         </div>
       </div>
 
@@ -58,9 +64,10 @@
         <img src="../../img/vision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Visión</h5>
-          <p class="card-text">Ser la mejor empresa a nivel nacional en el desarrollo y comercialización de
-            aplicaciones web y similares,
-            buscando ser el número uno en innovación y ventas.</p>
+          <p class="card-text">Alcanzar la integración de muchos más tramites legales a la aplicación y que puedan
+            hacerse completamente en línea, de esta manera ayudar y resolver mas problemas de nuestros clientes ya sea
+            que nuestros clientes estén dentro o fuera de nuestro país siempre y cuando su tramite se rija por las leyes
+            de El Salvador.</p>
         </div>
       </div>
 

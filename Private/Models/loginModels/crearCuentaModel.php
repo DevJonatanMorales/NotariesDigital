@@ -51,13 +51,9 @@ class CrearCuentaModel extends ModelFather
         break;
     }
   }
-
-  private function PrintJSON($stringJson) {
-    header('Content-Type: application/json');
-    $this->resultado = json_encode($stringJson);
-  }
   
-  private function CrearCuentaCliente() {
+  private function CrearCuentaCliente() 
+  {
     if ($this->validacion === 'correcto') {
       $pass = $this->GenerarPass();// se genera la contraseña.
       $pasEncrip = $this->EncriptarPass($pass);// se encrpita la contraseña
@@ -65,19 +61,30 @@ class CrearCuentaModel extends ModelFather
       $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('" . $this->datos['tipoUser'] . "','" . $this->datos['usuario'] . "','" . $pasEncrip . "','" . $this->datos['correo'] . "')";
       /** - Comentario: Insertamos en la tabla usuario - **/
       $usuario_id = $this->LastID($sqlUser);// se inserta en tbUsuaruio y recupera el ID del usuario.
-      /* - Comentario: Creamos la consulta de la tb cliente - */
-      $sqlCliente = "INSERT INTO `clientes`(`cliente_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `direccion`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['direccion'] . "')";
-      /** - Comentario: Insertamos en la tabla cliente - **/
-      $this->Query($sqlCliente);
 
-      $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital.";
+      if ($usuario_id > 0) {
+        /* - Comentario: Creamos la consulta de la tb cliente - */
+        $sqlCliente = "INSERT INTO `clientes`(`cliente_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `direccion`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['direccion'] . "')";
+        /** - Comentario: Insertamos en la tabla cliente - **/
+        
+        if ($this->Query($sqlCliente) == true) {
+          $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital dando <a href=\"https://notariesdigital.000webhostapp.com/Public/views/ServiciosView/login.php\">Click Aqui</a>.";
 
-      $contenido = wordwrap($contenido, 70, "\r\n");
-      
-      $this->PrintJSON(EnviarEmail('Bienvenido',$this->datos['correo'],$contenido));
+          $contenido = wordwrap($contenido, 70, "\r\n");
+          
+          $this->PrintJSON(EnviarEmail('Bienvenido',$this->datos['correo'],$contenido));
+        } else {
+          $this->PrintJSON(['rsult'=>'error en cliente']);
+        }
+        
+        
+      } else {        
+        $this->PrintJSON(['rsult'=>'error en user']);
+      }
 
     } else {
       $this->resultado = array("resultado" => "Formulario Invalido");
+      $this->PrintJSON($this->resultado);
     }
   }
 /*
@@ -85,6 +92,12 @@ class CrearCuentaModel extends ModelFather
 
   }
 */
+
+  private function PrintJSON($stringJson) 
+  {
+    header('Content-Type: application/json; charset=utf-8');
+    $this->resultado = json_encode($stringJson);
+  }
 }
 
 $crearCuenta = new CrearCuentaModel();

@@ -23,7 +23,8 @@ const FormularioInValido = (msj) => {
 let datoUser = {
   accion: "recuperarPass",
   userID: null,
-  nombre: null
+  user: null,
+  correo: null
 };
 /* - Comentario: Funcion encargar de buscar el correo - */
 const BuscarCorreo = (input) => {
@@ -37,15 +38,15 @@ const BuscarCorreo = (input) => {
     url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
     data: { datos },
     success: function (data) {
-      console.log(data);
       if (data == 0) {
         FormularioInValido("El correo no existe");
         btnCorreo.setAttribute("disabled", "");
       } else {
+        datoUser['user'] = data[0]['user'];
+        datoUser['userID'] = data[0]['usuario_id'];
+        datoUser['correo'] = datos.input;
         FormularioValido();
         btnCorreo.removeAttribute("disabled");
-        datoUser['nombre'] = data.nombres;
-        datoUser['userID'] = data.usuario_id;
       }
     },
     error: function () {
@@ -72,40 +73,47 @@ const ValidarCorreo = () => {
 txtCorreo.addEventListener("keyup", ValidarCorreo);
 
 const RecuperarPass = (datos) => {
-  // console.log(`Los datos que se enviaran son: ${datos}`);
-  
+
   $.ajax({
     type: "POST",
     url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
     data: { datos },
-    dataType: "json",
     beforeSend: function () {
-      btnCorreo.innerText = "Enviando correo...";
+      btnCorreo.innerText = "Enviando correo";
     },
     success: function (data) {
-      // console.log(`Valor de data: ${data}`);
       btnCorreo.innerText = "Recuperar Contraseña";
       if (data == 1) {
         Swal.fire({
           type: 'success',
-          title: 'Se ha enviado un mensaje a su correo con las instruciones para que pueda cambiar su contraseña',
+          title: 'Éxito',
+          text: 'Se ha enviado un mensaje a su correo con las instruciones para que pueda cambiar su contraseña.',
           showConfirmButton: true
         });
       } else {
         Swal.fire({
           type: 'warning',
-          title: 'Ocurrio un Error, por favor vuelva a intentar',
+          title: 'Advertencia',
+          text: 'Ocurrio un Error, por favor vuelva a intentar más tarde.',
           showConfirmButton: true
         });
       }
      
     },
     error: function () {
+      btnCorreo.innerText = "Recuperar Contraseña";;
       console.log("No se ha podido obtener la información");
     },
   });
 
 };
+
+const LimpiarCampos = () => {
+  estadoCorreo = false;
+  datoUser['userID'] = null;
+  datoUser['user'] = null;
+  datoUser['correo'] = null;
+}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -117,8 +125,10 @@ form.addEventListener("submit", (e) => {
   } else {
     Swal.fire({
       type: 'warning',
-      title: 'Ocurrio un Error, por favor vuelva a intentar',
+      title: 'Advertencia',
+      text: 'Ocurrio un Error, por favor vuelva a intentar',
       showConfirmButton: true
     });
   }
+  LimpiarCampos();
 });

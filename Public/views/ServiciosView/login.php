@@ -25,7 +25,7 @@
       <!-- Grupo: pass -->
       <div class="form-group">
         <label for="pass">Contraseña</label>
-        <input class="form-control" type="text" name="pass" id="pass">
+        <input class="form-control" type="password" name="pass" id="pass">
       </div>
 
       <div class="form-group">

@@ -14,15 +14,7 @@ class ModelFather extends Conection
 		$consulta = $this->conn->query($sql);
 
 		if ($consulta->num_rows > 0) {
-
-			if ($consulta->num_rows === 1) {
-				$this->result = $consulta->fetch_object();
-			} else {
-				while($row = $consulta->fetch_object()) {
-					$this->result[] = $row;
-				}
-			}
-			
+			$this->result = $consulta->fetch_all(MYSQLI_ASSOC);
 		} else {
 			$this->result = 0;
 		}

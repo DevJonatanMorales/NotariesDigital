@@ -90,10 +90,10 @@ const BuscarUser = (input, campo) => {
   
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/LoginModel.php",
+    url: "../../../Private/Models/LoginModels/loginModel.php",
     data: { datos },
     success: function (data) {
-      console.log(data);
+
       if (data == 0) {
         FormularioValido(campo);
         document.getElementById(input.id).innerHTML = "";
@@ -177,29 +177,31 @@ const ProcesarDatos = () => {
     type: "POST",
     url: "../../../Private/Models/LoginModels/crearCuentaModel.php",
     data: { Datos },
-    dataType: "json",
     beforeSend: function () {
-      btnCuenta.innerText = "Creando Cuenta...";
+      btnCuenta.innerText = "Creando Cuenta";
     },
     success: function (data) {
-      console.log(`valor de la data: ${data}`);
       btnCuenta.innerText = "Crear Cuenta";
+      
       if (data == 1) {
         Swal.fire({
           type: 'success',
-          title: 'Gracias por registrate en Notaries Digital, verfique su correo.',
+          title: 'Éxito',
+          text: 'Gracias por registrate en Notaries Digital, verfique su correo.',
           showConfirmButton: true
         });
       } else {
         Swal.fire({
           type: 'warning',
-          title: 'Ocurrio un Error, por favor vuelva a intentar',
+          title: 'Advertencia',
+          text: 'Ocurrio un Error, por favor vuelva a intentar',
           showConfirmButton: true
         });
       }
       
     },
     error: function () {
+      btnCuenta.innerText = "Crear Cuenta";
       console.log("No se ha podido obtener la información");
     },
   });
@@ -220,12 +222,33 @@ textArea.addEventListener("click", ValDireccion);
 
 genero.addEventListener("click", ValGenero);
 genero.addEventListener("blur", ValGenero);
+
+const LimpiarCampos = () => {
+  Campos['usuario']   = false;
+  Campos['nombres']   = false;
+  Campos['apellidos'] = false;
+  Campos['genero']    = false;
+  Campos['fecha']     = false;
+  Campos['telefono']  = false;
+  Campos['correo']    = false;
+  Campos['direccion'] = false;
+
+  Datos['usuario']   = null;
+  Datos['nombres']   = null;
+  Datos['apellidos'] = null;
+  Datos['genero']    = null;
+  Datos['fecha']     = null;
+  Datos['telefono']  = null;
+  Datos['correo']    = null;
+  Datos['direccion'] = null;
+}
 /* - Cuando de click en crear cuenta - */
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
-  // console.log(Datos);
+
   if (Campos.usuario && Campos.nombres && Campos.apellidos && Campos.genero && Campos.fecha && Campos.telefono && Campos.correo && Campos.direccion) {
     ProcesarDatos();
+    LimpiarCampos();
     formulario.reset();
     document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
       icono.classList.remove('formulario__grupo-correcto');
@@ -233,7 +256,8 @@ formulario.addEventListener('submit', (e) => {
   } else {
     Swal.fire({
       type: 'warning',
-      title: 'Por favor complete el formulario.',
+      title: 'Advertencia',
+      text: 'Por favor complete el formulario.',
       showConfirmButton: true
     });
   }

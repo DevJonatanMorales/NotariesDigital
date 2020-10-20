@@ -13,6 +13,12 @@ const Campos = {
   pass: false
 }
 
+let datos = {
+  accion: 'ingresar',
+  user:   null,
+  pass:   null
+}
+
 const valBtn = () => {
   if (Campos.user == true && Campos.pass == true) {
     btnLogin.removeAttribute("disabled");
@@ -25,50 +31,50 @@ const valBtn = () => {
 const valPass = () => {
   if (Expresiones.pass.test(pass.value)) {
     Campos['pass'] = true;
+    datos['pass']  = pass.value;
   } else {
     Campos['pass'] = false;
+    datos['pass']  = null
   }
 }
 
 const valUser = () => {
   if (Expresiones.user.test(user.value)) {
     Campos['user'] = true;
+    datos['user']  = user.value;
   } else {
     Campos['user'] = false;
+    datos['user']  = null;
   }
 }
 
-const Login = () => {
-  const datos = {
-    accion: 'ingresar',
-    user: user.value,
-    pass:pass.value
-  }
-
+const Login = (datos) => {
+  
   $.ajax({
     type: "POST",
     url: "../../../Private/Models/LoginModels/loginModel.php",
     data: { datos },
     beforeSend: function () {
-      btnLogin.innerText = "Validando...";
+      btnLogin.innerText = "Validando";
     },
     success: function (data) {
       console.log(data);
       btnLogin.innerText = "Iniciar Sesión";
-      
-      if (data['tipo_userid'] == 1) {
-        window.location="../AdminView/";
-      } else if (data['tipo_userid'] == 2) {
-        window.location="../AbogadoView/";
-      } else if (data['tipo_userid'] == 3) {
-        window.location="../ClienteView/";
-      } else {
+      if (data == 0) {
         Swal.fire({
           type: 'warning',
-          title: 'Usuario o contraseña incorecta',
+          title: 'Advertencia',
+          text: 'Usuario o contraseña incorecta.',
           showConfirmButton: true
         });
-      }
+      } else if (data[0]['tipo_userid'] == 1) {
+        window.location="../AdminView/";
+      } else if (data[0]['tipo_userid'] == 2) {
+        window.location="../AbogadoView/";
+      } else if (data[0]['tipo_userid'] == 3) {
+        window.location="../ClienteView/";
+      } 
+        
       
     },
     error: function () {
@@ -77,6 +83,14 @@ const Login = () => {
     },
   });
 
+}
+
+const LimpiarCampos = () => {
+  Campos['pass'] = false;
+  Campos['user'] = false;
+
+  datos['pass'] = null;
+  datos['user'] = null;
 }
 
 pass.addEventListener("keyup", valPass);
@@ -90,6 +104,18 @@ pass.addEventListener("keyup", valBtn);
 
 form,addEventListener("submit", (e) => {
   e.preventDefault();
-  Login();
-  form.reset();
+  if (Campos.user == true && Campos.pass == true) {
+    Login(datos);
+    btnLogin.setAttribute("disabled", "");
+    LimpiarCampos();
+    form.reset();
+  } else {
+    Swal.fire({
+      type: 'warning',
+      title: 'Advertencia',
+      text: 'Por favor complete el formulario.',
+      showConfirmButton: true
+    });
+  }
+  
 });

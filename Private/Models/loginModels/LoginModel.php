@@ -50,8 +50,11 @@ class LoginModel extends ModelFather
         if ($this->validacion === 'correcto') {
             $pass = $this->EncriptarPass($this->datos['pass']);
             $sql = "SELECT usuarios.usuario_id, usuarios.tipo_userid FROM usuarios WHERE usuarios.user = '".$this->datos['user']."' AND usuarios.pass = '".$pass."'";
-            
-            $this->PrintJSON($this->Read($sql));       
+            $resultSQL = $this->Read($sql);
+            session_start();
+            $_SESSION['USER_ID'] = $resultSQL[0]['usuario_id'];
+            $_SESSION['TIPO_USER'] = $resultSQL[0]['tipo_userid'];
+            $this->PrintJSON($resultSQL);
         } else {
             $this->resultado = array("resultado" => 0);
         }
@@ -61,12 +64,12 @@ class LoginModel extends ModelFather
     private function BuscarUsuario()
     {
         $sql = "SELECT usuarios.user FROM `usuarios` WHERE usuarios.user = '" . $this->datos['query'] . "'";
-        $this->resultado = $this->Read($sql);
         
+        $this->PrintJSON($this->Read($sql));
     }
 
     private function PrintJSON($stringJson) {
-        header('Content-Type: application/json');
+        header('Content-Type: application/json; charset=utf-8');
         $this->resultado = json_encode($stringJson);
     }
 }
