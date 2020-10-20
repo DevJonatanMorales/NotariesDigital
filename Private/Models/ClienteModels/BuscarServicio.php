@@ -24,6 +24,13 @@ class BuscarServicio extends ModelFather
       case 'mostrar':
         $this->MostrarServicios();
         break;
+      case 'buscarHistorial':
+        $this->BuscarHistorial();
+        break;
+      
+      case 'historial':
+        $this->MostrarHistorial();
+        break;
     }
   }
 
@@ -38,6 +45,23 @@ class BuscarServicio extends ModelFather
   {
     # code...
     $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM categorias INNER JOIN servicios on categorias.categoria_id=servicios.categoria_id WHERE servicios.nom_servicio LIKE '%". $this->datos['sql'] . "%' OR categorias.categoria LIKE '%". $this->datos['sql'] . "%'";
+
+    $this->PrintJSON($this->Read($sql));
+  }
+
+  private function MostrarHistorial()
+  {
+    session_start();
+    $sql = "SELECT abogados.nombres, servicios.nom_servicio, servicios.des_servicio FROM `abogados` INNER JOIN `tramites` ON abogados.abogado_id=tramites.abogado_id INNER JOIN `servicios` ON tramites.servicio_id=servicios.servicios_id WHERE tramites.cliente_id = '".$_SESSION['USER_ID']."'";
+
+    $this->PrintJSON($this->Read($sql));
+  }
+
+  private function BuscarHistorial()
+  {
+    session_start();
+    
+    $sql = "SELECT abogados.nombres, servicios.nom_servicio, servicios.des_servicio FROM `abogados` INNER JOIN `tramites` ON abogados.abogado_id=tramites.abogado_id INNER JOIN `servicios` ON tramites.servicio_id=servicios.servicios_id WHERE tramites.cliente_id = '".$_SESSION['USER_ID']."' AND servicios.nom_servicio LIKE '%". $this->datos['sql'] . "%' OR abogados.nombres LIKE '%". $this->datos['sql'] . "%'";
 
     $this->PrintJSON($this->Read($sql));
   }

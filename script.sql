@@ -20,6 +20,7 @@ CREATE TABLE usuarios
   INDEX(tipo_userid),
   FOREIGN KEY (tipo_userid) REFERENCES tipo_user(tipo_userid)
 );
+
 -- cliente --
 CREATE TABLE clientes
 (
@@ -69,6 +70,20 @@ CREATE TABLE servicios
   INDEX(categoria_id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
 );
+-- tramites --
+CREATE TABLE tramites 
+(
+  cliente_id INT,
+  abogado_id INT,
+  servicio_id INT,
+  INDEX(cliente_id),
+  FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+  INDEX(abogado_id),
+  FOREIGN KEY (abogado_id) REFERENCES abogados(abogado_id),
+  INDEX(servicio_id),
+  FOREIGN KEY (servicio_id) REFERENCES servicios(servicios_id)
+);
+
 
 -- INSERT TABLE TIPO USUARIO --
 INSERT INTO `tipo_user`(`tipo_userid`, `tipo`) VALUES (1,'administrador'), (2, 'abogado'), (3, 'cliente');
@@ -99,4 +114,6 @@ INSERT INTO `servicios`(`categoria_id`, `nom_servicio`, `des_servicio`) VALUES (
 (4, 'Contrado de Arendamiento Comercial', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda arrendar su casa o local para fines comerciales.');
 
 -- CONSULTA SERVICIOS --
-SELECT servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM categorias INNER JOIN servicios on categorias.categoria_id=servicios.categoria_id
+SELECT servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM `categorias` INNER JOIN `servicios` on categorias.categoria_id=servicios.categoria_id
+-- HISTORIAL --
+SELECT abogados.nombres, servicios.nom_servicio, servicios.des_servicio FROM `abogados` INNER JOIN `tramites` ON abogados.abogado_id=tramites.abogado_id INNER JOIN `servicios` ON tramites.servicio_id=servicios.servicios_id WHERE tramites.cliente_id = '20'

@@ -62,27 +62,3 @@ const getParameterByName = (name) => {
   results = regex.exec(location.search);
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-
-const MostrarAlerta = () => {
-  if (alert == 1) {
-    Swal.fire({
-      type: 'success',
-      title: 'Éxito',
-      text: 'Foto actualizada con exito.',
-      showConfirmButton: true
-    });
-  }
-  if (alert == 2) {
-    Swal.fire({
-      type: 'warning',
-      title: 'Advertencia',
-      text: 'Error al actualizar la foto.',
-      showConfirmButton: true
-    });
-  }
-}
-
-window.addEventListener("onload", () => {
-  let alert = getParameterByName('alert');
-  MostrarAlerta(alert)
-})

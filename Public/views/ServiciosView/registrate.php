@@ -122,14 +122,7 @@
           Crear Cuenta
         </button>
       </div>
-      <div class="form-group">
-        <button type="submit" id="btnCuenta" class="btn btn-dark mt-4 d-block mx-auto">
-          Crear Cuenta
-        </button>
-      </div>
-
     </form>
-
   </div>
 
   <!-- comentario Aqui se llama al pie de pag -->

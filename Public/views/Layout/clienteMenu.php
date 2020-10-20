@@ -27,6 +27,10 @@
     <i class="fas fa-user-cog"></i> Cambiar contraseña
   </a>
 
+  <a href="historial.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
+    <i class="fas fa-history"></i> Historial
+  </a>
+
   <a href="#" class="list-group-item list-group-item-action bg-dark text-white Open-Sans" id="btnExit">
     <i class="fas fa-power-off"></i> Cerrar sesión
   </a>
