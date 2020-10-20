@@ -2,7 +2,7 @@
 CREATE TABLE tipo_user 
 (
   tipo_userid INT NOT NULL,
-  tipo VARCHAR(6) NOT NULL,
+  tipo VARCHAR(20) NOT NULL,
   PRIMARY KEY (tipo_userid)
 );
 -- tabla usuario --
@@ -10,8 +10,8 @@ CREATE TABLE usuarios
 (
   usuario_id INT NOT NULL AUTO_INCREMENT,
   tipo_userid INT,
-  user VARCHAR(6),
-  pass VARCHAR(6),
+  user VARCHAR(15),
+  pass VARCHAR(100),
   email VARCHAR(150),
   codigo_pass CHAR(8),
   fech_pass DATE,
