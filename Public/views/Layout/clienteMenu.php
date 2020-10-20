@@ -11,6 +11,10 @@
     <i class="fas fa-home"></i> Inicio
   </a>
 
+  <a href="cambiarFoto.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
+    <i class="fas fa-camera"></i> Cambiar Foto
+  </a>
+
   <a href="miPerfil.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
     <i class="fas fa-user"></i> Mi perfil
   </a>

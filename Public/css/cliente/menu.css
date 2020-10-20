@@ -99,15 +99,77 @@ body {
 /*-------------------------------Vista previa foto-------------------------------*/
 
 .prevPhoto {
-  src: url(../img/defect.jpg);
-  max-width: 100px;
-  max-height: 100px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    height: 115px;
+    border: 1px solid #000;
+    position: relative;
+    cursor: pointer;
+    background: url(../../img/defaul.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
 }
-
+.prevPhoto label{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.prevPhoto img{
+    width: 100%;
+    height: 100%;
+}
+.upimg, .notBlock{
+    display: none !important;
+}
+.errorArchivo{
+    font-size: 16px;
+    color: #cc0000;
+    text-align: center;
+    font-weight: bold; 
+    margin-top: 10px;
+}
+.inactivo{
+    background-color: #DC3545;
+    color: #000;
+}
+.activo{
+    background-color: #28A745;
+    color: #000;
+}
+.delPhoto{
+    color: #FFF;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: red;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 10;
+}
+#tbl_list_productos img{
+    width: 50px;
+}
+.imgProductoDelete{
+    width: 175px;
+}
+.btnPrint{
+    margin: 10px;
+}
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;
