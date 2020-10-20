@@ -27,7 +27,7 @@
 
         <div class="container-fluid">
           <div class="d-flex justify-content-between ">
-            <h1>index</h1>
+            <h1>Editar Perfil</h1>
           </div>
         </div>
       </div>

@@ -3,8 +3,10 @@ require_once("../../Config/config.php");
 require_once("../../Conection/conection.php");
 require_once("../Model/modelFather.php");
 
-class PerfilUser
+class PerfilUser extends ModelFather
 {
+  
+  private $validacion = 'incorrecto';
   private $datos;
   public  $resultado;
 
@@ -16,7 +18,7 @@ class PerfilUser
 
   private function Accion()
   {
-    switch ($this->datos['accio']) {
+    switch ($this->datos['accion']) {
       case 'mostrar':
         $this->MostrarPerfil();
         break;

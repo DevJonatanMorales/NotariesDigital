@@ -52,13 +52,13 @@ const Login = (datos) => {
   
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/loginModel.php",
+    url: "../../../Private/Models/LoginModels/LoginModel.php",
     data: { datos },
     beforeSend: function () {
       btnLogin.innerText = "Validando";
     },
     success: function (data) {
-      console.log(data);
+
       btnLogin.innerText = "Iniciar Sesión";
       if (data == 0) {
         Swal.fire({
