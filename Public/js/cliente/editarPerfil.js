@@ -189,6 +189,8 @@ form.addEventListener("submit", (e) => {
     MostrarAlerta("Por favor complete el formulario.");
   } else {
     Actualizar(_datos);
+      document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+      icono.classList.remove('formulario__grupo-correcto');});
   }
   
 });

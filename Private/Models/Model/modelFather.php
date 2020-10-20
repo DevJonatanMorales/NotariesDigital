@@ -52,21 +52,22 @@ class ModelFather extends Conection
 		$this->conn->close();
 	}
 
-	protected function EncriptarPass($clave) {
-		$nivel_0 = strip_tags($clave);
-		$nivel_1 = md5 ($nivel_0);
-		$nivel_2 = crc32($nivel_1); 
-		$nivel_3 = crypt($nivel_2, "xtemp"); 
-		$clave_encriptada = sha1("xtemp".$nivel_3);
-		
-		return $clave_encriptada;
+	protected function Encryption($string){
+			$output=FALSE;
+			$key=hash('sha256', '$PET@STRAR');
+			$iv=substr(hash('sha256', '201956'), 0, 16);
+			$output=openssl_encrypt($string, 'AES-256-CBC', $key, 0, $iv);
+			$output=base64_encode($output);
+			return $output;
 	}
 
-	protected function calcularEdad($fecha) {
-		list($Y,$m,$d) = explode("-",$fecha);
-		return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
+	protected function Decryption($string){
+			$key=hash('sha256', '$PET@STRAR');
+			$iv=substr(hash('sha256', '201956'), 0, 16);
+			$output=openssl_decrypt(base64_decode($string), 'AES-256-CBC', $key, 0, $iv);
+			return $output;
 	}
-	
+
 	protected function GenerarPass() {
 		//genera una letra Mayuscula aleatoria
 		$letraAleatoria = chr(rand(ord("A"), ord("Z")));

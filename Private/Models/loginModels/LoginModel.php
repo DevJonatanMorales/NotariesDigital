@@ -48,7 +48,7 @@ class LoginModel extends ModelFather
     private function ProcesarDatos()
     {
         if ($this->validacion === 'correcto') {
-            $pass = $this->EncriptarPass($this->datos['pass']);
+            $pass = $this->Encryption($this->datos['pass']);
             $sql = "SELECT usuarios.usuario_id, usuarios.tipo_userid, usuarios.foto FROM usuarios WHERE usuarios.user = '".$this->datos['user']."' AND usuarios.pass = '".$pass."'";
             $resultSQL = $this->Read($sql);
             session_start();

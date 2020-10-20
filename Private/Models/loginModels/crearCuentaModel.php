@@ -55,8 +55,8 @@ class CrearCuentaModel extends ModelFather
   private function CrearCuentaCliente() 
   {
     if ($this->validacion === 'correcto') {
-      $pass = $this->GenerarPass();// se genera la contraseña.
-      $pasEncrip = $this->EncriptarPass($pass);// se encrpita la contraseña
+      $pass = $this->GenerarPass(); // se genera la contraseña.
+      $pasEncrip = $this->Encryption($pass); // se encrpita la contraseña
       /** - Comentario: Creamos la consulta de la tb usuario - **/
       $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('" . $this->datos['tipoUser'] . "','" . $this->datos['usuario'] . "','" . $pasEncrip . "','" . $this->datos['correo'] . "')";
       /** - Comentario: Insertamos en la tabla usuario - **/

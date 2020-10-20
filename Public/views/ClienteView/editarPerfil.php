@@ -31,7 +31,7 @@
 
             <form class="card col-ms-12 col-md-8 mx-auto my-4 sombre" id="formulario" autocomplete="off">
               <div class="card-header text-center">
-                <h5 class="card-title">Editar Perfil</h5>
+                <h5 class="card-title my-auto">Editar Perfil</h5>
               </div>
               <div class="card-body">
 
@@ -90,14 +90,13 @@
                 </button>
               </div>
 
-          </div>
-          </form>
+            </form>
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- /#page-content-wrapper -->
+    <!-- /#page-content-wrapper -->
 
   </div>
 

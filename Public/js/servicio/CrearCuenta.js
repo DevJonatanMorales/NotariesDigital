@@ -90,7 +90,7 @@ const BuscarUser = (input, campo) => {
   
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/loginModel.php",
+    url: "../../../Private/Models/LoginModels/LoginModel.php",
     data: { datos },
     success: function (data) {
 
@@ -182,7 +182,7 @@ const ProcesarDatos = () => {
     },
     success: function (data) {
       btnCuenta.innerText = "Crear Cuenta";
-      
+      console.log(data);
       if (data == 1) {
         Swal.fire({
           type: 'success',
