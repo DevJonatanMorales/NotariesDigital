@@ -39,25 +39,26 @@
                   <img src="../../img/<?php echo $_SESSION['FOTO_USER']; ?>" class="card-img-top border mx-auto d-block"
                     alt="Error al cargar" style="width: 14rem;">
 
-                  <ul class="list-group list-group-flush">
+                  <div class="row form-group">
+                   <p class="card-text col-sm-12 col-md-6" id="txtUser"></p>
+                   <p class="card-text col-sm-12 col-md-6" id="txtNombre"></p>
+                  </div>
 
-                    <div class="row">
-                      <div class="col-6">
-                        <li class="list-group-item" id="txtUser"></li>
-                        <li class="list-group-item" id="txtApellido"></li>
-                        <li class="list-group-item" id="txtEdad"></li>
-                        <li class="list-group-item" id="txtEmail"></li>
-                      </div>
+                  <div class="row form-group">
+                   <p class="card-text col-sm-12 col-md-6" id="txtApellido"></p>
+                   <p class="card-text col-sm-12 col-md-6" id="txtGenero"></p>
+                  </div>
+                  
+                  <div class="row form-group">
+                   <p class="card-text col-sm-12 col-md-6" id="txtEdad"></p>
+                   <p class="card-text col-sm-12 col-md-6" id="txtTelefono"></p>
+                  </div>
 
-                      <div class="col-6">
-                        <li class="list-group-item" id="txtNombre"></li>
-                        <li class="list-group-item" id="txtGenero"></li>
-                        <li class="list-group-item" id="txtTelefono"></li>
-                        <li class="list-group-item" id="txtDireccion"></li>
-                      </div>
-                    </div>
+                  <div class="row form-group">
+                   <p class="card-text col-sm-12 col-md-6" id="txtEmail"></p>
+                   <p class="card-text col-sm-12 col-md-6" id="txtDireccion"></p>
+                  </div>
 
-                  </ul>
                   <a href="editarPerfil.php" class="btn btn-dark">Editar perfil</a>
                 </div>
               </div>
