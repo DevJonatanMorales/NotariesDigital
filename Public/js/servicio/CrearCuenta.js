@@ -13,7 +13,7 @@ const Expresiones = {
 	usuario:/^[a-zA-Z0-9\_\-]{3,10}$/, 
   nombres: /^[a-zA-ZÀ-ÿ]{3,15}(\s)[a-zA-ZÀ-ÿ]{3,15}$/,
   apellidos: /^[a-zA-ZÀ-ÿ]{3,15}(\s)[a-zA-ZÀ-ÿ]{3,15}$/,
-  fecha: /^\d{4}-\d{2}-\d{2}$/, 
+  fecha: /^\d{2}-\d{2}-\d{4}$/, 
   telefono: /^[0-9]{8,14}$/,
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 };
