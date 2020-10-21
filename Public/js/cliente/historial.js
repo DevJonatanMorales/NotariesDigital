@@ -49,14 +49,21 @@ const MostrarHistorial = () => {
       $("#tbody").html("Cargando datos...");
     },
     success: function (result) {
-      
-      result.forEach((datos) => {
+      $("#tbody").html("");
+      if (result == 0) {
         layout += `<tr>
+                    <td>Usted aun no ha realizado tramites.</td>
+                  </tr>`;
+        $("#tbody").html(layout);
+      } else {     
+        result.forEach((datos) => {
+          layout += `<tr>
                     <td style="width: 205px" >${datos.nombres}</td>
                     <td style="width: 200px" >${datos.nom_servicio}</td>
                     <td style="width: 650px" >${datos.des_servicio}</td>
-                  </tr>`;
-      });
+                    </tr>`;
+        });
+      }
 
       $("#tbody").html(layout);
     },
