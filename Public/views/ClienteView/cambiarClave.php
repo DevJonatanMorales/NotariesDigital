@@ -42,8 +42,7 @@
                       <input type="password" class="formulario__input border" name="clave" id="clave">
                       <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">La contraseña debe de tener al menor una numero y una letra
-                      mayusculas.</p>
+                    <p class="formulario__input-error">La contraseña solo puede contener letras mayusculas, letra minusculas y numeros.</p>
                   </div>
                 </div>
 
@@ -54,8 +53,7 @@
                       <input type="password" class="formulario__input border" name="newClave" id="newClave">
                       <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">La contraseña debe de tener al menor una numero y una letra
-                      mayusculas.</p>
+                    <p class="formulario__input-error">La contraseña solo puede contener letras mayusculas, letra minusculas y numeros.</p>
                   </div>
                 </div>
 
@@ -66,8 +64,7 @@
                       <input type="password" class="formulario__input border" name="confClave" id="confClave">
                       <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">La contraseña debe de tener al menor una numero y una letra
-                      mayusculas.</p>
+                    <p class="formulario__input-error">El contraseña solo puede contener letras mayusculas, letra minusculas y numeros.</p>
                   </div>
                 </div>
 
