@@ -64,7 +64,7 @@ const Login = (datos) => {
         Swal.fire({
           type: 'warning',
           title: 'Advertencia',
-          text: 'Usuario o contraseña incorecta.',
+          text: 'Usuario o contraseña incorrecta.',
           showConfirmButton: true
         });
       } else if (data[0]['tipo_userid'] == 1) {
