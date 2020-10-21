@@ -19,7 +19,7 @@
       </div>
       <div class="col-sm-8 p-4">
         <p class="OpenSans h4"><span class="display-4 OpenSans">¿Ques es Notaries Digital?</span>es una aplicación web
-          donde podrás realizar tus tramites notariales en línea y consultorías.</p>
+          donde podrás realizar tus tramites notariales en línea.</p>
         <P class="OpenSans h4">
           Así que te invitamos a que te regístrate en nuestra aplicación web totalmente gratis con solo dar <a
             href="registrate.php" class="card-link">Click aqui</a>
