@@ -27,10 +27,11 @@
         <div class="container-fluid">
           <div class="d-flex justify-content-between ">
 
-            <div class="mx-auto d-block my-4 col-sm-12 col-md-4">
+            <div class="mx-auto d-block my-4 col-sm-12 col-md-10 col-lg-10">
 
-              <div class="form-group  ml-auto">
-                <input type="text" id="buscar" class="form-control sombre" placeholder="Buscar por servicio ó abogado">
+              <div class="form-group  mr-auto">
+                <input type="text" id="buscar" class="form-control col-sm-12 col-md-6"
+                  placeholder="Buscar por servicio ó abogado">
               </div>
 
               <div class="table-responsive">
