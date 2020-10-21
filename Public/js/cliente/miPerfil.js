@@ -16,7 +16,7 @@ const MostrarPerfil = () => {
     url: "../../../Private/Models/ClienteModels/perfilUserModel.php",
     data: {datos},
     success: function (data) {
-      document.getElementById("txtUser").innerHTML = `Usaurio: ${data[0]['user']}`;
+      document.getElementById("txtUser").innerHTML = `Usuario: ${data[0]['user']}`;
       document.getElementById("txtNombre").innerHTML = `Nombre: ${data[0]['nombres']}`;
       document.getElementById("txtApellido").innerHTML = `Apellido: ${data[0]['apellidos']}`;
       document.getElementById("txtGenero").innerHTML = `Genero: ${data[0]['genero']}`;
