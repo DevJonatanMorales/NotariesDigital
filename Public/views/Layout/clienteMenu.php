@@ -1,39 +1,37 @@
-<div class="sidebar-heading Broadway bg-dark">Notaries Digital</div>
-<div class="card bg-dark" style="width: 15rem; ">
-  <div id="contener-foto-user" class="foto contener-foto-user my-4">
-    <img src="../../img/<?php echo $_SESSION['FOTO_USER']; ?>" class="bg-white perfilUser rounded" alt="Error"
-      width="90px" height="95px">
+<nav class="navbar navbar-expand-lg navbar-dark fondo">
+  <a class="navbar-brand Broadway text-white" href="#">NOTARIES DIGITAL</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item <?php echo $link == "Inicio"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="index.php">Inicio</a>
+      </li>
+      <li class="nav-item <?php echo $link == "miPerfil"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="miPerfil.php">Mi perfil</a>
+      </li>
+      <li class="nav-item <?php echo $link == "upPerfil"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="editarPerfil.php">Editar perfil</a>
+      </li>
+      <li class="nav-item <?php echo $link == "upClave"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="cambiarClave.php">Cambiar contraseña</a>
+      </li>
+      <li class="nav-item <?php echo $link == "historial"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="historial.php">Historial</a>
+      </li>
+      <li class="nav-item <?php echo $link == "login"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="#" id="btnExit">Salir</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand" href="cambiarFoto.php">
+          <img src="../../img/<?php echo $_SESSION['FOTO_USER']; ?>" width="30" height="30"
+            class="d-inline-block align-top rounded-circle" alt="" loading="lazy">
+        </a>
+      </li>
+    </ul>
   </div>
-</div>
-<div class="list-group list-group-flush">
-
-  <a href="index.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
-    <i class="fas fa-home"></i> Inicio
-  </a>
-
-  <a href="cambiarFoto.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
-    <i class="fas fa-camera"></i> Cambiar Foto
-  </a>
-
-  <a href="miPerfil.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
-    <i class="fas fa-user"></i> Mi perfil
-  </a>
-
-  <a href="editarPerfil.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
-    <i class="fas fa-user-edit"></i> Editar perfil
-  </a>
-
-  <a href="cambiarClave.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
-    <i class="fas fa-user-cog"></i> Cambiar contraseña
-  </a>
-
-  <a href="historial.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans">
-    <i class="fas fa-history"></i> Historial
-  </a>
-
-  <a href="#" class="list-group-item list-group-item-action bg-dark text-white Open-Sans" id="btnExit">
-    <i class="fas fa-power-off"></i> Cerrar sesión
-  </a>
-
-</div>
-</div>
+</nav>

@@ -1,16 +1,20 @@
 let buscarServicio = document.getElementById("buscar");
 
-const BuscarHistorial = () => {
+const BuscarServicio = () => {
   let datos = {
-    accion: "buscarHistorial",
-    sql: buscarServicio.value,
+    accion: "buscarTramites",
+    categoria: 3,
+    sql: buscarServicio.value
   };
+
   let layout = "";
+
   $.ajax({
     type: "POST",
     url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
     data: { datos },
     success: function (result) {
+      
       $("#tbody").html("");
       if (result == 0) {
         layout += `<tr>
@@ -20,9 +24,13 @@ const BuscarHistorial = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                    <td style="width: 205px" >${datos.nombres}</td>
-                    <td style="width: 225px" >${datos.nom_servicio}</td>
-                    <td style="width: 650px" >${datos.des_servicio}</td>
+                      <td style="width: 275px" >${datos.nom_servicio}</td>                    
+                      <td style="width: 650px" >${datos.des_servicio}</td>
+                      <td style="width: 155px" >
+                        <button type="submit" class="btn fondoDos text-white" id="${datos.categoria}">
+                          Solicitar
+                        </button>
+                      </td>
                     </tr>`;
         });
 
@@ -36,10 +44,11 @@ const BuscarHistorial = () => {
   });
 };
 
-const MostrarHistorial = () => {
+const MostrarServicio = () => {
   let layout = "";
   let datos = {
-    accion: "historial",
+    accion: "mostrarTramites",
+    categoria: 3
   };
   $.ajax({
     type: "POST",
@@ -49,21 +58,18 @@ const MostrarHistorial = () => {
       $("#tbody").html("Cargando datos...");
     },
     success: function (result) {
-      $("#tbody").html("");
-      if (result == 0) {
+      console.log(result);
+      result.forEach((datos) => {
         layout += `<tr>
-                    <td>Usted aun no ha realizado tramites.</td>
-                  </tr>`;
-        $("#tbody").html(layout);
-      } else {     
-        result.forEach((datos) => {
-          layout += `<tr>
-                    <td style="width: 205px" >${datos.nombres}</td>
-                    <td style="width: 225px" >${datos.nom_servicio}</td>
+                    <td style="width: 275px" >${datos.nom_servicio}</td>                    
                     <td style="width: 650px" >${datos.des_servicio}</td>
-                    </tr>`;
-        });
-      }
+                    <td style="width: 155px" >
+                      <button type="submit" class="btn fondoDos text-white" id="${datos.categoria}">
+                        Solicitar
+                      </button>
+                    </td>
+                  </tr>`;
+      });
 
       $("#tbody").html(layout);
     },
@@ -73,5 +79,6 @@ const MostrarHistorial = () => {
   });
 };
 
-buscarServicio.addEventListener("keyup", BuscarHistorial);
-window.addEventListener("load", MostrarHistorial);
+buscarServicio.addEventListener("keyup", BuscarServicio);
+
+window.addEventListener("load", MostrarServicio);

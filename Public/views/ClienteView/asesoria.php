@@ -9,15 +9,17 @@
 
 <body>
   <?php 
-    $link = "historial";
+    $link = "Inicio";
     require_once('../Layout/clienteMenu.php');
   ?>
   <div class="container my-4">
 
     <div class="mx-auto d-block my-4 col-sm-12">
+
       <div class="p-1 my-4 fondoUno text-white">
-        <h1 class="text-center OpenSans m-1">Poderes</h1>
+        <h1 class="text-center OpenSans m-1">Habla con tu abogado</h1>
       </div>
+
       <div class="form-group  mr-auto">
         <input type="text" id="buscar" class="form-control col-sm-12 col-md-6"
           placeholder="Buscar por servicio ó abogado">
@@ -27,9 +29,9 @@
         <table class="table table-hover table-fixed table-striped bg-white">
           <thead class="thead-dark">
             <tr>
-              <th style="width: 205px" scope="col">Abogado</th>
-              <th style="width: 225px" scope="col">Servicio</th>
+              <th style="width: 275px" scope="col">Servicio</th>
               <th style="width: 650px" scope="col">Descripcion</th>
+              <th style="width: 155px" scope="col">Opcion</th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -43,7 +45,7 @@
   </div>
 
   <script src="../../js/cliente/app.js"></script>
-  <script src="../../js/cliente/historial.js"></script>
+  <script src="../../js/cliente/asesoria.js"></script>
 </body>
 
 </html>
