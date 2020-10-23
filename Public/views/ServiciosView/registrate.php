@@ -76,7 +76,7 @@
         <div class="formulario__grupo col-sm-6" id="grupo__fecha">
           <label for="fecha" class="formulario__label OpenSans">Fecha de nacimiento</label>
           <div class="formulario__grupo-input">
-            <input type="text" class="formulario__input" name="fecha" id="fecha" placeholder="0000-00-00">
+            <input type="text" class="formulario__input" name="fecha" id="fecha" placeholder="00-00-0000">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
           <p class="formulario__input-error">Por favor ingrese fecha de nacimiento.</p>
@@ -122,14 +122,7 @@
           Crear Cuenta
         </button>
       </div>
-      <div class="form-group">
-        <button type="submit" id="btnCuenta" class="btn btn-dark mt-4 d-block mx-auto">
-          Crear Cuenta
-        </button>
-      </div>
-
     </form>
-
   </div>
 
   <!-- comentario Aqui se llama al pie de pag -->

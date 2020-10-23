@@ -63,6 +63,17 @@
 
   </div>
 
+  <div class="card mx-auto sombre my-4 px-2" style="width: 18rem;" id="ErrorTime">
+    <div class="card-header">
+      <h5 class="card-title my-auto"><i class="fas fa-exclamation-triangle text-danger"></i> Advertencia</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        La pagina se encuentra en mantenimiento <a href="login.php" class="card-link">ir a inicio</a>
+      </p>
+    </div>
+  </div>
+
   <?php 
     $footer = 'fixed-bottom';
     require_once("../Layout/footer.php");

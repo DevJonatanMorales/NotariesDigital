@@ -7,4 +7,5 @@ if(isset($_SESSION['TIPO_USER'])) {
 } else {
   header("Location: ../ServiciosView/login.php");
 }
+
 ?>

@@ -128,7 +128,7 @@ const BuscarUser = (id) => {
     },
   });
 }
-
+/*
 window.onload = () => {
   let _id = getParameterByName('_id');
   if(_id == "") {
@@ -145,5 +145,6 @@ window.onload = () => {
   let mes = date.getMonth();
   let ano = date.getFullYear()
   console.log(`${ano}-${mes}-${dia}`);
-  */
+  
 }
+*/

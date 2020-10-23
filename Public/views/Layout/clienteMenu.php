@@ -1,36 +1,37 @@
-<div class="sidebar-heading Broadway bg-dark">Notaries Digital</div>
-<div class="card bg-dark" style="width: 15rem; ">
-  <div id="contener-foto-user" class="foto contener-foto-user">
-    <img src="../../img/defaul.png" class="bg-white perfilUser rounded" alt="Error" width="90px" height="95px">
-    <input type="hidden" id="userID" name="userID" value="1">
-    <div id="contener-foto" class="contener-foto">
-      <a id="btnActualizar" href="actualizarFoto.php" class="text-white itemFoto Open-Sans my-2"><i
-          class="fas fa-camera"></i> actualizar</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark fondo">
+  <a class="navbar-brand Broadway text-white" href="#">NOTARIES DIGITAL</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item <?php echo $link == "Inicio"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="index.php">Inicio</a>
+      </li>
+      <li class="nav-item <?php echo $link == "miPerfil"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="miPerfil.php">Mi perfil</a>
+      </li>
+      <li class="nav-item <?php echo $link == "upPerfil"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="editarPerfil.php">Editar perfil</a>
+      </li>
+      <li class="nav-item <?php echo $link == "upClave"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="cambiarClave.php">Cambiar contraseña</a>
+      </li>
+      <li class="nav-item <?php echo $link == "historial"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="historial.php">Historial</a>
+      </li>
+      <li class="nav-item <?php echo $link == "login"? "active": ''; ?>">
+        <a class="nav-link OpenSans" href="#" id="btnExit">Salir</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand" href="cambiarFoto.php">
+          <img src="../../img/<?php echo $_SESSION['FOTO_USER']; ?>" width="30" height="30"
+            class="d-inline-block align-top rounded-circle" alt="" loading="lazy">
+        </a>
+      </li>
+    </ul>
   </div>
-  <div class="card-body">
-    <div class="d-flex justify-content-around">
-      <a href="actualizarDatosPersonales.php" class="bg-dark text-white list-group-item-action text-center py-1"><i
-          class="fas fa-user-edit"></i></a>
-      <a href="actualizarDatosCuenta.php" class="bg-dark text-white list-group-item-action text-center py-1"><i
-          class="fas fa-user-cog"></i></a>
-      <a href="#" class="bg-dark text-white list-group-item-action text-center py-1" onclick="cerrarSesion()"><i
-          class="fas fa-power-off"></i></a>
-    </div>
-  </div>
-</div>
-<div class="list-group list-group-flush">
-  <a href="index.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans"><i
-      class="fas fa-home"></i> Inicio</a>
-  <a href="misPublicaciones.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans"><i
-      class="fas fa-search"></i> Publicaciones</a>
-  <a href="notificaciones.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans"><i
-      class="fas fa-bell"></i> Notificaciones</a>
-  <a href="listAmigos.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans"><i
-      class="fas fa-user-friends"></i> Amigos</a>
-  <a href="chat.php" class="list-group-item list-group-item-action bg-dark text-white Open-Sans"><i
-      class="fas fa-comments"></i> Chat</a>
-</div>
-</div>
-<script src="../../js/cerraSession.js"></script>
-<script src="../../js/showFoto.js"></script>
+</nav>

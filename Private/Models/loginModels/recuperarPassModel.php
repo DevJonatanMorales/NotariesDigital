@@ -32,7 +32,12 @@ class RecuperarPassModel extends ModelFather
       case 'buscarCorreo':
         $this->ValidarCorreo();
         break;
-      
+      case 'buscarPass':
+        $this->BuscarPass();
+      break;
+      case 'cambiarPass':
+        $this->CambiarPass();
+      break;
       case 'recuperarPass':
          $this->RecuperarPass();
         break;
@@ -63,6 +68,28 @@ class RecuperarPassModel extends ModelFather
     
   }
 
+  private function CambiarPass(){
+    session_start();
+    $pass = $this->Encryption($this->datos['confClave']);
+    $sql = "UPDATE `usuarios` SET `pass`='".$pass."' WHERE `usuario_id`= '".$_SESSION['USER_ID']."'";
+
+    if ($this->Query($sql) == true) {
+      $this->PrintJSON(['result' => 1]);
+    } else {
+      $this->PrintJSON(['result' => 0]);
+    }
+
+  }
+  
+  private function BuscarPass()
+  {
+    session_start();
+    
+    $sql = "SELECT usuarios.pass FROM `usuarios` WHERE usuarios.usuario_id = '".$_SESSION['USER_ID']."'";
+    $pass = $this->Read($sql);
+    $this->PrintJSON($this->Decryption($pass[0]['pass']));
+  }
+
   private function BuscarUser(){
     $sql = "SELECT usuarios.codigo_pass, usuarios.fech_pass FROM `usuarios` WHERE usuarios.usuario_id = '".$this->datos['userId']."'";
     $this->PrintJSON($this->Read($sql));
@@ -71,7 +98,7 @@ class RecuperarPassModel extends ModelFather
   private function BuscarCorreo()
   {
     $sql = "SELECT usuarios.user, usuarios.usuario_id FROM usuarios INNER JOIN clientes ON usuarios.usuario_id=clientes.usuario_id WHERE usuarios.email = '" . $this->datos['input'] . "'";
-    
+
     $this->PrintJSON($this->Read($sql));
   }
 
