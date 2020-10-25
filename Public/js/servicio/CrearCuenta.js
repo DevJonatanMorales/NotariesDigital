@@ -188,6 +188,7 @@ const ProcesarDatos = () => {
           type: 'success',
           title: 'Éxito',
           text: 'Gracias por registrate en Notaries Digital, verfique su correo.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else {
@@ -195,6 +196,7 @@ const ProcesarDatos = () => {
           type: 'warning',
           title: 'Advertencia',
           text: 'Ocurrio un Error, por favor vuelva a intentar',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       }
@@ -258,6 +260,7 @@ formulario.addEventListener('submit', (e) => {
       type: 'warning',
       title: 'Advertencia',
       text: 'Por favor complete el formulario.',
+      confirmButtonText: 'aceptar',
       showConfirmButton: true
     });
   }

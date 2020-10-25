@@ -115,6 +115,7 @@ const ActualizarClave = (datos) => {
           type: 'success',
           title: 'Éxito',
           text: 'Datos actualizados con exito.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else {
@@ -122,6 +123,7 @@ const ActualizarClave = (datos) => {
           type: 'warning',
           title: 'Advertencia',
           text: 'Error al actualizar los datos.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });       
       }
@@ -159,6 +161,7 @@ form.addEventListener("submit", (e) => {
         type: 'warning',
         title: 'Advertencia',
         text: 'La contraseña nueva no coincide.',
+        confirmButtonText: 'aceptar',
         showConfirmButton: true
       });
     }
@@ -167,6 +170,7 @@ form.addEventListener("submit", (e) => {
       type: 'warning',
       title: 'Advertencia',
       text: 'La contraseña actual no coincide.',
+      confirmButtonText: 'aceptar',
       showConfirmButton: true
     });
   }

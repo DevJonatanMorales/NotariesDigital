@@ -25,14 +25,14 @@ $(document).ready(function(){
                     $('#foto').val('');
                     return false;
                 }else{  
-                        contactAlert.innerHTML='';
-                        $("#img").remove();
-                        $(".delPhoto").removeClass('notBlock');
-                        var objeto_url = nav.createObjectURL(this.files[0]);
-                        $(".prevPhoto").append("<img id='img' src="+objeto_url+">");
-                        $(".upimg label").remove();
-                        
-                    }
+                    contactAlert.innerHTML='';
+                    $("#img").remove();
+                    $(".delPhoto").removeClass('notBlock');
+                    var objeto_url = nav.createObjectURL(this.files[0]);
+                    $(".prevPhoto").append("<img id='img' src="+objeto_url+">");
+                    $(".upimg label").remove();
+                    
+                }
               }             
     });
 

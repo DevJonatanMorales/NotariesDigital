@@ -12,10 +12,10 @@ const calculateAge = (birthday) => {
 }
 
 let _datos = {
-  accion:       'editar',
+  accion:    'editar',
   user:      null,
   telefono:  null,
-  correo:     null,
+  correo:    null,
   direccion: null
 }
 
@@ -77,6 +77,7 @@ const MostrarAlerta = (msj) => {
     type: 'warning',
     title: 'Advertencia',
     text: msj,
+    confirmButtonText: 'aceptar',
     showConfirmButton: true
   });
 }
@@ -164,6 +165,7 @@ const Actualizar = (datos) => {
           type: 'success',
           title: 'Éxito',
           text: 'Datos actualizados con exito.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else {
