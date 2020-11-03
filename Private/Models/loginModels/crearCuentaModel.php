@@ -41,11 +41,7 @@ class CrearCuentaModel extends ModelFather
   }
 
   private function ProcesarDatos() {
-    switch ($this->datos['tipoUser']) {
-      case 2:
-        $this->CrearCuentaAbogado();
-        break;
-      
+    switch ($this->datos['tipoUser']) {      
       case 3:
         $this->CrearCuentaCliente();
         break;
@@ -87,11 +83,6 @@ class CrearCuentaModel extends ModelFather
       $this->PrintJSON($this->resultado);
     }
   }
-/*
-  private function CrearCuentaAbogado() {
-
-  }
-*/
 
   private function PrintJSON($stringJson) 
   {

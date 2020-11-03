@@ -67,7 +67,7 @@
     require_once("../Layout/footer.php");
   ?>
 
-    <script src="../../js/servicio/BuscarServicio.js"></script>
+    <script src="../../js/servicio/mostrarServicio.js"></script>
 </body>
 
 </html>

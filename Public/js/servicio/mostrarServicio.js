@@ -8,7 +8,7 @@ const BuscarServicio = () => {
   let layout = "";
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
+    url: "../../../Private/Models/ServiciosModels/MostrarServicio.php",
     data: { datos },
     success: function (result) {
       
@@ -44,7 +44,7 @@ const MostrarServicio = () => {
   };
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
+    url: "../../../Private/Models/ServiciosModels/MostrarServicio.php",
     data: { datos },
     before: function () {
       $("#tbody").html("Cargando datos...");

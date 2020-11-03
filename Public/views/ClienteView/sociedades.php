@@ -9,7 +9,7 @@
 
 <body>
   <?php 
-    $link = "Inicio";
+    $link = "servicio";
     require_once('../Layout/clienteMenu.php');
   ?>
 
@@ -26,7 +26,7 @@
           placeholder="Buscar por servicio ó abogado">
       </div>
 
-      <div class="table-responsive">
+      <div class="table-responsive sombre">
         <table class="table table-hover table-fixed table-striped bg-white">
           <thead class="thead-dark">
             <tr>

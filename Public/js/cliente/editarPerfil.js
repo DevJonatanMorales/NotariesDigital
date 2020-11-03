@@ -26,7 +26,7 @@ const MostrarPerfil = () => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/perfilUserModel.php",
+    url: "../../../Private/Models/ClienteModels/mostrarPerfil.php",
     data: {datos},
     success: function (data) {
 
@@ -155,7 +155,7 @@ const Actualizar = (datos) => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/perfilUserModel.php",
+    url: "../../../Private/Models/ClienteModels/editarPerfil.php",
     data: {datos},
     success: function (data) {
 

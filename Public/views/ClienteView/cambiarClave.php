@@ -10,7 +10,7 @@
 
 <body>
   <?php 
-    $link = "upClave";
+    $link = "perfil";
     require_once('../Layout/clienteMenu.php');
   ?>
 

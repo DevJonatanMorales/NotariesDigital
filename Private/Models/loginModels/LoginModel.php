@@ -19,16 +19,12 @@ class LoginModel extends ModelFather
     {
         switch ($this->datos['accion']) 
         {
-            case 'buscarUser':
-                $this->BuscarUsuario();
-                break;
-            
             case 'ingresar':
                 $this->ValidarDatos();
                 break;
             
             default:
-                echo json_encode("error");
+                echo json_encode(['result' => 'error']);
                 break;
         }
     }
