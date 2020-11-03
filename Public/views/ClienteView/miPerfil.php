@@ -8,7 +8,7 @@
 
 <body>
   <?php 
-    $link = "miPerfil";
+    $link = "perfil";
     require_once('../Layout/clienteMenu.php');
   ?>
   <div class="container my-4">

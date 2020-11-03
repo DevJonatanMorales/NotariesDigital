@@ -35,7 +35,7 @@ const BuscarCorreo = (input) => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
+    url: "../../../Private/Models/LoginModels/recuperarPass.php",
     data: { datos },
     success: function (data) {
       if (data == 0) {
@@ -76,18 +76,20 @@ const RecuperarPass = (datos) => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
+    url: "../../../Private/Models/LoginModels/recuperarPass.php",
     data: { datos },
     beforeSend: function () {
       btnCorreo.innerText = "Enviando correo";
     },
     success: function (data) {
       btnCorreo.innerText = "Recuperar Contraseña";
+
       if (data == 1) {
         Swal.fire({
           type: 'success',
           title: 'Éxito',
           text: 'Se ha enviado un mensaje a su correo con las instruciones para que pueda cambiar su contraseña.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else {
@@ -95,6 +97,7 @@ const RecuperarPass = (datos) => {
           type: 'warning',
           title: 'Advertencia',
           text: 'Ocurrio un Error, por favor vuelva a intentar más tarde.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       }

@@ -13,7 +13,7 @@ const Expresiones = {
 	usuario:/^[a-zA-Z0-9\_\-]{3,10}$/, 
   nombres: /^[a-zA-ZÀ-ÿ]{3,15}(\s)[a-zA-ZÀ-ÿ]{3,15}$/,
   apellidos: /^[a-zA-ZÀ-ÿ]{3,15}(\s)[a-zA-ZÀ-ÿ]{3,15}$/,
-  fecha: /^\d{2}-\d{2}-\d{4}$/, 
+  fecha: /^\d{4}-\d{2}-\d{2}$/, 
   telefono: /^[0-9]{8,14}$/,
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 };
@@ -90,7 +90,7 @@ const BuscarUser = (input, campo) => {
   
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/LoginModel.php",
+    url: "../../../Private/Models/LoginModels/valUser.php",
     data: { datos },
     success: function (data) {
 
@@ -182,12 +182,12 @@ const ProcesarDatos = () => {
     },
     success: function (data) {
       btnCuenta.innerText = "Crear Cuenta";
-      console.log(data);
       if (data == 1) {
         Swal.fire({
           type: 'success',
           title: 'Éxito',
           text: 'Gracias por registrate en Notaries Digital, verfique su correo.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else {
@@ -195,6 +195,7 @@ const ProcesarDatos = () => {
           type: 'warning',
           title: 'Advertencia',
           text: 'Ocurrio un Error, por favor vuelva a intentar',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       }
@@ -258,6 +259,7 @@ formulario.addEventListener('submit', (e) => {
       type: 'warning',
       title: 'Advertencia',
       text: 'Por favor complete el formulario.',
+      confirmButtonText: 'aceptar',
       showConfirmButton: true
     });
   }

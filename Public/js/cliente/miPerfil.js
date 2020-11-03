@@ -13,7 +13,7 @@ const MostrarPerfil = () => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/perfilUserModel.php",
+    url: "../../../Private/Models/ClienteModels/mostrarPerfil.php",
     data: {datos},
     success: function (data) {
       document.getElementById("txtUser").innerHTML = `Usuario: ${data[0]['user']}`;

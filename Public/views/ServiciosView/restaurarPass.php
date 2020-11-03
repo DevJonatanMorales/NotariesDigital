@@ -31,7 +31,8 @@
       </div>
       <div class="card-body">
         <p class="card-text">
-          El tiempo para cambiar la contraseña expiro, de <a href="#" class="card-link">click aqui</a> para realizar una
+          El tiempo para cambiar la contraseña expiro, de <a href="recuperarPass.php" class="card-link">click aqui</a>
+          para realizar una
           nueva solicitud
         </p>
       </div>
@@ -61,17 +62,6 @@
       </button>
     </form>
 
-  </div>
-
-  <div class="card mx-auto sombre my-4 px-2" style="width: 18rem;" id="ErrorTime">
-    <div class="card-header">
-      <h5 class="card-title my-auto"><i class="fas fa-exclamation-triangle text-danger"></i> Advertencia</h5>
-    </div>
-    <div class="card-body">
-      <p class="card-text">
-        La pagina se encuentra en mantenimiento <a href="login.php" class="card-link">ir a inicio</a>
-      </p>
-    </div>
   </div>
 
   <?php 

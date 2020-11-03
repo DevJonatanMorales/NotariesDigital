@@ -30,7 +30,7 @@ class ModelFather extends Conection
 			$this->result = true;
 		} else {
 			 echo "Error: " . $sql . "<br>" . $this->conn->error;
-			 $this->result = false;
+			 $this->result = "Error: " . $sql . "<br>" . $this->conn->errorse;
 		}
 
 		return $this->result;

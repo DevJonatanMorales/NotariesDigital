@@ -43,7 +43,7 @@ const MostrarHistorial = () => {
   };
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
+    url: "../../../Private/Models/ServiciosModels/Historial.php",
     data: { datos },
     before: function () {
       $("#tbody").html("Cargando datos...");

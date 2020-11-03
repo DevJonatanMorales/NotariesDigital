@@ -8,11 +8,16 @@
 
 <body>
   <?php 
-		$link= "Inicio";
+		$link= "abogado";
 		require_once("../Layout/adminMenu.php");
 	?>
   <div class="container my-4">
+    <form class="col-sm-12 col-md-5 fondoDos rounded mx-auto text-white" autocomplete="off">
+      <h1 class="text-center border-bottom p-1">Registrar Abogado</h1>
+      <div class="row">
 
+      </div>
+    </form>
   </div>
 
 </body>

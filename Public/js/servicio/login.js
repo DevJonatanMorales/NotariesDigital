@@ -65,6 +65,7 @@ const Login = (datos) => {
           type: 'warning',
           title: 'Advertencia',
           text: 'Usuario o contraseña incorrecta.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else if (data[0]['tipo_userid'] == 1) {
@@ -114,8 +115,8 @@ form,addEventListener("submit", (e) => {
       type: 'warning',
       title: 'Advertencia',
       text: 'Por favor complete el formulario.',
+      confirmButtonText: 'aceptar',
       showConfirmButton: true
     });
-  }
-  
+  }  
 });

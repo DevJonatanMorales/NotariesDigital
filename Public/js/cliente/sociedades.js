@@ -11,7 +11,7 @@ const BuscarServicio = () => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
+    url: "../../../Private/Models/ServiciosModels/Tramites.php",
     data: { datos },
     success: function (result) {
       
@@ -52,13 +52,13 @@ const MostrarServicio = () => {
   };
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/ClienteModels/BuscarServicio.php",
+    url: "../../../Private/Models/ServiciosModels/Tramites.php",
     data: { datos },
     before: function () {
       $("#tbody").html("Cargando datos...");
     },
     success: function (result) {
-      console.log(result);
+
       result.forEach((datos) => {
         layout += `<tr>
                     <td style="width: 275px" >${datos.nom_servicio}</td>                    

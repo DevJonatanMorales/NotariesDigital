@@ -5,14 +5,14 @@
 **/
 let claveActual = null
 
-const BuscarCalve = () => {
+const BuscarClave = () => {
   const datos = {
     accion: 'buscarPass'
   }
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
+    url: "../../../Private/Models/ClienteModels/cambiarClave.php",
     data: {datos},
     success: function (data) {
       claveActual = data;
@@ -23,7 +23,7 @@ const BuscarCalve = () => {
   })
 }
 
-window.addEventListener("onload", BuscarCalve());
+window.addEventListener("onload", BuscarClave());
 /** 
 *
 * Comentario: Cambiamos la contraseña
@@ -46,7 +46,7 @@ let Campos = {
 }
 
 let datos = {
-  accion: 'cambiarPass',
+  accion: 'upClave',
   clave: null,
   newClave: null,
   confClave: null
@@ -105,16 +105,17 @@ txtConfClave.addEventListener("keyup", ValCampos);
 const ActualizarClave = (datos) => {
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/recuperarPassModel.php",
+    url: "../../../Private/Models/ClienteModels/cambiarClave.php",
     data: {datos},
     success: function (data) {
 
       if (data.result == 1) {
-        BuscarCalve();
+        BuscarClave();
         Swal.fire({
           type: 'success',
           title: 'Éxito',
           text: 'Datos actualizados con exito.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });
       } else {
@@ -122,6 +123,7 @@ const ActualizarClave = (datos) => {
           type: 'warning',
           title: 'Advertencia',
           text: 'Error al actualizar los datos.',
+          confirmButtonText: 'aceptar',
           showConfirmButton: true
         });       
       }
@@ -130,7 +132,7 @@ const ActualizarClave = (datos) => {
     error: function () {
       console.log("No se ha podio obtener la informacion");
     }
-  })
+  });
 }
 
 const LimpiarTxt = () => {
@@ -159,6 +161,7 @@ form.addEventListener("submit", (e) => {
         type: 'warning',
         title: 'Advertencia',
         text: 'La contraseña nueva no coincide.',
+        confirmButtonText: 'aceptar',
         showConfirmButton: true
       });
     }
@@ -167,6 +170,7 @@ form.addEventListener("submit", (e) => {
       type: 'warning',
       title: 'Advertencia',
       text: 'La contraseña actual no coincide.',
+      confirmButtonText: 'aceptar',
       showConfirmButton: true
     });
   }
