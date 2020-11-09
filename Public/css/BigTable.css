@@ -1,0 +1,24 @@
+/**
+*
+* Comentario estilos de las tablas
+*
+**/
+.table-fixed tbody {
+  height: 280px;
+  overflow-y: auto;
+  width: 100%;
+  min-width: 1080px;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed td,
+.table-fixed th {
+  display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed thead > tr > th {
+  float: left;
+  border-bottom-width: 0;
+}

@@ -52,23 +52,21 @@ CREATE TABLE abogados
   FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
 );
 -- categoria de servicios --
-CREATE TABLE categorias
+CREATE TABLE areas
 (
-  categoria_id INT NOT NULL,
-  categoria VARCHAR(25),
-  PRIMARY KEY (categoria_id)
+  areas_id INT NOT NULL AUTO_INCREMENT,
+  areas VARCHAR(25),
+  PRIMARY KEY (areas_id)
 );
 -- servicios --
 CREATE TABLE servicios
 (
   servicios_id INT NOT NULL AUTO_INCREMENT,
-  categoria_id INT,
+  areas_id INT,
   nom_servicio VARCHAR(75),
   des_servicio TEXT,
   det_servicio TEXT,
-  PRIMARY KEY (servicios_id),
-  INDEX(categoria_id),
-  FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)  
+  PRIMARY KEY (servicios_id)
 );
 -- tramites --
 CREATE TABLE tramites 
@@ -91,29 +89,20 @@ INSERT INTO `tipo_user`(`tipo_userid`, `tipo`) VALUES (1,'administrador'), (2, '
 -- INSERT TABLE USUARIO --
 INSERT INTO `usuarios`(`usuario_id`, `tipo_userid`, `user`, `pass`, `email`, `codigo_pass`, `fech_pass`) VALUES (1,3,'yona17','Jonatan17','h28631053@gmail.com','','');
 
--- INSERT TABLA CATEGORIA --
-INSERT INTO `categorias`(`categoria_id`, `categoria`) VALUES (1, 'Poderes'), (2, 'Habla con tu abogado'), (3, 'Sociedades'), (4, 'Contratos');
+-- INSERT TABLA AREAS --
+INSERT INTO `areas`(`areas_id`, `areas`) VALUES (1, 'Derecho de familia'), (2, 'Derecho civil y mercantil'), (3, 'Derecho notarial'), (4, 'Importación y tramitación de vehículos');
 
 -- INSERT TABLA SERVICIOS --
-INSERT INTO `servicios`(`categoria_id`, `nom_servicio`, `des_servicio`) VALUES (1, 'Poder para compra de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.','Para que el poder pueda ser elaborado por un notariado de Notaries Digital ser'),
-(1, 'Poder para venta de vehiculo', 'Sirve para comprar, vender, rentar, donar, hipotecar, etc. bienes inmuebles.'),
-(1, 'Poder general administrativo', 'Se otorga para que el apoderado administre bienes e intereses del poderdante, por ejemplo: cuentas bancarias o negocios.'),
-(1, 'Poder general judicial', 'Sirve para que el apoderado represente al poderdante en toda clase de juicios y para efectuar cobros.'),
-(2, 'Asesoria Civil', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Mercantil', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Familiar', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Migración', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Inquilino', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Laboral', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Contratos', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Transtio', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(2, 'Asesoria Tributario', 'Obtenen asesoria legal para tus asuntos personales o tus negocios.'),
-(3, 'Sociedad Anonima de Capital', 'Notaries Digital te facilita el proceso para que usted pueda facilmente constituir una sociedad anonima.'),
-(4, 'Contrado Compraventa Vehiculo', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda realizar la compraventa de un vehiculo.'),
-(4, 'Contrado de Arendamiento para Habitacion', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda arrendar su casa o apartemento para fines de habitacion.'),
-(4, 'Contrado de Arendamiento Comercial', 'Notaries Digital pone a tu disposicion un mecanismo facil para que usted. pueda arrendar su casa o local para fines comerciales.');
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('1','Divorcios'), ('1','Cuota amimenticia'),('1','Cuidado personal'),('1','Regimen de visitas'),('1','Subsidiario de nacimiento'),('1','Subsidiario de defunción'),('1','Declaración Judicial de Unión no matrimonial');
+
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('2','Procesos comunes'), ('2','Procesos ejecutivos'),('2','Aceptación de herencia');
+
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('3','Matrimonios'), ('3','Declaraciones juradas'),('3','Compraventas de vehículos'),('3','Escrituración de inmuebles'),('3','Autorizaciones para salir del país y sacar pasaporte');
+
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('4','Traspasos'), ('4','Solicitud de placas'),('4','Citas para expreticia');
 
 -- CONSULTA SERVICIOS --
-SELECT servicios.nom_servicio, categorias.categoria, servicios.des_servicio FROM `categorias` INNER JOIN `servicios` on categorias.categoria_id=servicios.categoria_id
+SELECT servicios.nom_servicio, areas.areas, servicios.des_servicio FROM `areas` INNER JOIN `servicios` on areas.areas_id=servicios.areas_id
+
 -- HISTORIAL --
 SELECT abogados.nombres, servicios.nom_servicio, servicios.des_servicio FROM `abogados` INNER JOIN `tramites` ON abogados.abogado_id=tramites.abogado_id INNER JOIN `servicios` ON tramites.servicio_id=servicios.servicios_id WHERE tramites.cliente_id = '20'
