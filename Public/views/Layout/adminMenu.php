@@ -17,40 +17,37 @@
           Abogados
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Listado</a>
+          <a class="dropdown-item" href="listAbogados.php">Listado</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="regAbogado.php">Agregar</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Dar de baja</a>
+          <a class="dropdown-item" href="darBajaAbogado.php">Dar de baja</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown <?php echo $link == "cliente"? "active": ''; ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Clientes
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Listado</a>
+          <a class="dropdown-item" href="listClientes.php">Listado</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="regCliente.php">Agregar</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Dar de baja</a>
+          <a class="dropdown-item" href="darBajaCliente.php">Dar de baja</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle <?php echo $link == "servicio"? "active": ''; ?>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Servicios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="newServicio.php">Nuevo Servicio</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="newArea.php">Nueva Area</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Listado</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Agregar</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Dar de baja</a>
         </div>
       </li>
       <li class="nav-item <?php echo $link == "login"? "active": ''; ?>">

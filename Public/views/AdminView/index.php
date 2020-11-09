@@ -12,9 +12,10 @@
 		require_once("../Layout/adminMenu.php");
 	?>
   <div class="container my-4">
-
+  	<h1 class="text-center">Bienvenido administrador</h1>
   </div>
 
+  <script src="../../js/admin/app.js"></script>
 </body>
 
 </html>
