@@ -3,7 +3,7 @@ require_once("../../Config/config.php");
 require_once("../../Conection/conection.php");
 require_once("../Model/modelFather.php");
 
-class NuevoServicio extends ModelFather
+class ListServicio extends ModelFather
 {
   public $resultado;
   private $datos;
@@ -23,9 +23,9 @@ class NuevoServicio extends ModelFather
         $this->Mostrar();
         break;
 
-      case 'nuevo':
+      case 'buscar':
         $this->query = true;
-        $this->Nuevo();
+        $this->Buscar();
         break;
       
       default:
@@ -45,6 +45,17 @@ class NuevoServicio extends ModelFather
     }
   }
 
+  private function Buscar()
+  {
+    if ($this->query == true) {
+      $sql = "SELECT servicios.nom_servicio, areas.nom_areas FROM servicios INNER JOIN areas ON servicios.areas_id = areas.areas_id WHERE servicios.nom_servicio LIKE '%".$this->datos['query']."%' OR areas.nom_areas LIKE '%".$this->datos['query']."%'";
+      $this->PrintJSON($this->Read($sql));
+      $this->query = false;
+    } else {
+      $this->PrintJSON(0);
+    }
+  }
+
   private function PrintJSON($stringJson)
   {
     header('Content-Type: application/json; charset=utf-8');
@@ -52,10 +63,10 @@ class NuevoServicio extends ModelFather
   }
 }
 
-$nuevoServicio = new NuevoServicio();
+$listServicio = new ListServicio();
 
 if (isset($_POST['datos'])) {
-  $nuevoServicio->RecibirDatos($_POST['datos']);
-  echo $nuevoServicio->resultado;
+  $listServicio->RecibirDatos($_POST['datos']);
+  echo $listServicio->resultado;
 }
 ?>
