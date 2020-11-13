@@ -12,13 +12,13 @@ const Areas = () => {
     data: {datos},
     success: function (result) {
       if (result == 0) {
-        
+        layout += `<option value="0">Error</option>`;
       } else {
         result.forEach((datos) =>{
           layout += `<option value="${datos.areas_id}">${datos.nom_areas}</option>`;
         })
-        $("#area").html(layout);
       }
+      $("#area").html(layout);
     },
     error: function () {
       console.log('No se ha podido obtener la inforacion');
