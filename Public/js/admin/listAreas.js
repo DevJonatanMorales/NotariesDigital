@@ -22,7 +22,7 @@ const MostrarArea = () => {
                         <i class="fas fa-edit"></i>
                       </button>
                     <td style="width: 100px" >
-                      <button type="submit" class="btn bg-danger text-white" id="${datos.areas_id}">
+                      <button type="submit" class="btn btnDelete bg-danger text-white" id="${datos.areas_id}">
                         <i class="far fa-trash-alt "></i>
                       </button>
                     </td>
@@ -67,7 +67,7 @@ const BuscarArea = () => {
                         <i class="fas fa-edit"></i>
                       </button>
                     <td style="width: 100px" >
-                      <button type="submit" class="btn bg-danger text-white" id="${datos.areas_id}">
+                      <button type="submit" class="btn btnDelete bg-danger text-white" id="${datos.areas_id}">
                         <i class="far fa-trash-alt "></i>
                       </button>
                     </td>
@@ -89,7 +89,6 @@ buscarArea.addEventListener('keyup', BuscarArea);
 * Comentario Nueva area
 *
 **/
-
 const formularioNewArea = document.getElementById('formularioNewArea');
 let txtArea = document.getElementById('newArea');
 let btnGuardarArea = document.getElementById('btnGuardar');
@@ -212,4 +211,80 @@ formularioUpDate.addEventListener('submit', (e) => {
   e.preventDefault();
   ModificarArea();
   formularioUpDate.reset();
-})
+});
+
+/** 
+*
+* Comentario Eliminar Servicio
+*
+**/
+/** 
+*
+* Comentario Modal
+*
+**/
+const EliminarArea = (id) => {
+  let datos = {
+    accion: 'eliminar',
+    areaId: id
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '../../../Private/Models/AdminModels/eliminarArea.php',
+    data: {datos},
+    success: function (result) {
+      console.log(result);
+      MostrarArea();
+      if (result == 1) {
+        Swal.fire({
+          type: 'success',
+          title: 'Éxito',
+          text: 'Área eliminada con exito.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });
+      }
+      if (result == 2) {
+        Swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          text: 'El área no se puede eliminar, ya tiene servicios asignados.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });       
+      }
+      if (result == 0) {
+        Swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          text: 'Error al eliminar el área, por favor intente más tarde.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });       
+      }
+    },
+    error: function () {
+      console.log('No se ha podido obtener la informacion.');
+    }
+  });
+}
+
+$(document).on('click', '.btnDelete', function () {
+  let elemento = $(this);
+  areaId = elemento[0].id;
+  
+  Swal.fire({
+    title: '¿Está seguro de eliminar?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#27AE61',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.value) {
+      EliminarArea(areaId);
+    }    
+  })
+});
