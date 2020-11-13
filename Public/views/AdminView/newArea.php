@@ -56,9 +56,32 @@
           </button>
         </div>
         <div class="modal-body">
-          <form class="form-group" id="formulario" autocomplete="off">
+          <form class="form-group" id="formularioNewArea" autocomplete="off">
             <input type="text" id="newArea" class="form-control mb-4" placeholder="Nueva área">
             <button type="submit" class="btn btn-dark" id="btnGuardar" disabled="disabled">
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comentario: ventana modal -->
+  <div class="modal fade" id="myModalUpDate" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Modificar Área</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" id="formularioUpDate" autocomplete="off">
+            <input type="hidden" id="areaId" value="">
+            <input type="text" id="modificarArea" class="form-control mb-4">
+            <button type="submit" class="btn btn-dark" id="btnModificar">
               Guardar
             </button>
           </form>

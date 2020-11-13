@@ -3,7 +3,7 @@ require_once("../../Config/config.php");
 require_once("../../Conection/conection.php");
 require_once("../Model/modelFather.php");
 
-class ModificarServicio extends ModelFather
+class ModificarArea extends ModelFather
 {
   public $resultado;
   private $datos;
@@ -32,7 +32,7 @@ class ModificarServicio extends ModelFather
   private function Modificar()
   {
     if ($this->query == true) {
-      $sql = "UPDATE `servicios` SET `areas_id`='".$this->datos['area']."',`nom_servicio`='".$this->datos['servicio']."' WHERE `servicios_id`='".$this->datos['servicioId']."'";
+      $sql = "UPDATE `areas` SET `nom_areas`='".$this->datos['area']."' WHERE `areas_id`='".$this->datos['areaId']."'";
       
       if ($this->Query($sql) == true) {
         $this->PrintJSON(1);
@@ -41,7 +41,7 @@ class ModificarServicio extends ModelFather
       }
       
     } else {
-      $this->PrintJSON(0);
+      $this->PrintJSON(['result'=>'error']);
     }
     $this->query = false;
   }
@@ -51,14 +51,12 @@ class ModificarServicio extends ModelFather
     header('Content-Type: application/json; charset=utf-8');
     $this->resultado = json_encode($stringJson);
   }
-
 }
 
-$modificarServicio = new ModificarServicio();
+$modificarArea = new ModificarArea();
 
 if (isset($_POST['datos'])) {
-  $modificarServicio->RecibirDatos($_POST['datos']);
-  echo $modificarServicio->resultado;
-} 
-
+  $modificarArea->RecibirDatos($_POST['datos']);
+  echo $modificarArea->resultado;
+}
 ?>
