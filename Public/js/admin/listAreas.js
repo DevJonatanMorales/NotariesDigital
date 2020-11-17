@@ -1,3 +1,8 @@
+/** 
+*
+* Comentario Se muestran los servicio
+*
+**/
 const MostrarArea = () => {
   let layout = "";
   const datos = {accion: 'mostrar'};
@@ -13,11 +18,11 @@ const MostrarArea = () => {
                       ${datos.nom_areas}
                     </td> 
                     <td style="width: 90px" >
-                      <button type="submit" class="btn bg-success text-white" id="${datos.areas_id}">
+                      <button type="submit" class="btn btnModel bg-success text-white" id="${datos.areas_id}">
                         <i class="fas fa-edit"></i>
                       </button>
                     <td style="width: 100px" >
-                      <button type="submit" class="btn bg-danger text-white" id="${datos.areas_id}">
+                      <button type="submit" class="btn btnDelete bg-danger text-white" id="${datos.areas_id}">
                         <i class="far fa-trash-alt "></i>
                       </button>
                     </td>
@@ -30,18 +35,15 @@ const MostrarArea = () => {
     }
   });
 }
-/* - Comentario cuando carga - */
+
 window.addEventListener("load", MostrarArea);
+
 /** 
 *
 * Comentario: Buscar area
 *
 **/
 let buscarArea = document.getElementById('buscar');
-
-const form = document.getElementById('formulario');
-let txtArea = document.getElementById('newArea');
-let btnGuardarArea = document.getElementById('btnGuardar');
 
 const BuscarArea = () => {
   let layout = "";
@@ -61,11 +63,11 @@ const BuscarArea = () => {
                       ${datos.nom_areas}
                     </td> 
                     <td style="width: 90px" >
-                      <button type="submit" class="btn bg-success text-white" id="${datos.areas_id}">
+                      <button type="submit" class="btn btnModel bg-success text-white" id="${datos.areas_id}">
                         <i class="fas fa-edit"></i>
                       </button>
                     <td style="width: 100px" >
-                      <button type="submit" class="btn bg-danger text-white" id="${datos.areas_id}">
+                      <button type="submit" class="btn btnDelete bg-danger text-white" id="${datos.areas_id}">
                         <i class="far fa-trash-alt "></i>
                       </button>
                     </td>
@@ -81,6 +83,15 @@ const BuscarArea = () => {
 }
 
 buscarArea.addEventListener('keyup', BuscarArea);
+
+/** 
+*
+* Comentario Nueva area
+*
+**/
+const formularioNewArea = document.getElementById('formularioNewArea');
+let txtArea = document.getElementById('newArea');
+let btnGuardarArea = document.getElementById('btnGuardar');
 
 const valCampo = () => {
   if(txtArea.value.length > 3){
@@ -105,8 +116,7 @@ const GuardarArea = () => {
     success: function (data) {
       MostrarArea()
       if (data == 1) {
-        console.log(data);
-        $("#myModal .close").click()
+        $("#myModal .close").click();
       } else {
 
       }
@@ -122,23 +132,159 @@ const LimpiarCampos = () => {
   txtArea.value = '';
 }
 
-form.addEventListener('submit', e => {
+formularioNewArea.addEventListener('submit', e => {
   e.preventDefault();
   if (txtArea.value.length > 3) {
     GuardarArea();
-    form.reset();
+    formularioNewArea.reset();
     LimpiarCampos();
   } else {
     console.log('error');
   }
 });
-/*
-$(function() {
- $(document).on('click', 'button[type="button"]', function(event) {//al hacer click en el boton
-    var id = this.id;//obtengo el valor del id, el id tiene q tener el nombre del archivo
-    //console.log("Se presionó el Boton con ID: "+ id)//mostrar el ID de botton
-    $('.modal-content').load("Views/Content/admin/"+id+".php",function(){//llamo al archivo q tiene el contenido
-        $('#myModal').modal({show:true});//cargo la ventana modal
-    });
+
+/** 
+*
+* Comentario Modal
+*
+**/
+$(document).on('click', '.btnModel', function () {
+  let elementId = $(this).parent().parent();
+  let elemento = $(this)
+
+  nom_servicio = elementId[0].innerText;
+  btnId = elemento[0].id;
+
+  document.getElementById('areaId').value = btnId;
+  document.getElementById('modificarArea').value = nom_servicio;
+  $('#myModalUpDate').modal({show:true});
+});
+
+/** 
+*
+* Comentario Modificar Servicio
+*
+**/
+const formularioUpDate = document.getElementById('formularioUpDate');
+let modificarArea = document.getElementById('modificarArea');
+let areaId = document.getElementById('areaId');
+
+const ModificarArea = () => {
+  let datos = {
+    accion: 'modificar',
+    areaId: areaId.value,
+    area: modificarArea.value
+  }
+  
+  $.ajax({
+    type: 'POST',
+    url: '../../../Private/Models/AdminModels/modificarArea.php',
+    data: {datos},
+    success: function (result) {
+      MostrarArea();
+      $("#myModalUpDate .close").click()
+      if (result == 1) {
+        Swal.fire({
+          type: 'success',
+          title: 'Éxito',
+          text: 'Datos actualizados con exito.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });
+      } else {
+        Swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          text: 'Error al actualizar los datos.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });       
+      }
+    },
+    error: function () {
+      console.log('No se ha podido obtener la informacion.');
+    }
+  })
+}
+
+formularioUpDate.addEventListener('submit', (e) => {
+  e.preventDefault();
+  ModificarArea();
+  formularioUpDate.reset();
+});
+
+/** 
+*
+* Comentario Eliminar Servicio
+*
+**/
+/** 
+*
+* Comentario Modal
+*
+**/
+const EliminarArea = (id) => {
+  let datos = {
+    accion: 'eliminar',
+    areaId: id
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '../../../Private/Models/AdminModels/eliminarArea.php',
+    data: {datos},
+    success: function (result) {
+      console.log(result);
+      MostrarArea();
+      if (result == 1) {
+        Swal.fire({
+          type: 'success',
+          title: 'Éxito',
+          text: 'Área eliminada con exito.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });
+      }
+      if (result == 2) {
+        Swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          text: 'El área no se puede eliminar, ya tiene servicios asignados.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });       
+      }
+      if (result == 0) {
+        Swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          text: 'Error al eliminar el área, por favor intente más tarde.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });       
+      }
+    },
+    error: function () {
+      console.log('No se ha podido obtener la informacion.');
+    }
   });
-});*/
+}
+
+$(document).on('click', '.btnDelete', function () {
+  let elemento = $(this);
+  areaId = elemento[0].id;
+  
+  Swal.fire({
+    title: '¿Está seguro de eliminar?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#27AE61',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.value) {
+      EliminarArea(areaId);
+    }    
+  })
+});

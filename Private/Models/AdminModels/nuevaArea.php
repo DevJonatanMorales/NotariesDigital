@@ -32,7 +32,7 @@ class NuevaArea extends ModelFather
 	private function NewArea()
 	{
 		if ($this->query == true) {
-			$sql = "INSERT INTO `areas`(`areas`) VALUES ('".$this->datos['area']."')";
+			$sql = "INSERT INTO `areas`(`nom_areas`) VALUES ('".$this->datos['area']."')";
 
 			if ($this->Query($sql) == true) {
 				$this->resultado = 1;
@@ -43,7 +43,7 @@ class NuevaArea extends ModelFather
 		} else {
 			$this->PrintJSON(['result'=>'error']);
 		}
-		
+    $this->query = false;
 	}
 
 	private function PrintJSON($stringJson) {
