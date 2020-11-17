@@ -32,8 +32,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="listClientes.php">Listado</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="regCliente.php">Agregar</a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="darBajaCliente.php">Dar de baja</a>
         </div>
       </li>
