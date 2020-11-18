@@ -3,7 +3,7 @@
 
 <head>
   <?php require_once("../Layout/head.php");  ?>
-  <link rel="stylesheet" type="text/css" href="../../css/BigTable.css">
+  <link rel="stylesheet" type="text/css" href="../../css/SmallTable.css">
 </head>
 
 <body>
@@ -13,32 +13,39 @@
   ?>
 
   <div class="container">
-    <div class="">
+    <div class="col-md-8 mx-auto d-block">
       <div class="p-1 my-4 fondoUno text-white">
         <h1 class="text-center OpenSans m-1">Nuestros Servicios</h1>
       </div>
 
-      <div class="col-sm-12">
-        <div class="form-group">
-          <p>
-            Notaries Digital te ofrece diferentes servicios en las categorías de poderes, habla con tu abogado,
-            sociedades
-            y contratos, para poder realizar la solicitud de un servicio te invitamos a que crees una cuenta totalmente
-            gratis. <a href="registrate.php" class="card-link">Crear cuenta.</a>
-          </p>
+      <div class="col-sm-12 p-0">
+        <p>
+          Notaries Digital te ofrece diferentes servicios en las categorías de poderes, habla con tu abogado,
+          sociedades
+          y contratos, para poder realizar la solicitud de un servicio te invitamos a que crees una cuenta totalmente
+          gratis. <a href="registrate.php" class="card-link">Crear cuenta.</a>
+        </p>
+
+        <div class="row">
+          <div class="form-group row col-sm-8">
+            <label class="col-sm-2 col-form-label">Áreas</label>
+            <div class="col-sm-12 col-md-8">
+              <select class="form-control col-12" id="areas">
+
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio por nombre o categoria">
+          </div>
         </div>
 
-        <div class="form-group col-sm-12 col-md-4 ml-auto">
-          <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio por nombre o categoria">
-        </div>
-
-        <div class="table-responsive">
+        <div class="table-responsive my-4">
           <table class="table table-hover table-fixed">
             <thead class="thead-light">
               <tr>
-                <th style="width: 250px" scope="col">Nombre del servicion</th>
-                <th style="width: 155px" scope="col">Categoria</th>
-                <th style="width: 650px" scope="col">Descripcion</th>
+                <th style="width: 500px" scope="col">Nombre del servicion</th>
+                <th style="width: 210px" scope="col">Categoria</th>
               </tr>
             </thead>
             <tbody id="tbody">
@@ -46,17 +53,6 @@
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <!-- ventana modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-
       </div>
     </div>
   </div>
