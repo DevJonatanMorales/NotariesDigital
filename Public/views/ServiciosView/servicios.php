@@ -44,8 +44,8 @@
           <table class="table table-hover table-fixed">
             <thead class="thead-light">
               <tr>
-                <th style="width: 500px" scope="col">Nombre del servicion</th>
-                <th style="width: 210px" scope="col">Categoria</th>
+                <th style="width: 400px" scope="col">Nombre del servicion</th>
+                <th style="width: 310px" scope="col">Área</th>
               </tr>
             </thead>
             <tbody id="tbody">

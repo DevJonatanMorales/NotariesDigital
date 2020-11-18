@@ -19,8 +19,8 @@ const MostrarServicio = () => {
       
       result.forEach((datos) => {
         layout += `<tr>
-                      <td style="width: 500px" >${datos.nom_servicio}</td>
-                      <td style="width: 190px" >${datos.nom_areas}</td>
+                      <td style="width: 400px" >${datos.nom_servicio}</td>
+                      <td style="width: 290px" >${datos.nom_areas}</td>
                     </tr>`;
       });
 
@@ -91,8 +91,8 @@ const Filtrar = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                      <td style="width: 500px" >${datos.nom_servicio}</td>
-                      <td style="width: 190px" >${datos.nom_areas}</td>
+                      <td style="width: 400px" >${datos.nom_servicio}</td>
+                      <td style="width: 290px" >${datos.nom_areas}</td>
                     </tr>`;
         });
 
@@ -135,8 +135,8 @@ const BuscarServicio = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                      <td style="width: 500px" >${datos.nom_servicio}</td>
-                      <td style="width: 190px" >${datos.nom_areas}</td>
+                      <td style="width: 400px" >${datos.nom_servicio}</td>
+                      <td style="width: 290px" >${datos.nom_areas}</td>
                     </tr>`;
         });
 

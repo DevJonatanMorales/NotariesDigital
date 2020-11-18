@@ -5,9 +5,11 @@
 **/
 const MostrarServicio = () => {
   let layout = "";
+
   let datos = {
     accion: "mostrar",
   };
+  
   $.ajax({
     type: "POST",
     url: "../../../Private/Models/ServiciosModels/MostrarServicio.php",
@@ -19,8 +21,13 @@ const MostrarServicio = () => {
       
       result.forEach((datos) => {
         layout += `<tr>
-                      <td style="width: 500px" >${datos.nom_servicio}</td>
-                      <td style="width: 190px" >${datos.nom_areas}</td>
+                      <td style="width: 310px" >${datos.nom_servicio}</td>
+                      <td style="width: 200px" >${datos.nom_areas}</td>
+                      <td style="width: 180px" scope="col">
+                        <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
+                          agendar cita
+                        </button>
+                      </td>
                     </tr>`;
       });
 
@@ -91,8 +98,13 @@ const Filtrar = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                      <td style="width: 500px" >${datos.nom_servicio}</td>
-                      <td style="width: 190px" >${datos.nom_areas}</td>
+                      <td style="width: 310px" >${datos.nom_servicio}</td>
+                      <td style="width: 200px" >${datos.nom_areas}</td>
+                      <td style="width: 180px" scope="col">
+                        <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
+                          agendar cita
+                        </button>
+                      </td>
                     </tr>`;
         });
 
@@ -135,8 +147,13 @@ const BuscarServicio = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                      <td style="width: 500px" >${datos.nom_servicio}</td>
-                      <td style="width: 190px" >${datos.nom_areas}</td>
+                      <td style="width: 310px" >${datos.nom_servicio}</td>
+                      <td style="width: 200px" >${datos.nom_areas}</td>
+                      <td style="width: 180px" scope="col">
+                        <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
+                          agendar cita
+                        </button>
+                      </td>
                     </tr>`;
         });
 
