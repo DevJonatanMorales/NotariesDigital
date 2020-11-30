@@ -26,11 +26,19 @@ class CambiarFoto extends ModelFather
 
   private function upFoto()
   {
-    session_start();
-    
+    session_start();    
     $sql = "UPDATE `usuarios` SET `foto`='".$this->datos['nomFoto']."' WHERE `usuario_id`='".$_SESSION['USER_ID']."'";
 
-    $this->resultado = $this->Query($sql);
+    if ($this->Query($sql) == true) {
+      if (move_uploaded_file($this->datos['tmpName'], "../../../Public/img/".$this->datos['nomFoto'])) {
+        $_SESSION['FOTO_USER'] = $this->datos['nomFoto'];
+        $this->PrintJSON(1);
+      } else {
+        $this->PrintJSON(0);
+      }
+    } else {
+      $this->PrintJSON(0);
+    }
   }
   
   private function PrintJSON($stringJson) {
@@ -41,24 +49,22 @@ class CambiarFoto extends ModelFather
 
 $cambiarFoto = new CambiarFoto();
 
-if (isset($_POST['accionActualizarFoto'])) {
-  $nomTemp = $_FILES['foto']['tmp_name'];
-  $nomFoto = $_FILES['foto']['name'];
+if (isset($_FILES["file"])) {
+  if (($_FILES["file"]["type"] == "image/pjpeg")
+    || ($_FILES["file"]["type"] == "image/jpeg")
+    || ($_FILES["file"]["type"] == "image/png")) 
+  {
 
-  $datos = array(
-    'accion'=>'foto',
-    'nomFoto'=> $nomFoto
-  );
+    $datos = array(
+      'accion'=>'foto',
+      'nomFoto'=>$_FILES['file']['name'],
+      'tmpName'=>$_FILES["file"]["tmp_name"]
+    );
 
-  $cambiarFoto->RecibirDatos($datos);
-  if ($cambiarFoto->resultado == true) {
-      move_uploaded_file($nomTemp,'../../../Public/img/'.$nomFoto);
-      $_SESSION['FOTO_USER'] = $nomFoto;
-      header("Location: ../../../Public/views/AbogadoView/cambiarFoto.php?alert=1");
-  } else {
-      header("Location: ../../../Public/views/AbogadoView/cambiarFoto.php?alert=2");
+    $cambiarFoto->RecibirDatos($datos);
+    echo $cambiarFoto->resultado;
+
   }
-
 }
 
 ?>

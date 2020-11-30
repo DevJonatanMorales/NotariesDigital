@@ -44,13 +44,60 @@ $(document).ready(function(){
 
 });
 
-const txtFoto = document.getElementById('foto');
-const btnFoto = document.getElementById('btnFoto');
+/** 
+*
+* Comentario: Cambiar foto
+*
+**/
+let formulario = document.getElementById('formulario');
 
-txtFoto.addEventListener("change", () => {
-  if (txtFoto.value.length > 0) {
-    btnFoto.removeAttribute("disabled");
-  } else {
-    btnFoto.setAttribute("disabled", "");
-  }
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let formData = new FormData();
+  let fileFoto = $('#foto')[0].files[0];
+
+  formData.append('file',fileFoto);
+
+  console.log(formData);
+  $.ajax({
+    url: "../../../Private/Models/AbogadoModels/cambiarFoto.php",
+    type: "post",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function (response) {
+    
+      if (response == 1) {
+        Swal.fire({
+          type: 'success',
+          title: 'Éxito',
+          text: 'Foto actualizada con exito.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        }).then((result) => {
+          if (result.value) {
+            location.reload();
+          }    
+        });
+        
+      } else {
+        Swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          text: 'Error al actualizar la foto.',
+          confirmButtonText: 'aceptar',
+          showConfirmButton: true
+        });        
+      }
+    },
+    error: function () {
+      console.log('No se ha podido obtener la informacion.');
+    }
+  });
+
+  formulario.reset();
+  $('#foto').val('');
+  $(".delPhoto").addClass('notBlock');
+  $("#img").remove();
 });
