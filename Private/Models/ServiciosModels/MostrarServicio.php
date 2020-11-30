@@ -63,7 +63,7 @@ class BuscarServicio extends ModelFather
   }
   
   private function PrintJSON($stringJson) {
-    header('Content-Type: application/json; charset=utf-8');
+    header('Content-Type: application/json');
     $this->resultado = json_encode($stringJson);
   }
 
@@ -74,10 +74,6 @@ $BuscarServicio = new BuscarServicio();
 if(isset($_POST['datos']))
 {
   $BuscarServicio->RecibirDatos($_POST['datos']);
-  echo $BuscarServicio->resultado;
-} else {
-  $datos = array('accion' => 'mostrar');
-  $BuscarServicio->RecibirDatos($datos );
   echo $BuscarServicio->resultado;
 }
 

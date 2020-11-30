@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div class="table-responsive my-4">
+        <div class="table-responsive my-1">
           <table class="table table-hover table-fixed">
             <thead class="thead-light">
               <tr>
@@ -58,13 +58,13 @@
   </div>
   </div>
 
-  <! - comentario pie de pagina ->
-    <?php 
+  <!-- comentario pie de pagina -->
+  <?php 
     //$footer = "fixed-bottom";
     require_once("../Layout/footer.php");
   ?>
 
-    <script src="../../js/servicio/mostrarServicio.js"></script>
+  <script src="../../js/servicio/mostrarServicio.js"></script>
 </body>
 
 </html>

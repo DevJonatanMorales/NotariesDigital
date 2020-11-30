@@ -45,12 +45,13 @@ const MostrarAreas = () => {
     url: '../../../Private/Models/ServiciosModels/MostrarAreas.php',
     data: {datos},
     success: function (result) {
+      
       if (result == 0) {
         layout += `<option value="0">Error</option>`;
       } else {
-        result.forEach((datos) =>{
-          layout += `<option value="${datos.areas_id}">${datos.nom_areas}</option>`;
-        })
+        result.forEach((areas) =>{
+          layout += `<option value="${areas.areas_id}">${areas.nom_areas}</option>`;
+        });
       }
       $("#areas").html(layout);
     },

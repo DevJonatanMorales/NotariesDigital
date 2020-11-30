@@ -18,7 +18,7 @@
       </div>
       <div class="card-body">
         <img src="../../img/<?php echo $_SESSION['FOTO_USER']; ?>" class="card-img-top border mx-auto d-block"
-          alt="Error al cargar" style="width: 14rem;">
+          alt="Error al cargar" style="max-width: 14rem;">
 
         <div class="row form-group">
           <p class="card-text col-sm-12 col-md-6" id="txtUser"></p>

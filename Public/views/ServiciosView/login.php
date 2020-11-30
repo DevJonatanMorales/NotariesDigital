@@ -12,7 +12,7 @@
   ?>
 
   <div class="container">
-    <form id="formulario" class="col-sm-12 col-md-5 p-2 fondoDos mx-auto mt-4 mb-4 text-white rounded"
+    <form id="formulario" class="col-sm-12 col-md-7 col-lg-5 p-2 fondoDos mx-auto mt-4 mb-4 text-white rounded"
       autocomplete="off">
       <h1 class="text-center border-bottom p-1">Iniciar Sesión</h1>
 
