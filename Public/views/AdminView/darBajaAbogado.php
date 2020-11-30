@@ -9,7 +9,7 @@
 
 <body>
   <?php 
-		$link= "cliente";
+		$link= "abogado";
 		require_once("../Layout/adminMenu.php");
 	?>
   <div class="container my-4">
