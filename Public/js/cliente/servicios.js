@@ -5,9 +5,11 @@
 **/
 const MostrarServicio = () => {
   let layout = "";
+
   let datos = {
     accion: "mostrar",
   };
+  
   $.ajax({
     type: "POST",
     url: "../../../Private/Models/ServiciosModels/MostrarServicio.php",
@@ -19,8 +21,13 @@ const MostrarServicio = () => {
       
       result.forEach((datos) => {
         layout += `<tr>
-                      <td style="width: 400px" >${datos.nom_servicio}</td>
-                      <td style="width: 290px" >${datos.nom_areas}</td>
+                      <td style="width: 310px" >${datos.nom_servicio}</td>
+                      <td style="width: 200px" >${datos.nom_areas}</td>
+                      <td style="width: 180px" scope="col">
+                        <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
+                          agendar cita
+                        </button>
+                      </td>
                     </tr>`;
       });
 
@@ -45,13 +52,12 @@ const MostrarAreas = () => {
     url: '../../../Private/Models/ServiciosModels/MostrarAreas.php',
     data: {datos},
     success: function (result) {
-      
       if (result == 0) {
         layout += `<option value="0">Error</option>`;
       } else {
-        result.forEach((areas) =>{
-          layout += `<option value="${areas.areas_id}">${areas.nom_areas}</option>`;
-        });
+        result.forEach((datos) =>{
+          layout += `<option value="${datos.areas_id}">${datos.nom_areas}</option>`;
+        })
       }
       $("#areas").html(layout);
     },
@@ -92,8 +98,13 @@ const Filtrar = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                      <td style="width: 400px" >${datos.nom_servicio}</td>
-                      <td style="width: 290px" >${datos.nom_areas}</td>
+                      <td style="width: 310px" >${datos.nom_servicio}</td>
+                      <td style="width: 200px" >${datos.nom_areas}</td>
+                      <td style="width: 180px" scope="col">
+                        <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
+                          agendar cita
+                        </button>
+                      </td>
                     </tr>`;
         });
 
@@ -136,8 +147,13 @@ const BuscarServicio = () => {
       } else {     
         result.forEach((datos) => {
           layout += `<tr>
-                      <td style="width: 400px" >${datos.nom_servicio}</td>
-                      <td style="width: 290px" >${datos.nom_areas}</td>
+                      <td style="width: 310px" >${datos.nom_servicio}</td>
+                      <td style="width: 200px" >${datos.nom_areas}</td>
+                      <td style="width: 180px" scope="col">
+                        <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
+                          agendar cita
+                        </button>
+                      </td>
                     </tr>`;
         });
 

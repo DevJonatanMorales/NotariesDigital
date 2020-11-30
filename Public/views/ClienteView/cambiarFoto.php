@@ -14,15 +14,14 @@
   ?>
   <div class="container my-4">
 
-    <form class="card col-ms-12 col-md-5 mx-auto my-4 sombre" id="formulario" autocomplete="off"
-      enctype="multipart/form-data" action="../../../Private/Models/ClienteModels/cambiarFoto.php" method="post">
+    <form class="card col-ms-12 col-md-9 col-lg-5 mx-auto my-4 sombre" id="formulario">
       <div class="card-header text-center">
         <h5 class="card-title my-auto">Cambiar Foto</h5>
       </div>
       <div class="alert alert-info my-2 text-center" role="alert">
         Haga click sobre la foto
       </div>
-      <input type="hidden" name="accionActualizarFoto">
+
       <div class="form-group col-sm-12 my-4">
         <div class="photo">
           <div class="prevPhoto">
@@ -37,7 +36,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-dark mx-auto d-block" id="btnFoto" disabled="disabled">
+        <button type="submit" class="btn btn-dark mx-auto d-block" id="btnFoto">
           Cambiar Foto
         </button>
       </div>

@@ -53,7 +53,7 @@ class MostrarAreas extends ModelFather
   }
 
   private function PrintJSON($stringJson) {
-    header('Content-Type: application/json; charset=utf-8');
+    header('Content-Type: application/json');
     $this->resultado = json_encode($stringJson);
   }
 }

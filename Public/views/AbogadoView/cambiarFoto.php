@@ -14,8 +14,7 @@
   ?>
   <div class="container my-4">
 
-    <form class="card col-ms-12 col-md-5 mx-auto my-4 sombre" id="formulario" autocomplete="off"
-      enctype="multipart/form-data" action="../../../Private/Models/AbogadoModels/cambiarFoto.php" method="post">
+    <form class="card col-ms-12 col-md-9 col-lg-5 mx-auto my-4 sombre" id="formulario" autocomplete="off">
       <div class="card-header text-center">
         <h5 class="card-title my-auto">Cambiar Foto</h5>
       </div>
@@ -37,7 +36,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-dark mx-auto d-block" id="btnFoto" disabled="disabled">
+        <button type="submit" class="btn btn-dark mx-auto d-block" id="btnFoto">
           Cambiar Foto
         </button>
       </div>

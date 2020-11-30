@@ -12,7 +12,8 @@
         <a class="nav-link OpenSans" href="index.php">Inicio</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle <?php echo $link == "perfil"? "active": ''; ?>" href="#" id="navbarDro" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle <?php echo $link == "perfil"? "active": ''; ?>" href="#" id="navbarDro"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Perfil
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDro">
@@ -26,17 +27,12 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle <?php echo $link == "servicio"? "active": ''; ?>" href="#" id="navbarDro" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle <?php echo $link == "servicio"? "active": ''; ?>" href="#" id="navbarDro"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Servicios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDro">
-          <a class="dropdown-item" href="poderes.php">Poderes</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="asesoria.php">Habla con tu abogado</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="sociedades.php">Sociedades</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="contratos.php">Contratos</a>
+          <a class="dropdown-item" href="servicios.php">Servicios</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="historial.php">Historial</a>
         </div>
