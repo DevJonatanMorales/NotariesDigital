@@ -1,3 +1,4 @@
+<?php require_once("./valSesion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,7 +13,7 @@
 		require_once("../Layout/adminMenu.php");
 	?>
   <div class="container my-4">
-  	<h1 class="text-center">Lista de abogados</h1>
+    <h1 class="text-center">Lista de abogados</h1>
   </div>
 
   <script src="../../js/admin/app.js"></script>

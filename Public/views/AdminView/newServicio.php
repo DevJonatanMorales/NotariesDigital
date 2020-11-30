@@ -1,3 +1,4 @@
+<?php require_once("./valSesion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 

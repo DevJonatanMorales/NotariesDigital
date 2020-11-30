@@ -1,3 +1,4 @@
+<?php require_once("./valSesion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +20,7 @@
       </div>
     </form>
   </div>
-  
+
   <script src="../../js/admin/app.js"></script>
 </body>
 
