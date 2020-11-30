@@ -10,7 +10,7 @@ const MostrarClientes = () => {
   };
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/AdminModels/listClientes.php",
+    url: "../../../Private/Models/AdminModels/listAbogado.php",
     data: { datos },
     before: function () {
       $("#tbody").html("Cargando datos...");
@@ -66,7 +66,7 @@ const BuscarCliente = () => {
 
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/AdminModels/listClientes.php",
+    url: "../../../Private/Models/AdminModels/listAbogado.php",
     data: { datos },
     success: function (result) {
 
@@ -108,4 +108,5 @@ const BuscarCliente = () => {
     },
   });
 };
+
 buscarServicio.addEventListener("keyup", BuscarCliente);
