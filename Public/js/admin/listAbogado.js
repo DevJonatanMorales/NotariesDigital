@@ -25,16 +25,11 @@ const MostrarClientes = () => {
                       </td> 
                       <td style="width: 300px" >${datos.nombres} ${datos.apellidos}</td>                    
                       <td style="width: 150px" >${datos.telefono}</td>
-                      <td style="width: 275px" >${datos.email}</td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Modificar
-                        </button>
-                      </td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Eliminar
-                        </button>
+                      <td style="width: 325px" >${datos.email}</td>
+                      <td style="width: 200px" >
+                        <a class="btn fondoDos text-white" href="darBajaAbogado.php">
+                          Dar de baja
+                        </a>
                       </td>
                     </tr>`;
       });
@@ -86,15 +81,10 @@ const BuscarCliente = () => {
                       <td style="width: 300px" >${datos.nombres} ${datos.apellidos}</td>                    
                       <td style="width: 150px" >${datos.telefono}</td>
                       <td style="width: 275px" >${datos.email}</td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Modificar
-                        </button>
-                      </td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Eliminar
-                        </button>
+                      <td style="width: 250px" >                        
+                        <a class="btn fondoDos text-white" href="darBajaAbogado.php">
+                          Dar de baja
+                        </a>
                       </td>
                     </tr>`;
         });

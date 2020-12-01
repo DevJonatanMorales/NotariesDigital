@@ -25,16 +25,11 @@ const MostrarClientes = () => {
                       </td> 
                       <td style="width: 300px" >${datos.nombres} ${datos.apellidos}</td>                    
                       <td style="width: 150px" >${datos.telefono}</td>
-                      <td style="width: 275px" >${datos.email}</td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Modificar
-                        </button>
-                      </td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Eliminar
-                        </button>
+                      <td style="width: 325px" >${datos.email}</td>
+                      <td style="width: 200px" >                        
+                        <a class="btn fondoDos text-white" href="darBajaCliente.php">
+                          Dar de baja
+                        </a>
                       </td>
                     </tr>`;
       });
@@ -80,21 +75,15 @@ const BuscarCliente = () => {
         result.forEach((datos) => {
          layout += `<tr>
                       <td style="width: 100px" >
-                          <img src="../../img/${datos.foto}" width="35" height="35" class="d-inline-block align-top rounded-circle" alt="Error"
-              loading="lazy">
+                          <img src="../../img/${datos.foto}" width="35" height="35" class="d-inline-block align-top rounded-circle" alt="Error" loading="lazy">
                       </td> 
                       <td style="width: 300px" >${datos.nombres} ${datos.apellidos}</td>                    
-                      <td style="width: 150px" >${datos.telefono}</td>
-                      <td style="width: 275px" >${datos.email}</td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Modificar
-                        </button>
-                      </td>
-                      <td style="width: 125px" >
-                        <button type="submit" class="btn fondoDos text-white" id="${datos.usuario_id}">
-                          Eliminar
-                        </button>
+                      <td style="width: 150px" >${datos.telefono}</td>                      
+                      <td style="width: 325px" >${datos.email}</td>
+                      <td style="width: 200px" >
+                        <a class="btn fondoDos text-white" href="darBajaCliente.php">
+                          Dar de baja
+                        </a>
                       </td>
                     </tr>`;
         });
@@ -108,4 +97,5 @@ const BuscarCliente = () => {
     },
   });
 };
+
 buscarServicio.addEventListener("keyup", BuscarCliente);

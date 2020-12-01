@@ -1,7 +1,7 @@
 <?php 
 require_once("../../Config/config.php");
 require_once("../../Conection/conection.php");
-require_once("../Model/ModelFather.php");
+require_once("../Model/modelFather.php");
 
 class ListAbogado extends ModelFather
 {
