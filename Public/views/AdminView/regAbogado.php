@@ -126,6 +126,7 @@
   </div>
 
   <script src="../../js/admin/app.js"></script>
+  <script src="../../js/admin/regAbogado.js"></script>
 </body>
 
 </html>
