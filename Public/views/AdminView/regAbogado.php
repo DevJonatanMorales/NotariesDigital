@@ -14,7 +14,7 @@
 	?>
 
   <div class="container">
-    <form id="formulario" class="col-sm-12 col-md-8 p-2 fondoDos mx-auto mt-4 mb-4 text-white rounded"
+    <form id="formulario" class="col-sm-12 col-md-10 col-lg-8 p-2 fondoDos mx-auto mt-4 mb-4 text-white rounded"
       autocomplete="off">
       <h1 class="text-center border-bottom pb-2">Registrar Abogado</h1>
 
@@ -108,10 +108,10 @@
 
 
       <!-- Grupo: direccion -->
-      <div class="formulario__grupo" id="grupo__direccion">
-        <label for="direccion" class="formulario__label OpenSans">Despacho contable</label>
+      <div class="formulario__grupo" id="grupo__despacho">
+        <label for="despacho" class="formulario__label OpenSans">Despacho contable</label>
         <div class="formulario__grupo-input">
-          <textarea class="formulario__textarea" name="direccion" id="direccion" rows="3"></textarea>
+          <textarea class="formulario__textarea" name="despacho" id="despacho" rows="3"></textarea>
           <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
         <p class="formulario__input-error">Direccion es muy corta.</p>

@@ -31,25 +31,16 @@ class AgregarAbogado extends ModelFather
         preg_match("/^[0-9]{8,14}$/",$this->datos['telefono']) &&
         preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/",$this->datos['correo']) &&
         $this->datos['genero'] == 'Femenino' || $this->datos['genero'] == "Masculino" &&
-        strlen($this->datos['direccion']) > 50
+        strlen($this->datos['despacho']) > 50
       ) 
     {
       $this->validacion = 'correcto';
-    }
-
-    $this->ProcesarDatos();
-  }
-
-  private function ProcesarDatos() {
-    switch ($this->datos['tipoUser']) {      
-      case 3:
-        $this->CrearCuentaCliente();
-        break;
+      $this->CrearCuentaAbogado();
     }
   }
   
-  private function CrearCuentaCliente() 
-  {
+  private function CrearCuentaAbogado() 
+  {    
     if ($this->validacion === 'correcto') {
       $pass = $this->GenerarPass(); // se genera la contraseña.
       $pasEncrip = $this->Encryption($pass); // se encrpita la contraseña
@@ -60,15 +51,16 @@ class AgregarAbogado extends ModelFather
 
       if ($usuario_id > 0) {
         /* - Comentario: Creamos la consulta de la tb cliente - */
-        $sqlCliente = "INSERT INTO `abogados`(`abogado_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `despacho`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['direccion'] . "')";
+        $sqlAbogado = "INSERT INTO `abogados`(`abogado_id`, `usuario_id`, `nombres`, `apellidos`, `genero`, `fech_naci`, `telefono`, `despacho`) VALUES ('" . $usuario_id . "','" . $usuario_id . "','" . $this->datos['nombres'] . "','" . $this->datos['apellidos'] . "','" . $this->datos['genero'] . "','" . $this->datos['fecha'] . "','" . $this->datos['telefono'] . "','" . $this->datos['despacho'] . "')";
         /** - Comentario: Insertamos en la tabla cliente - **/
         
-        if ($this->Query($sqlCliente) == true) {
+        if ($this->Query($sqlAbogado) == true) {
           $contenido = "Estimado/a ".$this->datos['nombres']." ".$this->datos['apellidos']." su cuenta ha sido creada con exito, recuerde su usuario es: ". $this->datos['usuario'] ." y su contraseña es: ". $pass .", ya puedes entrar a Notaries Digital dando <a href=\"https://notariesdigital.000webhostapp.com/Public/views/ServiciosView/login.php\">Click Aqui</a>.";
 
           $contenido = wordwrap($contenido, 70, "\r\n");
           
           $this->PrintJSON(EnviarEmail('Bienvenido',$this->datos['correo'],$contenido));
+
         } else {
           $this->PrintJSON(['result'=>'error en cliente']);
         }
@@ -78,6 +70,7 @@ class AgregarAbogado extends ModelFather
         $this->PrintJSON(['result'=>'error en user']);
       }
 
+      $this->validacion = false;
     } else {
       $this->resultado = array("resultado" => "Formulario Invalido");
       $this->PrintJSON($this->resultado);
