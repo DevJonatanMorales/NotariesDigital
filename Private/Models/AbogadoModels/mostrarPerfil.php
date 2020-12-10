@@ -32,7 +32,7 @@ class MostrarPerfil extends ModelFather
   {
     session_start();
     
-    $sql = "SELECT abogados.nombres, abogados.apellidos, abogados.genero, abogados.fech_naci, abogados.telefono, abogados.direccion, usuarios.foto, usuarios.user, usuarios.email FROM usuarios INNER JOIN abogados ON usuarios.usuario_id=abogados.usuario_id WHERE usuarios.usuario_id = '".$_SESSION['USER_ID']."'";
+    $sql = "SELECT abogados.nombres, abogados.apellidos, abogados.genero, abogados.fech_naci, abogados.telefono, abogados.despacho, usuarios.foto, usuarios.user, usuarios.email FROM usuarios INNER JOIN abogados ON usuarios.usuario_id=abogados.usuario_id WHERE usuarios.usuario_id = '".$_SESSION['USER_ID']."'";
 
     $this->PrintJSON($this->Read($sql));
   }
