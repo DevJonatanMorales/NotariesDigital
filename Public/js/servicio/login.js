@@ -58,24 +58,41 @@ const Login = (datos) => {
       btnLogin.innerText = "Validando";
     },
     success: function (data) {
+      btnLogin.innerText = "Iniciar Sesión"
+      console.log(data);
+      switch (data) {
+        case '0':
+          Swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            text: 'Usuario o contraseña incorrecta.',
+            confirmButtonText: 'aceptar',
+            showConfirmButton: true
+          });
+          break;
+      
+        case '1':
+          window.location = "../AdminView/";
+          break;
 
-      btnLogin.innerText = "Iniciar Sesión";
-      if (data == 0) {
-        Swal.fire({
-          type: 'warning',
-          title: 'Advertencia',
-          text: 'Usuario o contraseña incorrecta.',
-          confirmButtonText: 'aceptar',
-          showConfirmButton: true
-        });
-      } else if (data[0]['tipo_userid'] == 1) {
-        window.location="../AdminView/";
-      } else if (data[0]['tipo_userid'] == 2) {
-        window.location="../AbogadoView/";
-      } else if (data[0]['tipo_userid'] == 3) {
-        window.location="../ClienteView/";
-      } 
-        
+        case '2':
+          window.location = "../AbogadoView/";
+          break;
+
+        case '3':
+          window.location = "../ClienteView/";
+          break;
+          
+        case 4:
+          Swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            text: 'Su usuario ha sido dado de baja.',
+            confirmButtonText: 'aceptar',
+            showConfirmButton: true
+          });
+          break;
+      }
       
     },
     error: function () {
