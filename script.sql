@@ -5,11 +5,27 @@ CREATE TABLE tipo_user
   tipo VARCHAR(20) NOT NULL,
   PRIMARY KEY (tipo_userid)
 );
+-- INSERT TABLE TIPO USUARIO --
+INSERT INTO `tipo_user`(`tipo_userid`, `tipo`) VALUES (1,'administrador'), (2, 'abogado'), (3, 'cliente');
+--estado usuario--
+CREATE TABLE estado_user
+(
+  estado_id INT,
+  estado VARCHAR(100),
+  PRIMARY KEY (estado_id)
+);
+-- INSERT TABLE TIPO ESTADO USER --
+INSERT INTO `estado_user` (`estado_id`, `estado`) VALUES ('1','activo'),('2','inactivo');
+--consultas--
+SELECT usuarios.foto, usuarios.user, abogados.nombres, estado_user.estado FROM usuarios INNER JOIN abogados ON usuarios.usuario_id=abogados.usuario_id INNER JOIN estado_user ON usuarios.estado_id=estado_user.estado_id;
+
+SELECT usuarios.foto, usuarios.user, clientes.nombres, estado_user.estado FROM usuarios INNER JOIN clientes ON usuarios.usuario_id=clientes.usuario_id INNER JOIN estado_user ON usuarios.estado_id=estado_user.estado_id;
 -- tabla usuario --
 CREATE TABLE usuarios
 (
   usuario_id INT NOT NULL AUTO_INCREMENT,
   tipo_userid INT,
+  estado_id INT,
   foto VARCHAR(150),
   user VARCHAR(15),
   pass VARCHAR(100),
@@ -18,9 +34,9 @@ CREATE TABLE usuarios
   fech_pass DATE,
   PRIMARY KEY (usuario_id),
   INDEX(tipo_userid),
-  FOREIGN KEY (tipo_userid) REFERENCES tipo_user(tipo_userid)
+  FOREIGN KEY (tipo_userid) REFERENCES tipo_user(tipo_userid),
+  FOREIGN KEY (estado_id) REFERENCES estado_user(estado_id)
 );
-
 -- cliente --
 CREATE TABLE clientes
 (
@@ -58,6 +74,8 @@ CREATE TABLE areas
   areas VARCHAR(25),
   PRIMARY KEY (areas_id)
 );
+-- INSERT TABLA AREAS --
+INSERT INTO `areas`(`areas_id`, `areas`) VALUES (1, 'Derecho de familia'), (2, 'Derecho civil y mercantil'), (3, 'Derecho notarial'), (4, 'Importación y tramitación de vehículos');
 -- servicios --
 CREATE TABLE servicios
 (
@@ -68,6 +86,14 @@ CREATE TABLE servicios
   det_servicio TEXT,
   PRIMARY KEY (servicios_id)
 );
+-- INSERT TABLA SERVICIOS --
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('1','Divorcios'), ('1','Cuota amimenticia'),('1','Cuidado personal'),('1','Regimen de visitas'),('1','Subsidiario de nacimiento'),('1','Subsidiario de defunción'),('1','Declaración Judicial de Unión no matrimonial');
+
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('2','Procesos comunes'), ('2','Procesos ejecutivos'),('2','Aceptación de herencia');
+
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('3','Matrimonios'), ('3','Declaraciones juradas'),('3','Compraventas de vehículos'),('3','Escrituración de inmuebles'),('3','Autorizaciones para salir del país y sacar pasaporte');
+
+INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('4','Traspasos'), ('4','Solicitud de placas'),('4','Citas para expreticia');
 -- tramites --
 CREATE TABLE tramites 
 (
@@ -81,28 +107,8 @@ CREATE TABLE tramites
   INDEX(servicio_id),
   FOREIGN KEY (servicio_id) REFERENCES servicios(servicios_id)
 );
-
-
--- INSERT TABLE TIPO USUARIO --
-INSERT INTO `tipo_user`(`tipo_userid`, `tipo`) VALUES (1,'administrador'), (2, 'abogado'), (3, 'cliente');
-
--- INSERT TABLE USUARIO --
-INSERT INTO `usuarios`(`usuario_id`, `tipo_userid`, `user`, `pass`, `email`, `codigo_pass`, `fech_pass`) VALUES (1,3,'yona17','Jonatan17','h28631053@gmail.com','','');
-
--- INSERT TABLA AREAS --
-INSERT INTO `areas`(`areas_id`, `areas`) VALUES (1, 'Derecho de familia'), (2, 'Derecho civil y mercantil'), (3, 'Derecho notarial'), (4, 'Importación y tramitación de vehículos');
-
--- INSERT TABLA SERVICIOS --
-INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('1','Divorcios'), ('1','Cuota amimenticia'),('1','Cuidado personal'),('1','Regimen de visitas'),('1','Subsidiario de nacimiento'),('1','Subsidiario de defunción'),('1','Declaración Judicial de Unión no matrimonial');
-
-INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('2','Procesos comunes'), ('2','Procesos ejecutivos'),('2','Aceptación de herencia');
-
-INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('3','Matrimonios'), ('3','Declaraciones juradas'),('3','Compraventas de vehículos'),('3','Escrituración de inmuebles'),('3','Autorizaciones para salir del país y sacar pasaporte');
-
-INSERT INTO `servicios`(`areas_id`, `nom_servicio`) VALUES ('4','Traspasos'), ('4','Solicitud de placas'),('4','Citas para expreticia');
-
 -- CONSULTA SERVICIOS --
-SELECT servicios.nom_servicio, areas.areas, servicios.des_servicio FROM `areas` INNER JOIN `servicios` on areas.areas_id=servicios.areas_id
+SELECT servicios.nom_servicio, areas.areas, servicios.des_servicio FROM `areas` INNER JOIN `servicios` on areas.areas_id=servicios.areas_id;
 
 -- HISTORIAL --
-SELECT abogados.nombres, servicios.nom_servicio, servicios.des_servicio FROM `abogados` INNER JOIN `tramites` ON abogados.abogado_id=tramites.abogado_id INNER JOIN `servicios` ON tramites.servicio_id=servicios.servicios_id WHERE tramites.cliente_id = '20'
+SELECT abogados.nombres, servicios.nom_servicio, servicios.des_servicio FROM `abogados` INNER JOIN `tramites` ON abogados.abogado_id=tramites.abogado_id INNER JOIN `servicios` ON tramites.servicio_id=servicios.servicios_id WHERE tramites.cliente_id = '20';
