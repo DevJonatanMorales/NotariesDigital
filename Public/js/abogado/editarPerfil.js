@@ -16,7 +16,7 @@ let _datos = {
   user:      null,
   telefono:  null,
   correo:    null,
-  direccion: null
+  despacho:  null
 }
 
 const MostrarPerfil = () => {
@@ -32,13 +32,13 @@ const MostrarPerfil = () => {
 
       _datos['user']      = data[0]['user'];
       _datos['telefono']  = data[0]['telefono'];
-      _datos['correo']     = data[0]['email'];
-      _datos['direccion'] = data[0]['direccion'];
+      _datos['correo']    = data[0]['email'];
+      _datos['despacho']  = data[0]['despacho'];
 
       document.getElementById("user").value      = data[0]['user'];
       document.getElementById("telefono").value  = data[0]['telefono'];
-      document.getElementById("correo").value     = data[0]['email'];
-      document.getElementById("direccion").value  = data[0]['direccion'];
+      document.getElementById("correo").value    = data[0]['email'];
+      document.getElementById("despacho").value  = data[0]['despacho'];
     },
     error: function () {
       console.log("No se ha podio obtener la informacion");
@@ -47,6 +47,7 @@ const MostrarPerfil = () => {
 }
 
 window.addEventListener("onload", MostrarPerfil());
+
 /** 
 *
 * Comentario: Se Actualizan lo datos
@@ -54,7 +55,7 @@ window.addEventListener("onload", MostrarPerfil());
 **/
 const form          = document.getElementById('formulario');
 const inputs        = document.querySelectorAll('#formulario input');
-const txtDireccion  = document.getElementById('direccion');
+const txtDespacho   = document.getElementById('despacho');
 
 const FormularioValido = (campo) => {
   document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
@@ -92,7 +93,7 @@ let Campos = {
   user:      true,
   telefono:  true,
   correo:    true,
-  direccion: true
+  despacho:  true
 };
 
 const ValidarCampo = (expresiones, input, campo) => {
@@ -123,8 +124,8 @@ const ValidarFormulario = (e) => {
     case "correo":
       ValidarCampo(Expresiones.correo, e.target, 'correo');
       break;
-    case "direccion":
-      ValidarCampo(Expresiones.direccion, e.target, 'direccion');
+    case "despacho":
+      ValidarCampo(Expresiones.despacho, e.target, 'despacho');
       break;
   }
   
@@ -132,14 +133,14 @@ const ValidarFormulario = (e) => {
 
 const ValidarTexteArea = () => {
 
-  if (txtDireccion.value.length < 50 || txtDireccion.value == "") {
-    FormularioInValido('direccion');
-    Campos['direccion'] = false;  
-    _datos['direccion'] = null;
+  if (txtDespacho.value.length < 50 || txtDespacho.value == "") {
+    FormularioInValido('despacho');
+    Campos['despacho'] = false;  
+    _datos['despacho'] = null;
   } else {
-    FormularioValido('direccion');
-    Campos['direccion'] = true;  
-    _datos['direccion'] = txtDireccion.value;
+    FormularioValido('despacho');
+    Campos['despacho'] = true;  
+    _datos['despacho'] = txtDespacho.value;
   }
 }
 
@@ -148,8 +149,8 @@ inputs.forEach((input) => {
   input.addEventListener("blur",  ValidarFormulario);
 });
 
-txtDireccion.addEventListener("keyup", ValidarTexteArea);
-txtDireccion.addEventListener("click", ValidarTexteArea);
+txtDespacho.addEventListener("keyup", ValidarTexteArea);
+txtDespacho.addEventListener("click", ValidarTexteArea);
 
 const Actualizar = (datos) => {
 
@@ -186,13 +187,13 @@ form.addEventListener("submit", (e) => {
     Campos.user      == false ||
     Campos.telefono  == false ||
     Campos.correo    == false ||
-    Campos.direccion == false
+    Campos.despacho  == false
   ) {
     MostrarAlerta("Por favor complete el formulario.");
   } else {
     Actualizar(_datos);
-      document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-      icono.classList.remove('formulario__grupo-correcto');});
+    document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+    icono.classList.remove('formulario__grupo-correcto');});
   }
   
 });

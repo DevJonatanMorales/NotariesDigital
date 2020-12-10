@@ -23,7 +23,7 @@ const MostrarPerfil = () => {
       document.getElementById("txtEdad").innerHTML = `Edad: ${calculateAge(data[0]['fech_naci'])}`;
       document.getElementById("txtTelefono").innerHTML = `Telefono: ${data[0]['telefono']}`;
       document.getElementById("txtEmail").innerHTML = `Correo: ${data[0]['email']}`;
-      document.getElementById("txtDireccion").innerHTML = `Direccion: ${data[0]['direccion']}`;
+      document.getElementById("txtDespacho").innerHTML = `Despacho: ${data[0]['despacho']}`;
     },
     error: function () {
       console.log("No se ha podio obtener la informacion");

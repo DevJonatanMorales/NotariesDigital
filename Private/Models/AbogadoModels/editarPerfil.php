@@ -32,7 +32,7 @@ class EditarPerfil extends ModelFather
     $sqlUser = "UPDATE `usuarios` SET `user`='".$this->datos['user']."',`email`='".$this->datos['correo']."' WHERE `usuario_id` = '".$_SESSION['USER_ID']."'";
 
     if ($this->Query($sqlUser) == true) {
-      $sqlCLiente = "UPDATE `abogados` SET `telefono`='".$this->datos['telefono']."',`direccion`='".$this->datos['direccion']."' WHERE `usuario_id` = '".$_SESSION['USER_ID']."'";
+      $sqlCLiente = "UPDATE `abogados` SET `telefono`='".$this->datos['telefono']."',`despacho`='".$this->datos['despacho']."' WHERE `usuario_id` = '".$_SESSION['USER_ID']."'";
 
       if ($this->Query($sqlCLiente) == true) {
         $this->PrintJSON(['result' => 1]);
