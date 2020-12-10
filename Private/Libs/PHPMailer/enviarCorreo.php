@@ -24,8 +24,9 @@ function EnviarEmail($asunto,$correo,$body){
     $mail->addAddress($correo); // Agregar un destinatario 
     
     // Content
+    $mail->charset = "utf-8";
     $mail->isHTML(true); // Establecer el formato de correo electrónico en HTML 
-    $mail->Subject = $asunto;
+    $mail->Subject = utf8_decode($asunto);
     $mail->Body    = $body;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
