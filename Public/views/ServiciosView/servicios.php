@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="col-sm-4">
-            <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio por nombre o categoria">
+            <input type="text" id="buscar" class="form-control" placeholder="Buscar servicio por nombre o área">
           </div>
         </div>
 

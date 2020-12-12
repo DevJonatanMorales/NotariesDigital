@@ -18,7 +18,7 @@
     </div>
 
     <div class="row d-flex justify-content-around">
-      <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
+      <div class="card sombre col-sm-12 col-lg-3 mt-0 mb-4 mx-2" style="width: 18rem;">
         <img src="../../img/valores.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Valores</h5>
@@ -47,7 +47,7 @@
           </ul>
         </div>
       </div>
-      <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
+      <div class="card sombre col-sm-12 col-lg-3 mt-0 mb-4 mx-2" style="width: 18rem;">
         <img src="../../img/mision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Misión</h5>
@@ -60,7 +60,7 @@
         </div>
       </div>
 
-      <div class="card sombre col-sm-12 col-md-3 mt-0 mb-4 mx-2" style="width: 18rem;">
+      <div class="card sombre col-sm-12 col-lg-3 mt-0 mb-4 mx-2" style="width: 18rem;">
         <img src="../../img/vision.svg" class="card-img-top m-2" alt="...">
         <div class="card-body">
           <h5 class="card-title">Visión</h5>
