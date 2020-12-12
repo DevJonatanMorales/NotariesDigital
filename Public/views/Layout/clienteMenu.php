@@ -34,6 +34,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDro">
           <a class="dropdown-item" href="servicios.php">Servicios</a>
           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="listAbogados.php">Abogados</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="historial.php">Historial</a>
         </div>
       </li>
