@@ -90,7 +90,6 @@ class RecuperarPass extends ModelFather
       $this->PrintJSON(0);
     }
     
-    // $this->PrintJSON($sql);
   }
     
   private function PrintJSON($stringJson) 

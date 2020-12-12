@@ -26,7 +26,7 @@ const MostrarClientes = () => {
                       <td style="width: 300px" >${datos.nombres} ${datos.apellidos}</td>                    
                       <td style="width: 150px" >${datos.telefono}</td>
                       <td style="width: 325px" >${datos.email}</td>
-                      <td style="width: 200px" >                        
+                      <td style="width: 180px" >                        
                         <a class="btn fondoDos text-white" href="darBajaCliente.php">
                           Dar de baja
                         </a>
@@ -80,7 +80,7 @@ const BuscarCliente = () => {
                       <td style="width: 300px" >${datos.nombres} ${datos.apellidos}</td>                    
                       <td style="width: 150px" >${datos.telefono}</td>                      
                       <td style="width: 325px" >${datos.email}</td>
-                      <td style="width: 200px" >
+                      <td style="width: 180px" >
                         <a class="btn fondoDos text-white" href="darBajaCliente.php">
                           Dar de baja
                         </a>

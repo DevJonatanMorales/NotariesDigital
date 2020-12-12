@@ -4,7 +4,7 @@
 
 <head>
   <?php require_once("../Layout/head.php"); ?>
-  <link rel="stylesheet" type="text/css" href="../../css/BigTable.css">
+  <link rel="stylesheet" type="text/css" href="../../css/SmallTable.css">
 </head>
 
 <body>
