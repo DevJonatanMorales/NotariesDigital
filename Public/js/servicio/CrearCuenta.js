@@ -31,7 +31,6 @@ const Campos = {
 /* - Comentario: Se almacena en un array los datos del usuario - */
 let Datos = {
   usuario: null,
-  tipoUser: 3,
   nombres: null,
   apellidos: null,
   genero: null,

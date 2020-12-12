@@ -54,7 +54,7 @@ class CrearCuentaModel extends ModelFather
       $pass = $this->GenerarPass(); // se genera la contraseña.
       $pasEncrip = $this->Encryption($pass); // se encrpita la contraseña
       /** - Comentario: Creamos la consulta de la tb usuario - **/
-      $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('" . $this->datos['tipoUser'] . "','" . $this->datos['usuario'] . "','" . $pasEncrip . "','" . $this->datos['correo'] . "')";
+      $sqlUser = "INSERT INTO `usuarios`(`tipo_userid`, `user`, `pass`, `email`) VALUES ('3','" . $this->datos['usuario'] . "','" . $pasEncrip . "','" . $this->datos['correo'] . "')";
       /** - Comentario: Insertamos en la tabla usuario - **/
       $usuario_id = $this->LastID($sqlUser);// se inserta en tbUsuaruio y recupera el ID del usuario.
 
