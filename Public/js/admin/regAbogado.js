@@ -5,7 +5,7 @@
 **/
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll('#formulario input');
-const textArea = document.getElementById('direccion');
+const textArea = document.getElementById('despacho');
 const genero = document.getElementById('genero');
 const btnCuenta = document.getElementById('btnCuenta');
 /* - Comentario: Expresiones regulares - */
@@ -26,18 +26,19 @@ const Campos = {
   fecha: false,
   telefono: false,
   correo: false,
-  direccion: false
+  despacho: false
 };
 /* - Comentario: Se almacena en un array los datos del usuario - */
 let Datos = {
   usuario: null,
+  tipoUser: 2,
   nombres: null,
   apellidos: null,
   genero: null,
   fecha: null,
   telefono: null,
   correo: null,
-  direccion: null
+  despacho: null
 };
 /* - Comentario Si el formulario es correcto - */
 const FormularioValido = (campo) => {
@@ -140,10 +141,6 @@ const ValidarFormulario = (e) => {
     case "correo":
       ValidarCampo(Expresiones.correo, e.target, 'correo');
       break;
-
-    case "direccion":
-      ValidarCampo(Expresiones.direccion, e.target, 'direccion');
-      break;
   }
   
 }
@@ -159,28 +156,27 @@ const ValGenero = () => {
   }
 };
 
-const ValDireccion = () => {
+const ValDespacho = () => {
   if (textArea.value.length > 50 || textArea == "") {
-    FormularioValido("direccion");
-    Campos['direccion'] = true;
-    Datos['direccion'] = textArea.value;
+    FormularioValido("despacho");
+    Campos['despacho'] = true;
+    Datos['despacho'] = textArea.value;
   } else {
-    FormularioInValido("direccion");
-    Campos['direccion'] = false;
+    FormularioInValido("despacho");
+    Campos['despacho'] = false;
   }
 }
 /** - Comentario: Funcion que envia los datos al back end - **/
-const ProcesarDatos = () => {
-  
+const ProcesarDatos = () => {  
   $.ajax({
     type: "POST",
-    url: "../../../Private/Models/LoginModels/crearCuentaModel.php",
+    url: "../../../Private/Models/AdminModels/agregarAbogado.php",
     data: { Datos },
     beforeSend: function () {
-      btnCuenta.innerText = "Creando Cuenta";
+      btnCuenta.innerText = "Agregando";
     },
     success: function (data) {
-      btnCuenta.innerText = "Crear Cuenta";
+      btnCuenta.innerText = 'Agregar';
       if (data == 1) {
         Swal.fire({
           type: 'success',
@@ -201,7 +197,7 @@ const ProcesarDatos = () => {
       
     },
     error: function () {
-      btnCuenta.innerText = "Crear Cuenta";
+      btnCuenta.innerText = 'Agregar';
       console.log("No se ha podido obtener la información");
     },
   });
@@ -217,8 +213,8 @@ inputs.forEach((input) => {
   input.addEventListener("blur", ValidarFormulario);
 });
 
-textArea.addEventListener("keyup", ValDireccion);
-textArea.addEventListener("click", ValDireccion);
+textArea.addEventListener("keyup", ValDespacho);
+textArea.addEventListener("click", ValDespacho);
 
 genero.addEventListener("click", ValGenero);
 genero.addEventListener("blur", ValGenero);
@@ -231,7 +227,7 @@ const LimpiarCampos = () => {
   Campos['fecha']     = false;
   Campos['telefono']  = false;
   Campos['correo']    = false;
-  Campos['direccion'] = false;
+  Campos['despacho'] = false;
 
   Datos['usuario']   = null;
   Datos['nombres']   = null;
@@ -240,13 +236,13 @@ const LimpiarCampos = () => {
   Datos['fecha']     = null;
   Datos['telefono']  = null;
   Datos['correo']    = null;
-  Datos['direccion'] = null;
+  Datos['despacho'] = null;
 }
 /* - Cuando de click en crear cuenta - */
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  if (Campos.usuario && Campos.nombres && Campos.apellidos && Campos.genero && Campos.fecha && Campos.telefono && Campos.correo && Campos.direccion) {
+  if (Campos.usuario && Campos.nombres && Campos.apellidos && Campos.genero && Campos.fecha && Campos.telefono && Campos.correo && Campos.despacho) {
     ProcesarDatos();
     LimpiarCampos();
     formulario.reset();

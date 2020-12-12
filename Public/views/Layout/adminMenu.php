@@ -41,11 +41,13 @@
           Servicios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="newServicio.php">Nuevo Servicio</a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="newArea.php">Nueva Area</a>
           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="newServicio.php">Nuevo Servicio</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="listServicios.php">Listado</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="horarios.php">Horarios</a>
         </div>
       </li>
       <li class="nav-item <?php echo $link == "login"? "active": ''; ?>">

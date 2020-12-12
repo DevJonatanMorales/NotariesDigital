@@ -1,3 +1,4 @@
+<?php require_once("./valSesion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,9 +13,9 @@
 		require_once("../Layout/adminMenu.php");
 	?>
   <div class="container my-4">
-  	<h1 class="text-center">Regitrar clientes</h1>
+    <h1 class="text-center">Regitrar clientes</h1>
   </div>
-  
+
   <script src="../../js/admin/app.js"></script>
 </body>
 

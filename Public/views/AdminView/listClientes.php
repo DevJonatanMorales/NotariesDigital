@@ -1,3 +1,4 @@
+<?php require_once("./valSesion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,8 +21,7 @@
       </div>
 
       <div class="form-group  mr-auto">
-        <input type="text" id="buscar" class="form-control col-sm-12 col-md-6"
-          placeholder="Buscar por servicio ó abogado">
+        <input type="text" id="buscar" class="form-control col-sm-12 col-md-6" placeholder="Buscar">
       </div>
 
       <div class="table-responsive sombre">
@@ -31,8 +31,8 @@
               <th style="width: 100px" scope="col">Foto</th>
               <th style="width: 300px" scope="col">Nombre</th>
               <th style="width: 150px" scope="col">Telefono</th>
-              <th style="width: 275px" scope="col">Correo</th>
-              <th style="width: 250px" scope="col">Opciones</th>
+              <th style="width: 325px" scope="col">Correo</th>
+              <th style="width: 200px" scope="col">Opcione</th>
             </tr>
           </thead>
           <tbody id="tbody">

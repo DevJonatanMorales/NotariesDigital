@@ -175,12 +175,13 @@ const ModificarArea = () => {
     areaId: areaId.value,
     area: modificarArea.value
   }
-  
+  console.log(datos);
   $.ajax({
     type: 'POST',
     url: '../../../Private/Models/AdminModels/modificarArea.php',
     data: {datos},
     success: function (result) {
+
       MostrarArea();
       $("#myModalUpDate .close").click()
       if (result == 1) {
@@ -216,11 +217,6 @@ formularioUpDate.addEventListener('submit', (e) => {
 /** 
 *
 * Comentario Eliminar Servicio
-*
-**/
-/** 
-*
-* Comentario Modal
 *
 **/
 const EliminarArea = (id) => {

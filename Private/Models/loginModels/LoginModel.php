@@ -45,13 +45,19 @@ class LoginModel extends ModelFather
     {
         if ($this->validacion === 'correcto') {
             $pass = $this->Encryption($this->datos['pass']);
-            $sql = "SELECT usuarios.usuario_id, usuarios.tipo_userid, usuarios.foto FROM usuarios WHERE usuarios.user = '".$this->datos['user']."' AND usuarios.pass = '".$pass."'";
+            $sql = "SELECT usuarios.estado_id, usuarios.usuario_id, usuarios.tipo_userid, usuarios.foto FROM `usuarios` WHERE usuarios.user = '".$this->datos['user']."' AND usuarios.pass = '".$pass."'";
             $resultSQL = $this->Read($sql);
-            session_start();
-            $_SESSION['USER_ID'] = $resultSQL[0]['usuario_id'];
-            $_SESSION['TIPO_USER'] = $resultSQL[0]['tipo_userid'];
-            $_SESSION['FOTO_USER'] = $resultSQL[0]['foto'];
-            $this->PrintJSON($resultSQL);
+
+            if ($resultSQL[0]['estado_id'] == '1') {
+                session_start();
+                $_SESSION['USER_ID'] = $resultSQL[0]['usuario_id'];
+                $_SESSION['TIPO_USER'] = $resultSQL[0]['tipo_userid'];
+                $_SESSION['FOTO_USER'] = $resultSQL[0]['foto'];
+                $this->PrintJSON($resultSQL[0]['tipo_userid']);
+            } else {
+                $this->PrintJSON(4);
+            }
+            
         } else {
             $this->resultado = array("resultado" => 0);
         }
@@ -60,8 +66,7 @@ class LoginModel extends ModelFather
 
     private function BuscarUsuario()
     {
-        $sql = "SELECT usuarios.user FROM `usuarios` WHERE usuarios.user = '" . $this->datos['query'] . "'";
-        
+        $sql = "SELECT usuarios.user FROM `usuarios` WHERE usuarios.user = '" . $this->datos['query'] . "'";       
         $this->PrintJSON($this->Read($sql));
     }
 
@@ -74,7 +79,7 @@ class LoginModel extends ModelFather
 $login = new LoginModel();
 if(isset($_POST['datos'])) {
     $login->RecibirDatos($_POST['datos']);
-    echo $login->resultado;    
+    echo $login->resultado;  
 }
 
 ?>

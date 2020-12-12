@@ -37,7 +37,7 @@
 
         <div class="row form-group">
           <p class="card-text col-sm-12 col-md-6" id="txtEmail"></p>
-          <p class="card-text col-sm-12 col-md-6" id="txtDireccion"></p>
+          <p class="card-text col-sm-12 col-md-6" id="txtDespacho"></p>
         </div>
 
         <a href="editarPerfil.php" class="btn btn-dark">Editar perfil</a>
