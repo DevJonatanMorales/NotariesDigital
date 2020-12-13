@@ -8,5 +8,5 @@ define("DBNAME","id15147531_notaries_digital");
 define("SERVERNAME", "127.0.0.1");
 define("USERNAME", "root");
 define("USERPASS", "");
-define("DBNAME","notaries_digital");
+define("DBNAME","id15147531_notaries_digital");
 ?>
