@@ -76,14 +76,26 @@ CREATE TABLE areas
 );
 -- INSERT TABLA AREAS --
 INSERT INTO `areas`(`areas_id`, `areas`) VALUES (1, 'Derecho de familia'), (2, 'Derecho civil y mercantil'), (3, 'Derecho notarial'), (4, 'Importación y tramitación de vehículos');
+-- ESTADO SERVICIO --
+CREATE TABLE estado_servicio
+(
+  estado_servicio INT NOT NULL AUTO_INCREMENT,
+  estado VARCHAR(20),
+  PRIMARY KEY (estado_servicio)
+);
+-- Query --
+INSERT INTO `estado_servicio` (`estado_sercivio`, `estado`) VALUES ('1', 'activo'), ('2', 'inactivo');
 -- servicios --
 CREATE TABLE servicios
 (
   servicios_id INT NOT NULL AUTO_INCREMENT,
   areas_id INT,
+  estado_servicio INT,
   nom_servicio VARCHAR(75),
   des_servicio TEXT,
   det_servicio TEXT,
+  INDEX(estado_servicio),
+  FOREIGN KEY (estado_servicio) REFERENCES estado_servicio(estado_servicio),
   PRIMARY KEY (servicios_id)
 );
 -- INSERT TABLA SERVICIOS --
