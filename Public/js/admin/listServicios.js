@@ -212,5 +212,38 @@ const AdminServicios = (id, dato) => {
 $(document).on('click', '.btnAdmin', function () {
   let element = $(this).parents('tr');
   let btn = $(this);
-  AdminServicios(element[0].id, btn[0].innerHTML.trim())
+  let valorString = btn[0].innerHTML.trim();
+
+  if (valorString == 'Desactivar') {
+    Swal.fire({
+      title: '¿Está seguro de desactivar?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#27AE61',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        AdminServicios(element[0].id, valorString);
+      }    
+    });
+  } 
+  
+  if (valorString == 'Activar') {
+    Swal.fire({
+      title: '¿Está seguro de activar?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#27AE61',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        AdminServicios(element[0].id, valorString);
+      }    
+    });
+  }
+    
 });
