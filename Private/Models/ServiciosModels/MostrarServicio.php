@@ -36,7 +36,7 @@ class BuscarServicio extends ModelFather
 
   private function MostrarServicios()
   {
-    $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id";
+    $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id WHERE servicios.estado_servicio = '1'";
 
     $this->PrintJSON($this->Read($sql));
   }
@@ -44,7 +44,7 @@ class BuscarServicio extends ModelFather
   private function BuscarServicios()
   {
     # code...
-    $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id WHERE servicios.nom_servicio LIKE '%". $this->datos['sql'] . "%' OR areas.nom_areas LIKE '%". $this->datos['sql'] . "%'";
+    $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id WHERE servicios.estado_servicio ='1' AND servicios.nom_servicio LIKE '%". $this->datos['sql'] . "%' OR areas.nom_areas LIKE '%". $this->datos['sql'] . "%'";
 
     $this->PrintJSON($this->Read($sql));
   }

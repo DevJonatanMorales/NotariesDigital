@@ -34,9 +34,9 @@ class FiltrarServicios extends ModelFather
     if ($this->query == true) {
       
       if ($this->datos['filtro'] == 0) {
-        $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id";
+        $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id WHERE servicios.estado_servicio ='1'";
       } else {
-        $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id WHERE areas.areas_id = '".$this->datos['filtro']."'";
+        $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM areas INNER JOIN servicios on areas.areas_id=servicios.areas_id WHERE servicios.estado_servicio ='1' AND areas.areas_id = '".$this->datos['filtro']."'";
       }
 
       $this->PrintJSON($this->Read($sql));
