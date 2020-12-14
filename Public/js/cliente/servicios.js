@@ -177,9 +177,7 @@ buscarServicio.addEventListener("keyup", BuscarServicio);
 $(document).on('click', '.btn', function () {
   let element = $(this).parents('tr');
   let servicio = element[0].children[0].innerHTML;
-  let area = element[0].children[1].innerHTML;
   let idServicio = element[0].children[2].children[0].id;
   
-  console.log(`servicio: ${servicio}, area: ${area}, ID: ${idServicio}`);
-
+  location.href="agendarCita.php?servicio="+servicio+"&_id="+idServicio;
 });
