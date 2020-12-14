@@ -13,7 +13,7 @@
 		require_once("../Layout/adminMenu.php");
 	?>
   <div class="container my-4">
-    <div class="mx-auto d-block my-4 col-sm-12 col-md-8">
+    <div class="mx-auto d-block my-4 col-sm-12 col-md-10 col-lg-8">
 
       <div class="p-1 my-4 fondoUno text-white">
         <h1 class="text-center OpenSans m-1">Horarios de atencion</h1>
@@ -31,8 +31,9 @@
         <table class="table table-hover table-fixed table-striped bg-white">
           <thead class="thead-dark">
             <tr>
-              <th style="width: 500px" scope="col">Horario</th>
-              <th style="width: 210px" scope="col">Acción</th>
+              <th style="width: 150px" scope="col">Turno</th>
+              <th style="width: 350px" scope="col">Horario</th>
+              <th style="width: 210px" scope="col">Opciones</th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -52,20 +53,68 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-dark">
-          <h5 class="modal-title text-white" id="exampleModalLabel">Nueva Horario</h5>
+          <h5 class="modal-title text-white" id="exampleModalLabel">Nuevo Horario</h5>
           <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form class="form-group" id="formularioNewArea" autocomplete="off">
+          <form class="form-group" id="formulario" autocomplete="off">
+
+            <div class="form-group">
+              <label for="txtDe">Turno</label>
+              <input type="text" id="turno" class="form-control mb-4">
+            </div>
             <div class="form-group">
               <label for="txtDe">de</label>
               <input type="time" id="de" class="form-control mb-4">
             </div>
-            <button type="submit" class="btn btn-dark" id="btnGuardar" disabled="disabled">
+            <div class="form-group">
+              <label for="txtDe">a</label>
+              <input type="time" id="a" class="form-control mb-4">
+            </div>
+            <button type="submit" class="btn btn-dark" id="btnGuardar">
               Guardar
             </button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comentario: modificar modal -->
+  <div class="modal fade" id="myModalModificar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Modificar Horario</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" id="formModificar" autocomplete="off">
+
+            <div class="form-group">
+              <label for="txtDe">Turno</label>
+              <input type="hidden" id="horarioId">
+              <input type="text" id="newTurno" class="form-control mb-4">
+            </div>
+            <div class="form-group">
+              <label for="txtDe">de</label>
+              <input type="time" id="txtDe" class="form-control mb-4">
+            </div>
+            <div class="form-group">
+              <label for="txtA">a</label>
+              <input type="time" id="txtA" class="form-control mb-4">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-dark" id="btnGuardar">
+                Guardar
+              </button>
+            </div>
+
           </form>
         </div>
       </div>
