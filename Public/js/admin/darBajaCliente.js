@@ -31,7 +31,7 @@ const Mostrar = () => {
                       <td style="width: 150px" >${datos.user}</td>                    
                       <td style="width: 175px" >${datos.nombres}</td>
                       <td style="width: 75px" >${datos.estado}</td>
-                      <td style="width: 230px" > 
+                      <td style="width: 210px" > 
                         <button type="submit" class="btn btn-success mx-0 text-white" id="${datos.usuario_id}">
                           Activar
                         </button>
