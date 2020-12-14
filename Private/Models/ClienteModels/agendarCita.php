@@ -18,6 +18,11 @@ class AgendarCita extends ModelFather
   private function Accion()
   {
     switch ($this->datos['accion']) {
+      case 'mostrar':
+        $this->query = true;
+        $this->Mostrar();
+        break;
+        
       case 'agendar':
         $this->query = true;
         $this->Agendar();
@@ -30,11 +35,38 @@ class AgendarCita extends ModelFather
     }
   }
 
+  private function Mostrar()
+  {
+    if ($this->query == true) {
+      session_start();
+
+      $sql = "SELECT agendar_cita.cita_id, servicios.nom_servicio, abogados.nombres, agendar_cita.fecha, horarios.turno, horarios.horario, agendar_cita.comentario FROM abogados INNER JOIN agendar_cita ON abogados.abogado_id=agendar_cita.abogado_id INNER JOIN servicios ON agendar_cita.servicio_id=servicios.servicios_id INNER JOIN horarios ON agendar_cita.horario_id=horarios.horario_id INNER JOIN usuarios ON agendar_cita.usuario_id=usuarios.usuario_id WHERE agendar_cita.usuario_id = '".$_SESSION['USER_ID']."' AND agendar_cita.estado_cita = '1'";
+
+      $this->PrintJSON($this->Read($sql));
+    }
+  }
+  
   private function Agendar()
   {
     if ($this->query == true) {
       session_start();
       $sql = "INSERT INTO `agendar_cita`(`servicio_id`, `abogado_id`, `usuario_id`, `fecha`, `horario_id`, `comentario`) VALUES ('".$this->datos['servicioId']."','".$this->datos['abogadoId']."','".$_SESSION['USER_ID']."','".$this->datos['fecha']."','".$this->datos['horarioId']."','".$this->datos['comentario']."')";
+
+      if ($this->Query($sql) == true) {
+        $this->PrintJSON(1);
+      } else {
+        $this->PrintJSON(0);
+      }
+
+      $this->query = false;
+    }
+  }
+
+  private function Cancelar()
+  {
+    if ($this->query == true) {
+      session_start();
+      $sql = "UPDATE `agendar_cita` SET `estado_cita`='2' WHERE `cita_id`='".$this->datos['citaId']."'";
 
       if ($this->Query($sql) == true) {
         $this->PrintJSON(1);
