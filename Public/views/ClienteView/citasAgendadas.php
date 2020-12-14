@@ -30,10 +30,11 @@
           <thead class="thead-dark">
             <tr>
               <th style="width: 150px" scope="col">Servicio</th>
-              <th style="width: 200px" scope="col">Abogado</th>
+              <th style="width: 180px" scope="col">Abogado</th>
+              <th style="width: 120px" scope="col">Teléfono</th>
               <th style="width: 250px" scope="col">Fecha</th>
               <th style="width: 200px" scope="col">Comentario</th>
-              <th style="width: 280px" scope="col">Acción</th>
+              <th style="width: 180px" scope="col">Acción</th>
             </tr>
           </thead>
           <tbody id="tbody">

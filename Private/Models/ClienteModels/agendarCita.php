@@ -39,8 +39,10 @@ class AgendarCita extends ModelFather
   {
     if ($this->query == true) {
       session_start();
+      $sql = "SELECT clientes.cliente_id FROM clientes WHERE clientes.usuario_id = '".$_SESSION['USER_ID']."'";
+      $resultSQL = $this->Read($sql);
 
-      $sql = "SELECT agendar_cita.cita_id, servicios.nom_servicio, abogados.nombres, agendar_cita.fecha, horarios.turno, horarios.horario, agendar_cita.comentario FROM abogados INNER JOIN agendar_cita ON abogados.abogado_id=agendar_cita.abogado_id INNER JOIN servicios ON agendar_cita.servicio_id=servicios.servicios_id INNER JOIN horarios ON agendar_cita.horario_id=horarios.horario_id INNER JOIN usuarios ON agendar_cita.usuario_id=usuarios.usuario_id WHERE agendar_cita.usuario_id = '".$_SESSION['USER_ID']."' AND agendar_cita.estado_cita = '1'";
+      $sql = "SELECT agendar_cita.cita_id, servicios.nom_servicio, abogados.nombres, abogados.telefono, agendar_cita.fecha, horarios.turno, horarios.horario, agendar_cita.comentario FROM abogados INNER JOIN agendar_cita ON abogados.abogado_id=agendar_cita.abogado_id INNER JOIN servicios ON agendar_cita.servicio_id=servicios.servicios_id INNER JOIN horarios ON agendar_cita.horario_id=horarios.horario_id INNER JOIN clientes ON agendar_cita.cliente_id=clientes.cliente_id WHERE agendar_cita.cliente_id = '".$resultSQL[0]['cliente_id']."' AND agendar_cita.estado_cita = '1'";
 
       $this->PrintJSON($this->Read($sql));
     }
@@ -50,7 +52,11 @@ class AgendarCita extends ModelFather
   {
     if ($this->query == true) {
       session_start();
-      $sql = "INSERT INTO `agendar_cita`(`servicio_id`, `abogado_id`, `usuario_id`, `fecha`, `horario_id`, `comentario`) VALUES ('".$this->datos['servicioId']."','".$this->datos['abogadoId']."','".$_SESSION['USER_ID']."','".$this->datos['fecha']."','".$this->datos['horarioId']."','".$this->datos['comentario']."')";
+
+      $sql = "SELECT clientes.cliente_id FROM clientes WHERE clientes.usuario_id = '".$_SESSION['USER_ID']."'";
+      $resultSQL = $this->Read($sql);
+      
+      $sql = "INSERT INTO `agendar_cita`(`servicio_id`, `abogado_id`, `cliente_id`, `fecha`, `horario_id`, `comentario`) VALUES ('".$this->datos['servicioId']."','".$this->datos['abogadoId']."','".$resultSQL[0]['cliente_id']."','".$this->datos['fecha']."','".$this->datos['horarioId']."','".$this->datos['comentario']."')";
 
       if ($this->Query($sql) == true) {
         $this->PrintJSON(1);

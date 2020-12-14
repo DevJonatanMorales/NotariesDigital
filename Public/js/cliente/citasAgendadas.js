@@ -19,10 +19,11 @@ const MostrarCitas = () => {
         responce.forEach((datos) =>{
           layout += `<tr>
                       <td style="width: 150px" >${datos.nom_servicio}</td>
-                      <td style="width: 200px" >${datos.nombres}</td>
+                      <td style="width: 180px" >${datos.nombres}</td>
+                      <td style="width: 120px" >${datos.telefono}</td>
                       <td style="width: 250px" >${datos.fecha} ${datos.horario}</td>
                       <td style="width: 200px" >${datos.comentario}</td>
-                      <td style="width: 280px" >
+                      <td style="width: 180px" >
                         <button type="submit" class="btn btn-danger btnCancelar" id="${datos.cita_id}">
                           Cancelar
                         </button>
