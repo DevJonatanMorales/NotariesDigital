@@ -38,7 +38,7 @@ window.addEventListener("load", MostrarClientes);
 
 /** 
 *
-* Comentario Ver mas
+* Comentario Ver perfil
 *
 **/
 const calculateAge = (birthday) => {
@@ -51,7 +51,6 @@ const calculateAge = (birthday) => {
 
 const Perfil = (id) => {
 
-  let layout = "";
   let datos = { accion: 'perfil', abogadoId: id };
 
   $.ajax({

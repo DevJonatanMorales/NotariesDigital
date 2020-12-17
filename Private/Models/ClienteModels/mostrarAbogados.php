@@ -17,7 +17,7 @@ class MostrarAbogados extends ModelFather
 
   private function Accion()
   {
-    switch ($datos['accion']) {
+    switch ($this->datos['accion']) {
       case 'mostrar':
         $this->query = true;
         $this->Mostrar();
@@ -33,7 +33,7 @@ class MostrarAbogados extends ModelFather
   private function Mostrar()
   {
     if ($this->query == true) {
-      $sql = "SELECT abogado_id, nombres, apellidos FROM `abogados` ";
+      $sql = "SELECT usuarios.foto, abogados.abogado_id, abogados.nombres, abogados.apellidos FROM usuarios INNER JOIN abogados ON usuarios.usuario_id=abogados.usuario_id ";
       $this->PrintJSON($this->Read($sql));
       $this->query = false;
     }

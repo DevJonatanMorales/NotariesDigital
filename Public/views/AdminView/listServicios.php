@@ -28,9 +28,9 @@
         <table class="table table-hover table-fixed table-striped bg-white">
           <thead class="thead-dark">
             <tr>
-              <th style="width: 500px" scope="col">Servicio</th>
-              <th style="width: 370px" scope="col">Área</th>
-              <th style="width: 210px" scope="col">Opción</th>
+              <th style="width: 400px" scope="col">Servicio</th>
+              <th style="width: 280px" scope="col">Área</th>
+              <th style="width: 400px" scope="col">Opción</th>
             </tr>
           </thead>
           <tbody id="tbody">

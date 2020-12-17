@@ -32,17 +32,20 @@ const Mostrar = () => {
     success: function (result) {
 
       result.forEach((datos) => {
-        layout += `<tr class="servicio">
-                    <td style="width: 500px" >
+        layout += `<tr id="${datos.servicios_id}">
+                    <td style="width: 400px" >
                       ${datos.nom_servicio}
                     </td>                    
-                    <td style="width: 370px" >
+                    <td style="width: 280px" >
                       ${datos.nom_areas}
                     </td> 
                     <td style="width: 190px" >
-                      <button type="submit" class="btn bg-success text-white" id="${datos.servicios_id}">
+                      <button type="submit" class="btn btn-info btnModificar text-white" id="${datos.servicios_id}">
                           <i class="fas fa-edit"></i> Modificar
                         </button>
+                    </td> 
+                    <td style="width: 190px" >
+                      ${datos.estado_servicio == 1 ? '<button type="submit" class="btn btnAdmin btn-danger text-white"> Desactivar </button>' : '<button type="submit" class="btn btnAdmin btn-success text-white"> Activar </button>'}                      
                     </td>
                   </tr>`;
       });
@@ -83,17 +86,20 @@ const Buscar = () => {
         $("#tbody").html(layout);
       } else {
         result.forEach((datos) => {
-        layout += `<tr class="servicio">
-                    <td style="width: 500px" >
+          layout += `<tr id="${datos.servicios_id}">
+                    <td style="width: 400px" >
                       ${datos.nom_servicio}
                     </td>                    
-                    <td style="width: 370px" >
+                    <td style="width: 280px" >
                       ${datos.nom_areas}
                     </td> 
                     <td style="width: 190px" >
-                      <button type="submit" class="btn bg-success text-white" id="${datos.servicios_id}">
+                      <button type="submit" class="btn btn-info btnModificar text-white" id="${datos.servicios_id}">
                           <i class="fas fa-edit"></i> Modificar
                         </button>
+                    </td> 
+                    <td style="width: 190px" >
+                      ${datos.estado_servicio == 1 ? '<button type="submit" class="btn btnAdmin btn-danger text-white"> Desactivar </button>' : '<button type="submit" class="btn btnAdmin btn-success text-white"> Activar </button>'}                      
                     </td>
                   </tr>`;
         });
@@ -112,10 +118,10 @@ txtBuscar.addEventListener('keyup', Buscar);
 * Comentario Modificar
 *
 **/
-$(document).on('click', '.servicio', function () {
-  let elementId = $(this).children();
-  nom_servicio = elementId[0].innerText;
-  btnId = elementId[2].firstElementChild.id;
+$(document).on('click', '.btnModificar', function () {
+  let element = $(this).parents('tr');
+  nom_servicio = element[0].children[0].innerHTML.trim();
+  btnId = element[0].id;
 
   document.getElementById('serverId').value = btnId;
   document.getElementById('servicio').value = nom_servicio;
@@ -178,3 +184,66 @@ formularioUpDate.addEventListener('submit', (e) => {
   formularioUpDate.reset();
 });
 
+/** 
+*
+* Comentario Desactivar o Acticar
+*
+**/
+const AdminServicios = (id, dato) => {
+  let datos = {
+    accion: 'modificar',
+    servicioId: id,
+    valor: dato
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '../../../Private/Models/AdminModels/listServicio.php',
+    data: {datos},
+    success: function (responce) {
+      Mostrar();
+    },
+    error: function () {
+      console.log("No se ha podido obtener la información.");
+    }
+  });
+}
+
+$(document).on('click', '.btnAdmin', function () {
+  let element = $(this).parents('tr');
+  let btn = $(this);
+  let valorString = btn[0].innerHTML.trim();
+
+  if (valorString == 'Desactivar') {
+    Swal.fire({
+      title: '¿Está seguro de desactivar?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#27AE61',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        AdminServicios(element[0].id, valorString);
+      }    
+    });
+  } 
+  
+  if (valorString == 'Activar') {
+    Swal.fire({
+      title: '¿Está seguro de activar?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#27AE61',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        AdminServicios(element[0].id, valorString);
+      }    
+    });
+  }
+    
+});

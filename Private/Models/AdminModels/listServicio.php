@@ -27,6 +27,11 @@ class ListServicio extends ModelFather
         $this->query = true;
         $this->Buscar();
         break;
+
+      case 'modificar':
+        $this->query = true;
+        $this->Modificar();
+        break;
       
       default:
         $this->PrintJSON(['result'=>'error']);
@@ -37,7 +42,7 @@ class ListServicio extends ModelFather
   private function Mostrar()
   {
     if ($this->query == true) {
-      $sql = "SELECT servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM servicios INNER JOIN areas ON servicios.areas_id = areas.areas_id ORDER BY servicios.servicios_id DESC";
+      $sql = "SELECT servicios.estado_servicio, servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM servicios INNER JOIN areas ON servicios.areas_id = areas.areas_id ORDER BY servicios.servicios_id DESC";
       $this->PrintJSON($this->Read($sql));
       $this->query = false;
     } else {
@@ -48,11 +53,34 @@ class ListServicio extends ModelFather
   private function Buscar()
   {
     if ($this->query == true) {
-      $sql = "SELECT servicios.nom_servicio, areas.nom_areas FROM servicios INNER JOIN areas ON servicios.areas_id = areas.areas_id WHERE servicios.nom_servicio LIKE '%".$this->datos['query']."%' OR areas.nom_areas LIKE '%".$this->datos['query']."%' ORDER BY servicios.servicios_id DESC";
+      $sql = "SELECT servicios.estado_servicio, servicios.servicios_id, servicios.nom_servicio, areas.nom_areas FROM servicios INNER JOIN areas ON servicios.areas_id = areas.areas_id  WHERE servicios.nom_servicio LIKE '%".$this->datos['query']."%' OR areas.nom_areas LIKE '%".$this->datos['query']."%' ORDER BY servicios.servicios_id DESC";
       $this->PrintJSON($this->Read($sql));
       $this->query = false;
     } else {
       $this->PrintJSON(0);
+    }
+  }
+
+  private function Modificar()
+  {
+    if ($this->query == true) {
+      switch ($this->datos['valor']) {
+        case 'Activar':
+          $sql = "UPDATE `servicios` SET `estado_servicio`= '1' WHERE `servicios_id`= '".$this->datos['servicioId']."'";
+          break;
+        
+        case 'Desactivar':
+          $sql = "UPDATE `servicios` SET `estado_servicio`= '2' WHERE `servicios_id`= '".$this->datos['servicioId']."'";
+          break;
+      }
+      
+      if ($this->Query($sql) == true) {
+        $this->PrintJSON(1);
+      } else {
+        $this->PrintJSON(0);
+      }
+      
+      $this->query = false;
     }
   }
 

@@ -32,13 +32,7 @@
           Servicios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDro">
-          <a class="dropdown-item" href="poderes.php">Poderes</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="asesoria.php">Habla con tu abogado</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="sociedades.php">Sociedades</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="contratos.php">Contratos</a>
+          <a class="dropdown-item" href="citasAgendadas.php">Citas Agendatas</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="historial.php">Historial</a>
         </div>

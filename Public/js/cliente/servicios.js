@@ -23,7 +23,7 @@ const MostrarServicio = () => {
         layout += `<tr>
                       <td style="width: 310px" >${datos.nom_servicio}</td>
                       <td style="width: 200px" >${datos.nom_areas}</td>
-                      <td style="width: 180px" scope="col">
+                      <td style="width: 180px" >
                         <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
                           agendar cita
                         </button>
@@ -100,7 +100,7 @@ const Filtrar = () => {
           layout += `<tr>
                       <td style="width: 310px" >${datos.nom_servicio}</td>
                       <td style="width: 200px" >${datos.nom_areas}</td>
-                      <td style="width: 180px" scope="col">
+                      <td style="width: 180px" >
                         <button type="submit" class="btn btn-dark btn-sm" id="${datos.servicios_id}">
                           agendar cita
                         </button>
@@ -168,3 +168,16 @@ const BuscarServicio = () => {
 };
 
 buscarServicio.addEventListener("keyup", BuscarServicio);
+
+/** 
+*
+* Comentario Agendar cita
+*
+**/
+$(document).on('click', '.btn', function () {
+  let element = $(this).parents('tr');
+  let servicio = element[0].children[0].innerHTML;
+  let idServicio = element[0].children[2].children[0].id;
+  
+  location.href="agendarCita.php?servicio="+servicio+"&_id="+idServicio;
+});
